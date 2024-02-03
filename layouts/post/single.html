@@ -6,19 +6,18 @@
     {{ if .Title }}
     <h2 class="p-name">{{ .Title }}</h2>
     {{ end }}
+  {{ if .Params.categories }}
+    <ul class="post-tags">
+      {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
+      <li><a href="{{ $href }}">{{ . }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
   </header>
 
   <article class="post-content e-content">
     {{ .Content }}
   </article>
-
-  {{ if .Params.categories }}
-  <ul class="post-tags">
-    {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
-    <li><a href="{{ $href }}">#{{ . }}</a></li>
-    {{ end }}
-  </ul>
-  {{ end }}
 
 {{ if templates.Exists "partials/microhook-after-post.html" }}
     {{ partial "microhook-after-post.html" . }}
