@@ -1,35 +1,4 @@
-/* Light mode */
-/* :root {
-  --text: #000000;
-  --link: #1565c0;
-  --link_visited: #1565c0;
-  --accent1: #333333;
-  --accent2: #666666;
-  --background: #ffffff;
-  --code: #e3e3e3;
-  --button-text: #ffffff;
-  --blockquote: #fffee0;
-  --field: #fffee0;
-  --note: #fef770;
-  --mark: #ffff99;
-}
-/* Dark mode */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-	--text: #f8f8f2;
-	--link: #8be9fd;
-	--link_visited: #8be9fd;
-	--accent1: #f8f8f2;
-	--accent2: #f8f8f2;
-	--background: #282a36;
-	--code: #44475a;
-	--button-text: #282a36;
-	--blockquote: #44475a;
-	--field: #44475a;
-	--note: #44475a;
-	--mark: #ffff99;
-  }
-} */
+/* Colours */
 :root {
   --border: hsl(228, 31%, 92%);
   --border-90: hsla(228, 31%, 91%, 90%);
@@ -55,27 +24,6 @@
   --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
-
-  --border-radius-s: 0.4rem;
-  --border-radius-m: 0.7rem;
-  --border-radius-l: 1rem;
-  --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(2px 4px 6px var(--outer-shadow))
-    drop-shadow(4px 8px 12px var(--outer-shadow))
-    drop-shadow(8px 16px 24px var(--outer-shadow));
-  --shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(3px 6px 9px var(--color-shadow-darker))
-    drop-shadow(6px 12px 18px var(--outer-shadow-darker))
-    drop-shadow(12px 24px 32px var(--outer-shadow-darker));
-  --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(2px 4px 6px var(--outer-shadow));
-  --shadow-icon-hover: (1px 2px 3px var(--outer-shadow))
-    drop-shadow(3px 6px 9px var(--color-shadow-darker));
-  --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
-    inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
-  --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
-    inset 2px 4px 6px var(--inner-shadow-darker),
-    inset 4px 8px 12px var(--inner-shadow-darker);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -98,6 +46,42 @@
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
   }
+}
+
+/* Other variables */
+:root {
+  --border-radius-s: 0.4rem;
+  --border-radius-m: 0.7rem;
+  --border-radius-l: 1rem;
+
+  --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow))
+    drop-shadow(4px 8px 12px var(--outer-shadow))
+    drop-shadow(8px 16px 24px var(--outer-shadow));
+  --shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(3px 6px 9px var(--color-shadow-darker))
+    drop-shadow(6px 12px 18px var(--outer-shadow-darker))
+    drop-shadow(12px 24px 32px var(--outer-shadow-darker));
+  --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow));
+  --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(3px 6px 9px var(--color-shadow-darker));
+  --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
+    inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
+  --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
+    inset 2px 4px 6px var(--inner-shadow-darker),
+    inset 4px 8px 12px var(--inner-shadow-darker);
+
+  --font-size-xxs: 0.8rem;
+  --font-size-xs: 1rem;
+  --font-size-s: 1.2rem;
+  --font-size-m: 1.5rem;
+  --font-size-l: 1.8rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  --blur: 0.4rem;
+  --blur-more: 0.6rem;
 }
 
 /* Font stacks */
@@ -302,16 +286,75 @@
     casual, cursive;
 }
 
+/* Backgrounds and typography */
 body {
   max-width: 40rem;
   margin: 2rem auto;
   font-family: "PP-Writer", var(--font_old_style), serif;
-  font-size: 18px;
+  font-size: var(--font-size-xs);
+  font-weight: 400;
   padding: 0 1rem;
   line-height: 1.6;
   background-color: var(--background);
   color: var(--text);
 }
+p {
+  margin-top: 0.6rem;
+}
+h1,
+h6 {
+  font-family: "PP-Writer", var(--font_old_style), serif;
+  font-weight: 340;
+  font-size: var(--font-size-xxl);
+  color: var(--h1);
+  letter-spacing: -0.005em;
+  margin-top: 1.5rem;
+  line-height: 1.2em;
+}
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-weight: 100;
+  font-size: var(--font-size-l);
+  color: var(--h3);
+  letter-spacing: 0.005em;
+  margin-top: 2rem;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: var(--font-size-xl);
+  color: var(--h2);
+  letter-spacing: 0;
+  margin-top: 2.2rem;
+}
+
+h4 {
+  font-size: var(--font-size-m);
+  color: var(--h4);
+  letter-spacing: 0.01em;
+  margin-top: 1.8rem;
+}
+h5 {
+  font-size: var(--font-size-s);
+  color: var(--h4);
+  letter-spacing: 0.015em;
+  margin-top: 1.6rem;
+}
+h6 {
+  font-family: "PP-Writer", var(--font_old_style), serif;
+  font-weight: 340;
+  font-size: var(--font-size-xl);
+  color: var(--h2);
+  letter-spacing: 0.005em;
+  margin-top: 0;
+}
+
+/* Images and video *
+/* Navigation and buttons */
 
 header {
   margin-bottom: 2rem;
@@ -424,21 +467,6 @@ button {
   padding: 0 0.333rem;
   display: inline-block;
   font-size: 0.8rem;
-}
-
-header h1 {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.2rem;
-}
-
-h2 {
-  margin-top: 0;
 }
 
 .post-nav {
