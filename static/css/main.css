@@ -50,9 +50,9 @@
 
 /* Other variables */
 :root {
-  --border-radius-s: 0.4rem;
-  --border-radius-m: 0.7rem;
-  --border-radius-l: 1rem;
+  --radius-s: 0.4rem;
+  --radius-m: 0.7rem;
+  --radius-l: 1rem;
 
   --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
     drop-shadow(2px 4px 6px var(--outer-shadow))
@@ -301,6 +301,9 @@ body {
 div.post-preview {
   background: var(--background);
   filter: var(--shadow-image);
+  border-radius: var(--radius-l);
+  padding: 0.5em 1em;
+  margin-bottom: 2em;
 }
 p {
   margin-top: 0.6rem;
