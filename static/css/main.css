@@ -413,7 +413,7 @@ a.post-date:hover {
 }
 
 .e-content {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   overflow-wrap: anywhere;
 }
 
@@ -647,7 +647,7 @@ mark {
 /* IF USING THE TINY THEME ADD ON FOR SUMMARY POSTS */
 
 .p-summary {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 /* MAKES VIDEO EMBEDS THAT DON'T USE IFRAME RESPONSIVE. DOES NOT WORK WITH YOUTUBE. */
