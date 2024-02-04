@@ -295,11 +295,16 @@ body {
   font-weight: 400;
   padding: 0 1rem;
   line-height: 1.6;
-  background-color: var(--background);
+  background-color: var(--border);
   color: var(--text);
+}
+div.post-preview {
+  background: var(--background);
+  filter: var(--shadow-image);
 }
 p {
   margin-top: 0.6rem;
+  margin-bototm: 0;
 }
 h1,
 h6 {
@@ -310,6 +315,7 @@ h6 {
   letter-spacing: -0.005em;
   margin-top: 1.5rem;
   line-height: 1.2em;
+  margin-bottom: 0;
 }
 h2,
 h3,
@@ -322,6 +328,7 @@ h5 {
   letter-spacing: 0.005em;
   margin-top: 2rem;
   line-height: 1.2em;
+  margin-bottom: 0;
 }
 
 h2 {
