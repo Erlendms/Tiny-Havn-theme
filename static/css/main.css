@@ -290,7 +290,7 @@
 body {
   max-width: 40rem;
   margin: 2rem auto;
-  font-family: "PP-Writer", var(--font_old_style), serif;
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-size: var(--font-size-xs);
   font-weight: 400;
   padding: 0 1rem;
@@ -298,17 +298,21 @@ body {
   background-color: var(--border);
   color: var(--text);
 }
-div.post-preview {
+div.post-preview,
+div.post.h-entry {
   background: var(--background);
   filter: var(--shadow-image);
   border-radius: var(--radius-l);
-  padding: 0.5em 1em;
+  padding: 0.5em 2.5em;
   margin-bottom: 2em;
 }
 p {
+  font-family: "PP-Writer", var(--font_old_style), serif;
   margin-top: 0.6rem;
   margin-bototm: 0;
 }
+
+/* Headers */
 h1,
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
@@ -324,7 +328,6 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 100;
   font-size: var(--font-size-l);
   color: var(--h3);
@@ -363,6 +366,21 @@ h6 {
   margin-top: 0;
 }
 
+/* Date */
+a.post-date {
+  font-size: var(--font-size-xxs);
+  color: var(--mid-blue);
+  text-decoration: none;
+}
+
+a.post-date:hover {
+  text-decoration: none;
+}
+
+span.post-date {
+  font-size: var(--font-size-xxs);
+}
+
 /* Images and video *
 /* Navigation and buttons */
 
@@ -399,20 +417,6 @@ a:hover {
 
 a:visited {
   color: var(--text);
-}
-
-a.post-date {
-  font-size: 0.8rem;
-  color: var(--text);
-  text-decoration: none;
-}
-
-span.post-date {
-  font-size: 0.8rem;
-}
-
-a.post-date:hover {
-  text-decoration: none;
 }
 
 .e-content {
