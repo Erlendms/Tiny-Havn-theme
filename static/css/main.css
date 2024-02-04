@@ -55,6 +55,27 @@
   --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
+
+  --border-radius-s: 0.4rem;
+  --border-radius-m: 0.7rem;
+  --border-radius-l: 1rem;
+  --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow))
+    drop-shadow(4px 8px 12px var(--outer-shadow))
+    drop-shadow(8px 16px 24px var(--outer-shadow));
+  --shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(3px 6px 9px var(--color-shadow-darker))
+    drop-shadow(6px 12px 18px var(--outer-shadow-darker))
+    drop-shadow(12px 24px 32px var(--outer-shadow-darker));
+  --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow));
+  --shadow-icon-hover: (1px 2px 3px var(--outer-shadow))
+    drop-shadow(3px 6px 9px var(--color-shadow-darker));
+  --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
+    inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
+  --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
+    inset 2px 4px 6px var(--inner-shadow-darker),
+    inset 4px 8px 12px var(--inner-shadow-darker);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -282,18 +303,18 @@
 }
 
 body {
-  max-width: 40em;
-  margin: 2em auto;
+  max-width: 40rem;
+  margin: 2rem auto;
   font-family: "PP-Writer", var(--font_old_style), serif;
   font-size: 18px;
-  padding: 0 1em;
+  padding: 0 1rem;
   line-height: 1.6;
   background-color: var(--background);
   color: var(--text);
 }
 
 header {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .post-header {
@@ -328,13 +349,13 @@ a:visited {
 }
 
 a.post-date {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: var(--text);
   text-decoration: none;
 }
 
 span.post-date {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 a.post-date:hover {
@@ -342,7 +363,7 @@ a.post-date:hover {
 }
 
 .e-content {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   overflow-wrap: anywhere;
 }
 
@@ -364,8 +385,8 @@ ul.reply-buttons {
 nav ul li,
 ul.reply-buttons li {
   display: inline;
-  margin-right: 0.2em;
-  line-height: 2.15em;
+  margin-right: 0.2rem;
+  line-height: 2.15rem;
   white-space: nowrap;
 }
 
@@ -381,7 +402,7 @@ a.read-more {
   border: 1px solid var(--text);
   color: var(--text);
   border-radius: 5px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 nav a:hover,
@@ -400,20 +421,20 @@ button {
 .reply-to {
   background: var(--border);
   border-radius: 5px;
-  padding: 0 0.333em;
+  padding: 0 0.333rem;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 header h1 {
-  margin-top: 0.2em;
-  margin-bottom: 0.2em;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 h1,
 h2,
 h3 {
-  line-height: 1.2em;
+  line-height: 1.2rem;
 }
 
 h2 {
@@ -421,8 +442,8 @@ h2 {
 }
 
 .post-nav {
-  margin-top: 2.5em;
-  margin-bottom: 2.5em;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 
@@ -448,7 +469,7 @@ article img,
 
 ul.post-tags li {
   display: inline;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 ul.post-tags,
@@ -465,11 +486,11 @@ ul.post-list a.u-url {
 }
 
 blockquote {
-  padding: 1em;
+  padding: 1rem;
   background: var(--border);
   border-radius: 5px;
-  font-size: 0.9em;
-  margin: 1em;
+  font-size: 0.9rem;
+  margin: 1rem;
 }
 
 blockquote p:last-of-type {
@@ -485,7 +506,7 @@ div.highlight div {
 }
 
 hr {
-  margin: 2em 0;
+  margin: 2rem 0;
   border: none;
   text-align: center;
 }
@@ -505,13 +526,13 @@ sup a {
 }
 
 .microblog_conversation {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .microblog_post {
-  margin-bottom: 2em;
-  padding: 1em;
+  margin-bottom: 2rem;
+  padding: 1rem;
   border: 1px solid var(--border);
   border-radius: 5px;
 }
@@ -535,17 +556,17 @@ sup a {
 .microblog_time a,
 .microblog_time a:visited {
   color: var(--accent2a);
-  font-size: 0.8em;
+  font-size: 0.8rem;
   text-decoration: none;
 }
 
 footer {
-  margin-top: 2em;
+  margin-top: 2rem;
   text-align: center;
 }
 
 footer .custom_footer {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   color: var(--accent2a);
 }
 
@@ -570,7 +591,7 @@ span.tinylytics_hits,
 span.tinylytics_uptime {
   background: var(--border);
   padding: 2px 4px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   border-radius: 5px;
   font-family: "PP-Neue-Montreal-Mono", var(--font_monospace_code);
 }
@@ -581,17 +602,17 @@ mark {
 }
 
 .tiny-img {
-  max-width: 25em;
+  max-width: 25rem;
 }
 
 .tiny-text {
-  font-size: 0.6em;
+  font-size: 0.6rem;
 }
 
 /* IF USING THE TINY THEME ADD ON FOR SUMMARY POSTS */
 
 .p-summary {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 /* MAKES VIDEO EMBEDS THAT DON'T USE IFRAME RESPONSIVE. DOES NOT WORK WITH YOUTUBE. */
@@ -621,18 +642,18 @@ a.tinylytics_webring {
 
 .tinylytics_webring_avatar {
   width: auto;
-  height: 1.75em;
+  height: 1.75rem;
   border-radius: 100%;
 }
 
 /* STYLING TO TWEAK CODE BLOCKS (SYNTAX HIGHLIGHTING) */
 
 .highlight {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 pre {
   overflow: auto;
-  padding: 1em;
+  padding: 1rem;
 }
 
 /* OVERRIDING DEFAULT MICROBLOG AND PLUGIN CSS. Using !important isn't ideal, but it's the most effective for these things. */
@@ -645,7 +666,7 @@ input[type="text"],
 input[type="search"],
 input[type="email"] {
   padding: 10px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   border: 1px solid var(--text) !important;
   border-radius: 5px !important;
   color: var(--text);
@@ -659,7 +680,7 @@ input[type="submit"],
 button {
   vertical-align: baseline;
   padding: 5px 10px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   border-radius: 5px;
   border: 1px solid var(--text);
   background: none;
@@ -685,12 +706,12 @@ form p {
 }
 
 #search-space-info {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-style: italic;
 }
 
 .bookshelf_book {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .bookshelf_title {

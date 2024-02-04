@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header class="post-header">
-	<h2 class="post-title">Archive</h2>
+	<h1 class="post-title">Archive</h1>
 </header>
 {{ $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
 {{ if gt (len $list) 0 }}
