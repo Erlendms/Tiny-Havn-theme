@@ -384,6 +384,12 @@ span.post-date {
 /* Images and video *
 /* Navigation and buttons */
 
+/* Categories */
+a[href="https://havn.micro.blog/categories/english"], a[href="https://havn.micro.blog/categories/norsk"]
+{
+  display: none;
+}
+
 header {
   margin-bottom: 2rem;
 }
