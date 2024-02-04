@@ -1,5 +1,5 @@
 /* Light mode */
-:root {
+/* :root {
   --text: #000000;
   --link: #1565c0;
   --link_visited: #1565c0;
@@ -13,22 +13,69 @@
   --note: #fef770;
   --mark: #ffff99;
 }
-
 /* Dark mode */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+	--text: #f8f8f2;
+	--link: #8be9fd;
+	--link_visited: #8be9fd;
+	--accent1: #f8f8f2;
+	--accent2: #f8f8f2;
+	--background: #282a36;
+	--code: #44475a;
+	--button-text: #282a36;
+	--blockquote: #44475a;
+	--field: #44475a;
+	--note: #44475a;
+	--mark: #ffff99;
+  }
+} */
+:root {
+  --border: hsl(228, 31%, 92%);
+  --border-90: hsla(228, 31%, 91%, 90%);
+  --border-60: hsla(228, 31%, 90%, 60%);
+  --background: hsl(228, 31%, 96%);
+  --h1: hsl(228, 31%, 19%);
+  --h2: hsl(228, 31%, 23%);
+  --h3: hsl(228, 31%, 27%);
+  --h4: hsl(228, 31%, 31%);
+  --text: hsl(228, 31%, 35%);
+  --accent1a: hsl(150, 31%, 32%);
+  --accent1b: hsl(150, 31%, 40%);
+  --selection: hsla(150, 31%, 40%, 20%);
+  --accent2a: hsl(283, 25%, 56%);
+  --accent2b: hsl(283, 25%, 62%);
+  --mid-blue: hsl(228, 31%, 69%);
+  --outer-shadow: hsla(228, 31%, 31%, 7%);
+  --outer-shadow-darker: hsla(228, 31%, 31%, 15%);
+  --inner-shadow: hsla(228, 31%, 31%, 2%);
+  --inner-shadow-darker: hsla(228, 31%, 31%, 5%);
+  --lightbox-background: hsla(228, 31%, 10%, 80%);
+  --lightbox-caption: hsla(228, 31%, 92%, 60%);
+  --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
+  --lightbox-arrow: hsl(228, 31%, 35%);
+  --lightbox-text: hsl(228, 31%, 96%);
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #f8f8f2;
-    --link: #8be9fd;
-    --link_visited: #8be9fd;
-    --accent1: #f8f8f2;
-    --accent2: #f8f8f2;
-    --background: #282a36;
-    --code: #44475a;
-    --button-text: #282a36;
-    --blockquote: #44475a;
-    --field: #44475a;
-    --note: #44475a;
-    --mark: #ffff99;
+    --border: hsl(228, 31%, 10%);
+    --border-90: hsla(228, 31%, 10%, 90%);
+    --border-60: hsla(228, 31%, 10%, 80%);
+    --background: hsl(228, 31%, 15%);
+    --h1: hsl(228, 31%, 96%);
+    --h2: hsl(228, 31%, 94%);
+    --h3: hsl(228, 31%, 92%);
+    --h4: hsl(228, 31%, 90%);
+    --text: hsl(228, 31%, 88%);
+    --accent1a: hsl(170, 31%, 36%);
+    --accent1b: hsl(170, 31%, 48%);
+    --selection: hsla(170, 31%, 48%, 20%);
+    --accent2a: hsl(283, 25%, 58%);
+    --accent2b: hsl(283, 25%, 68%);
+    --outer-shadow: hsla(228, 31%, 7%, 15%);
+    --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
+    --inner-shadow: hsla(228, 31%, 20%, 10%);
+    --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
   }
 }
 
@@ -260,7 +307,7 @@ header h1 a:visited {
 }
 
 header h1 a:hover {
-  color: var(--accent1);
+  color: var(--h1);
   text-decoration: none;
 }
 
@@ -277,12 +324,12 @@ a:hover {
 }
 
 a:visited {
-  color: var(--link_visited);
+  color: var(--text);
 }
 
 a.post-date {
   font-size: 0.8em;
-  color: var(--link);
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -331,8 +378,8 @@ a.reply-by-email,
 a.read-more {
   text-decoration: none;
   padding: 5px 10px;
-  border: 1px solid var(--link);
-  color: var(--link);
+  border: 1px solid var(--text);
+  color: var(--text);
   border-radius: 5px;
   font-size: 0.9em;
 }
@@ -342,8 +389,8 @@ a.conversation-on-mb:hover,
 a.reply-on-mastodon:hover,
 a.reply-by-email:hover,
 a.read-more:hover {
-  background: var(--link);
-  color: var(--button-text);
+  background: var(--text);
+  color: var(--text);
 }
 
 button {
@@ -351,7 +398,7 @@ button {
 }
 
 .reply-to {
-  background: var(--code);
+  background: var(--border);
   border-radius: 5px;
   padding: 0 0.333em;
   display: inline-block;
@@ -384,11 +431,11 @@ h2 {
 }
 
 .post-nav a:visited {
-  color: var(--link);
+  color: var(--text);
 }
 
 .post-meta {
-  color: var(--accent2);
+  color: var(--accent2a);
 }
 
 article img,
@@ -419,7 +466,7 @@ ul.post-list a.u-url {
 
 blockquote {
   padding: 1em;
-  background: var(--blockquote);
+  background: var(--border);
   border-radius: 5px;
   font-size: 0.9em;
   margin: 1em;
@@ -446,7 +493,7 @@ hr {
 hr::before {
   content: "•••••";
   display: block;
-  color: var(--link);
+  color: var(--mid-blue);
 }
 
 sup a {
@@ -465,7 +512,7 @@ sup a {
 .microblog_post {
   margin-bottom: 2em;
   padding: 1em;
-  border: 1px solid var(--code);
+  border: 1px solid var(--border);
   border-radius: 5px;
 }
 
@@ -487,7 +534,7 @@ sup a {
 
 .microblog_time a,
 .microblog_time a:visited {
-  color: var(--accent2);
+  color: var(--accent2a);
   font-size: 0.8em;
   text-decoration: none;
 }
@@ -499,7 +546,7 @@ footer {
 
 footer .custom_footer {
   font-size: 0.75em;
-  color: var(--accent2);
+  color: var(--accent2a);
 }
 
 footer .attribution {
@@ -511,7 +558,7 @@ footer .attribution {
 }
 
 p.note {
-  background: var(--note);
+  background: var(--border);
   border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
@@ -521,15 +568,15 @@ p > code,
 li > code,
 span.tinylytics_hits,
 span.tinylytics_uptime {
-  background: var(--code);
+  background: var(--border);
   padding: 2px 4px;
   font-size: 0.9em;
   border-radius: 5px;
-  font-family: var(--font_monospace_code);
+  font-family: "PP-Neue-Montreal-Mono", var(--font_monospace_code);
 }
 
 mark {
-  background: var(--mark);
+  background: var(--border);
   color: var();
 }
 
@@ -556,8 +603,8 @@ video {
 /* Styling specific to Tinylytics Plugin */
 
 .did_select {
-  background: var(--link);
-  color: var(--button-text);
+  background: var(--border);
+  color: var(--text);
   opacity: 0.8;
   cursor: not-allowed;
 }
@@ -599,12 +646,12 @@ input[type="search"],
 input[type="email"] {
   padding: 10px;
   font-size: 0.9em;
-  border: 1px solid var(--link) !important;
+  border: 1px solid var(--text) !important;
   border-radius: 5px !important;
   color: var(--text);
   display: block;
   height: auto;
-  background: var(--field);
+  background: var(--border);
   margin: 5px 0;
 }
 
@@ -614,9 +661,9 @@ button {
   padding: 5px 10px;
   font-size: 0.9em;
   border-radius: 5px;
-  border: 1px solid var(--link);
+  border: 1px solid var(--text);
   background: none;
-  color: var(--link);
+  color: var(--text);
   -webkit-appearance: none;
   margin-top: 5px;
   font-weight: normal;
@@ -625,8 +672,8 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-  background: var(--link);
-  color: var(--button-text);
+  background: var(--border);
+  color: var(--text);
 }
 
 label {
@@ -651,5 +698,5 @@ form p {
 }
 
 .bigfoot-footnote__content {
-  color: #000;
+  color: var(--text);
 }
