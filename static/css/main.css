@@ -65,8 +65,8 @@
     drop-shadow(12px 24px 32px var(--outer-shadow-darker));
   --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
     drop-shadow(2px 4px 6px var(--outer-shadow));
-  --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(3px 6px 9px var(--color-shadow-darker));
+  --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
+    drop-shadow(3px 6px 9px var(--outer-shadow-darker));
   --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
     inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
   --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
