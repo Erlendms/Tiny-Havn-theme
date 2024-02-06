@@ -422,15 +422,17 @@ a[href="https://havn.micro.blog/categories/norsk"]
 }
 
 ul.post-tags a {
-  color: var(--text);
+  color: var(--h1);
+  text-decoration: none !important;
   background-color: var(--border);
   border-radius: var(--radius-s);
   padding: 0.2rem 0.4rem;
-  animation: shadowAnimationOut 0.5s forwards;
+  margin-right: 0.5rem;
+  box-shadow: var(--shadow-inner);
 }
 ul.post-tags a:hover {
-  color: var(--h1);
-  animation: shadowAnimationIn 0.5s forwards;
+  color: var(--text);
+  box-shadow: var(--shadow-inner-hover);
 }
 
 header {
