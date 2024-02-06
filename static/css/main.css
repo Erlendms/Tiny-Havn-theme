@@ -282,7 +282,7 @@ h1,
 h2.post-title.p-name,
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
-  font-weight: 340;
+  font-weight: 100;
   font-size: var(--font-size-xxl);
   color: var(--h1);
   letter-spacing: -0.005em;
@@ -291,7 +291,7 @@ h6 {
   margin-bottom: 0;
 }
 
-h2.post-title.p.name a {
+h2 a {
   text-decoration: none;
 }
 
@@ -332,7 +332,7 @@ h5 {
 
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
-  font-weight: 340;
+  font-weight: 100;
   font-size: var(--font-size-xl);
   color: var(--h2);
   letter-spacing: 0.005em;
