@@ -25,6 +25,7 @@
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --border: hsl(228, 31%, 10%);
@@ -93,42 +94,49 @@
   font-weight: 100;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal-thin_italic_100.woff2") format("woff2");
   font-weight: 100;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal-light_normal_300.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal-book_normal_400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal_italic_400.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal-medium_normal_500.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal_normal_700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal";
   src: url("../fonts/pp-neue-montreal_italic_700.woff2") format("woff2");
@@ -143,24 +151,28 @@
   font-weight: 250;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
   src: url("../fonts/pp-neue-montreal-mono-book_normal_350.otf") format("otf");
   font-weight: 350;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
   src: url("../fonts/pp-neue-montreal-mono_italic_400.otf") format("otf");
   font-weight: 400;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
   src: url("../fonts/pp-neue-montreal-mono_normal_700.otf") format("otf");
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
   src: url("../fonts/pp-neue-montreal-mono_italic_700.otf") format("otf");
@@ -175,78 +187,91 @@
   font-weight: 100;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-thin_italic_100.woff2") format("woff2");
   font-weight: 100;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-book_normal_340.woff2") format("woff2");
   font-weight: 340;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-book-italic_italic_340.woff2") format("woff2");
   font-weight: 340;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_normal_400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-italic_italic_400.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_medium_475.otf") format("otf");
   font-weight: 475;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_medium_italic_475.otf") format("otf");
   font-weight: 475;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_semibold_600.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_semibold_italic_600.woff2") format("woff2");
   font-weight: 600;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer_normal_700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-italic_italic_700.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-black_normal_900.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
+
 @font-face {
   font-family: "PP-Writer";
   src: url("../fonts/pp-writer-black-italic_italic_900.woff2") format("woff2");
@@ -298,6 +323,7 @@ body {
   background-color: var(--border);
   color: var(--text);
 }
+
 div.post-preview,
 div.post.h-entry {
   background: var(--background);
@@ -306,6 +332,7 @@ div.post.h-entry {
   padding: 0.5em 2.5em;
   margin-bottom: 2em;
 }
+
 p {
   font-family: "PP-Writer", var(--font_old_style), serif;
   margin-top: 0.6rem;
@@ -325,6 +352,7 @@ h6 {
   line-height: 1.2em;
   margin-bottom: 0;
 }
+
 h2,
 h3,
 h4,
@@ -352,12 +380,14 @@ h4 {
   letter-spacing: 0.01em;
   margin-top: 1.8rem;
 }
+
 h5 {
   font-size: var(--font-size-s);
   color: var(--h4);
   letter-spacing: 0.015em;
   margin-top: 1.6rem;
 }
+
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
   font-weight: 340;
@@ -386,7 +416,8 @@ span.post-date {
 /* Navigation and buttons */
 
 /* Categories */
-a[href="https://havn.micro.blog/categories/english"], a[href="https://havn.micro.blog/categories/norsk"]
+a[href="https://havn.micro.blog/categories/english"],
+a[href="https://havn.micro.blog/categories/norsk"]
 {
   display: none;
 }
@@ -678,6 +709,7 @@ video {
   opacity: 0.8;
   cursor: not-allowed;
 }
+
 .tinylytics_webring {
   align-items: center;
   display: flex;
@@ -685,6 +717,7 @@ video {
   gap: 3px;
   justify-content: center;
 }
+
 a.tinylytics_webring {
   text-decoration: none;
 }
@@ -700,6 +733,7 @@ a.tinylytics_webring {
 .highlight {
   font-size: 0.9rem;
 }
+
 pre {
   overflow: auto;
   padding: 1rem;
