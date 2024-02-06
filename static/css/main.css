@@ -425,6 +425,7 @@ ul.post-tags a {
   color: var(--text);
   background-color: var(--border);
   border-radius: var(--radius-s);
+  padding: 0.2rem 0.4rem;
   animation: shadowAnimationOut 0.5s forwards;
 }
 ul.post-tags a:hover {
