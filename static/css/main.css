@@ -314,6 +314,7 @@ p {
 
 /* Headers */
 h1,
+h2.post-title-p-name,
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
   font-weight: 340;
