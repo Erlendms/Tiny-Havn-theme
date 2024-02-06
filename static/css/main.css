@@ -342,7 +342,36 @@ h6 {
   margin-top: 0;
 }
 
-/* Date */
+/* Date and links */
+a:link {
+  -webkit-text-decoration-line: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--accent1a);
+  text-decoration-color: var(--accent1a);
+  text-decoration-thickness: 2px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+a:visited {
+  -webkit-text-decoration-line: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--accent2a);
+  text-decoration-color: var(--accent2a);
+  text-decoration-thickness: 2px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+a:link:hover {
+  color: var(--accent1b);
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+}
+a:visited:hover {
+  color: var(--accent2b);
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+}
+
 a.post-date {
   font-size: var(--font-size-xxs);
   color: var(--mid-blue);
@@ -388,18 +417,6 @@ header h1 a:hover {
 
 header p {
   margin-top: 0;
-}
-
-a {
-  color: var(--link);
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:visited {
-  color: var(--text);
 }
 
 .e-content {
