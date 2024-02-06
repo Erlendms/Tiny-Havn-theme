@@ -396,21 +396,21 @@ span.post-date {
 
 @keyframes shadowAnimationIn {
   0% {
-    filter: var(--shadow-image);
+    filter: var(--shadow-icon);
   }
 
   100% {
-    filter: var(--shadow-image-hover);
+    filter: var(--shadow-icon-hover);
   }
 }
 
 @keyframes shadowAnimationOut {
   0% {
-    filter: var(--shadow-image-hover);
+    filter: var(--shadow-icon-hover);
   }
 
   100% {
-    filter: var(--shadow-image);
+    filter: var(--shadow-icon);
   }
 }
 
