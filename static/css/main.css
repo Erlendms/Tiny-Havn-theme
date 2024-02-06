@@ -423,9 +423,11 @@ a[href="https://havn.micro.blog/categories/norsk"]
 
 ul.post-tags a {
   color: var(--text);
+  text-decoration: none !important;
   background-color: var(--border);
   border-radius: var(--radius-s);
   padding: 0.2rem 0.4rem;
+  margin: 0.5rem;
   animation: shadowAnimationOut 0.5s forwards;
 }
 ul.post-tags a:hover {
