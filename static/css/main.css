@@ -328,7 +328,7 @@ h2.post-title.p-name {
 }
 
 h2 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h2,
@@ -394,11 +394,42 @@ span.post-date {
 /* Images and video *
 /* Navigation and buttons */
 
+@keyframes shadowAnimationIn {
+  0% {
+    filter: var(--shadow-image);
+  }
+
+  100% {
+    filter: var(--shadow-image-hover);
+  }
+}
+
+@keyframes shadowAnimationOut {
+  0% {
+    filter: var(--shadow-image-hover);
+  }
+
+  100% {
+    filter: var(--shadow-image);
+  }
+}
+
 /* Categories */
 a[href="https://havn.micro.blog/categories/english"],
 a[href="https://havn.micro.blog/categories/norsk"]
 {
   display: none;
+}
+
+ul.post-tags li a {
+  color: var(--text);
+  background-color: var(--border);
+  border-radius: var(--radius-s);
+  animation: shadowAnimationOut 0.5s forwards;
+}
+ul.post-tags li a:hover {
+  color: var(--h1);
+  animation: shadowAnimationIn 0.5s forwards;
 }
 
 header {
