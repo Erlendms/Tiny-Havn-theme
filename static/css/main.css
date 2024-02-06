@@ -290,6 +290,9 @@ h6 {
   line-height: 1.2em;
   margin-bottom: 0;
 }
+h2.post-title.p-name {
+  margin-top: -0.1rem;
+}
 
 h2 a {
   text-decoration: none;
