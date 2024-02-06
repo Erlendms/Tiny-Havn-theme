@@ -16,7 +16,7 @@
               {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
               <li><a href="{{ $href }}">{{ . }}</a></li>
               {{ end }}
-            </ul> dsfjsldf
+            </ul>
             {{ end }}
             {{ if templates.Exists "partials/summary.html" }}
             <div class="p-summary">
