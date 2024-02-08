@@ -5,8 +5,8 @@
 <script>
   const style = getComputedStyle(document.documentElement);
 
-  const initialSrc = style.getPropertyValue("--havn-logo").trim();
-  const hoverSrc = style.getPropertyValue("--havn-logo-hover").trim();
+  const initialSrc = style.getPropertyValue(--havn-logo).trim();
+  const hoverSrc = style.getPropertyValue(--havn-logo-hover).trim();
 
   var logo = document.getElementById("logo");
   logo.src = initialSrc;
