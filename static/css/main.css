@@ -28,7 +28,6 @@
     //gist.githubusercontent.com/Erlendms/22dfdc9548b1d9ccb12b304706045532/raw/1f48e4115dbe92f11f1866225b4b95a00e83e53c/havn-logo-transp.svg?sanetize=true;;
   --havn-logo-hover: https:
     //gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true;;
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
