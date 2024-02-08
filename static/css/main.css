@@ -24,9 +24,10 @@
   --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
-
-  --havn-logo: url(https://gist.githubusercontent.com/Erlendms/22dfdc9548b1d9ccb12b304706045532/raw/1f48e4115dbe92f11f1866225b4b95a00e83e53c/havn-logo-transp.svg?sanetize=true);
-  --havn-logo-hover: url(https://gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true);
+  --havn-logo: https:
+    //gist.githubusercontent.com/Erlendms/22dfdc9548b1d9ccb12b304706045532/raw/1f48e4115dbe92f11f1866225b4b95a00e83e53c/havn-logo-transp.svg?sanetize=true;;
+  --havn-logo-hover: https:
+    //gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true;;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,8 +51,10 @@
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
 
-    --havn-logo: url(https://gist.githubusercontent.com/Erlendms/349b0faa0915c39d6a7dce9618caaeec/raw/e8bfdf54edadb5ebc1ea5d8a70322e91574484bc/havn-logo-dm-transp.svg?sanetize=true);
-    --havn-logo-hover: url(https://gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true);
+    --havn-logo: https:
+      //gist.githubusercontent.com/Erlendms/349b0faa0915c39d6a7dce9618caaeec/raw/e8bfdf54edadb5ebc1ea5d8a70322e91574484bc/havn-logo-dm-transp.svg?sanetize=true;;
+    --havn-logo-hover: https:
+      //gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true;;
   }
 }
 
