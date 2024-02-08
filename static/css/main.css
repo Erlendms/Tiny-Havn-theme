@@ -391,7 +391,16 @@ span.post-date {
   font-size: var(--font-size-xxs);
 }
 
-/* Images and video *
+/* Images and video */
+#preload {
+  background: url("https://gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true")
+    no-repeat -9999px -9999px;
+}
+
+.header-image:hover {
+  background-image: url(https://gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true);
+}
+
 /* Navigation and buttons */
 
 @keyframes shadowAnimationIn {
