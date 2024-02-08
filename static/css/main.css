@@ -400,13 +400,6 @@ span.post-date {
 /* Images and video */
 .header-image {
   max-width: 9rem;
-  display: inline-block;
-  background-size: cover;
-  background-image: var(--havn-logo);
-}
-
-.header-image:hover {
-  background-image: var(--havn-logo-hover);
 }
 
 /* Navigation and buttons */
