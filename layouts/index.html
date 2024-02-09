@@ -18,12 +18,15 @@
             <div class="p-summary">
                 {{ .Summary | safeHTML }}
                 {{ if .Truncated }}
+                {{ if .Params.categories }}
                 <ul class="post-tags">
                   {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
                   <li><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></li>
                   <li><a href="{{ $href }}">{{ . }}</a></li>
                   </ul>
                 {{ else }}
+                <p><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></p>
+                {{ end }}
                 {{ if .Params.categories }}
                 <ul class="post-tags">
                   {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
