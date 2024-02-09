@@ -67,6 +67,10 @@
     drop-shadow(3px 6px 9px var(--color-shadow-darker))
     drop-shadow(6px 12px 18px var(--outer-shadow-darker))
     drop-shadow(12px 24px 32px var(--outer-shadow-darker));
+  --shadow-card: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow))
+    drop-shadow(4px 8px 12px var(--outer-shadow))
+    drop-shadow(8px 16px 24px var(--outer-shadow));
   --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
     drop-shadow(2px 4px 6px var(--outer-shadow));
   --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
@@ -265,7 +269,7 @@ body {
 div.post-preview,
 div.post.h-entry {
   background: var(--background);
-  filter: var(--shadow-image);
+  filter: var(--shadow-card);
   border-radius: var(--radius-l);
   padding: 0.5em 2.5em;
   margin-bottom: 2em;
@@ -315,7 +319,7 @@ a:visited:hover {
 
 /* Headers */
 h1,
-h2.post-title.p-name,
+h1.post-title.p-name,
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
   font-weight: 100;
@@ -402,7 +406,7 @@ span.post-date {
 
 /* Navigation and buttons */
 
-@keyframes shadowAnimationIn {
+@keyframes shadowImageAnimationIn {
   0% {
     filter: var(--shadow-icon);
   }
@@ -412,7 +416,7 @@ span.post-date {
   }
 }
 
-@keyframes shadowAnimationOut {
+@keyframes shadowImageAnimationOut {
   0% {
     filter: var(--shadow-icon-hover);
   }
@@ -420,6 +424,55 @@ span.post-date {
   100% {
     filter: var(--shadow-icon);
   }
+}
+
+@keyframes shadowIconAnimationIn {
+  0% {
+    filter: var(--shadow-icon);
+  }
+
+  100% {
+    filter: var(--shadow-icon-hover);
+  }
+}
+
+@keyframes shadowIconAnimationOut {
+  0% {
+    filter: var(--shadow-icon-hover);
+  }
+
+  100% {
+    filter: var(--shadow-icon);
+  }
+}
+
+nav a,
+nav a:visited,
+nav a:hover,
+a.conversation-on-mb,
+a.reply-on-mastodon,
+a.reply-by-email,
+a.read-more {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  background: var(--border);
+  border-radius: var(--radius-m);
+  animation: shadowImageAnimationOut 0.5s forwards;
+  color: var(--text);
+}
+
+nav a:hover,
+a.conversation-on-mb:hover,
+a.reply-on-mastodon:hover,
+a.reply-by-email:hover,
+a.read-more:hover {
+  color: var(--h1);
+  animation: shadowImageAnimationIn 0.5s forwards;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Categories */
@@ -436,11 +489,11 @@ ul.post-tags a {
   border-radius: var(--radius-s);
   padding: 0.2rem 0.4rem;
   margin-right: 0.5rem;
-  box-shadow: var(--shadow-inner);
+  animation: shadowIconAnimationOut 0.5s forwards;
 }
 ul.post-tags a:hover {
   color: var(--text);
-  box-shadow: var(--shadow-inner-hover);
+  animation: shadowIconAnimationIn 0.5s forwards;
 }
 
 header {
@@ -492,34 +545,6 @@ ul.reply-buttons li {
   margin-right: 0.2rem;
   line-height: 2.15rem;
   white-space: nowrap;
-}
-
-nav a,
-nav a:visited,
-nav a:hover,
-a.conversation-on-mb,
-a.reply-on-mastodon,
-a.reply-by-email,
-a.read-more {
-  text-decoration: none;
-  padding: 5px 10px;
-  border: 1px solid var(--text);
-  color: var(--text);
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-nav a:hover,
-a.conversation-on-mb:hover,
-a.reply-on-mastodon:hover,
-a.reply-by-email:hover,
-a.read-more:hover {
-  background: var(--text);
-  color: var(--text);
-}
-
-button {
-  cursor: pointer;
 }
 
 .reply-to {
