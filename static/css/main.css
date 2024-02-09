@@ -26,6 +26,8 @@
   --lightbox-text: hsl(228, 31%, 96%);
   --havn-logo: "https://gist.githubusercontent.com/Erlendms/22dfdc9548b1d9ccb12b304706045532/raw/1f48e4115dbe92f11f1866225b4b95a00e83e53c/havn-logo-transp.svg?sanetize=true";
   --havn-logo-hover: "https://gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true";
+  --top-arrow: "https://gist.githubusercontent.com/Erlendms/bf5eb65d97f473b01d70721f31cfab75/raw/1ef36c782c2ed547cf8fe4a64a80db393b7db1a2/sol.svg?sanetize=true";
+  --top-arrow-hover: "https://gist.githubusercontent.com/Erlendms/4d2fdd247378c8e819a50f314918547e/raw/7b9a75b6371525d1ac901947dd05faae9def405a/sol-hover.svg?sanetize=true";
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -50,6 +52,8 @@
 
     --havn-logo: "https://gist.githubusercontent.com/Erlendms/349b0faa0915c39d6a7dce9618caaeec/raw/e8bfdf54edadb5ebc1ea5d8a70322e91574484bc/havn-logo-dm-transp.svg?sanetize=true";
     --havn-logo-hover: "https://gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true";
+    --top-arrow: "https://gist.githubusercontent.com/Erlendms/5db03aca6d15796bcacf5bed5e5177fd/raw/a8a3c734f414a85d3f485b80d5ec00c22f83ee70/moon.svg?sanetize=true";
+    --top-arrow-hover: "https://gist.githubusercontent.com/Erlendms/614daadfe481d68e45a431b94b5675ff/raw/f2a60ef38e8f9ed7f9ae3d5f9adfe6acfa814832/moon-hover2.svg?sanetize=true";
   }
 }
 
@@ -287,6 +291,7 @@ body {
   line-height: 1.6;
   background-color: var(--border);
   color: var(--text);
+  scroll-behavior: smooth;
 }
 
 div.post-preview,
@@ -349,9 +354,9 @@ h6 {
   font-size: var(--font-size-xxl);
   color: var(--h1);
   letter-spacing: -0.005em;
-  margin-top: 1.5rem;
+  margin-top: 0;
   line-height: 1.2em;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   text-decoration: none;
 }
 h2.post-title.p-name {
@@ -460,24 +465,33 @@ span.post-date {
     filter: var(--shadow-icon-hover);
   }
 }
+#back-to-top {
+  display: none;
+  z-index: 2;
+  position: fixed;
+  height: 3rem;
+  width: 3rem;
+  bottom: 3rem;
+  right: 2rem;
+}
 
 nav {
-  background: var(--border-60);
+  background: var(--border-90);
   border-radius: var(--radius-l);
   filter: var(--shadow-image);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   margin: 0;
-}
-.sticky {
-  position: fixed;
-  top: 1rem;
+  z-index: 3;
+  position: sticky;
+  top: 0.3rem;
 }
 
 nav ul,
 ul.reply-buttons {
   list-style-type: none;
   padding: 0;
+  text-align: center;
 }
 
 nav ul li,
@@ -490,6 +504,8 @@ ul.reply-buttons li {
 
 nav a:link,
 nav a:link:visited {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-size: var(--font-size-xxs);
   color: var(--text);
   text-decoration: none;
   border-radius: var(--radius-m);
@@ -501,6 +517,17 @@ nav a:link:visited {
 nav a:link:hover {
   color: var(--h1);
   background: var(--border);
+}
+
+#scrollIndicator {
+  position: sticky;
+  top: 0;
+  height: calc(var(--scroll-ratio) * 70rem);
+  max-height: 1rem;
+  background: var(--accent1a);
+  width: calc((var(--scroll-ratio) * 100%) + (var(--scroll-ratio) * 5rem));
+  z-index: 2;
+  margin-left: -2.5rem;
 }
 
 a.conversation-on-mb,

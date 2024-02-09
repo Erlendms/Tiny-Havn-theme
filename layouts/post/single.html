@@ -1,6 +1,16 @@
 {{ define "main" }}
 <div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}">
+  <script>
+ window.onscroll = function () {
+   const offset = 160;
+   const winScroll = Math.max(0, document.body.scrollTop || document.documentElement.scrollTop - offset);
+   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight - offset;
+   const scrolled = Math.max(0, (height > 0) ? (winScroll / height) : 0);
+   document.documentElement.style.setProperty('--scroll-ratio', scrolled);
+ };
+  </script>
 
+<div id="scrollIndicator"></div>
   <header class="post-header">
     <a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time></a>
     {{ if .Title }}
