@@ -1,25 +1,49 @@
-<nav id="navbar">
+<nav>
   <ul>
     <li><a href="https://havn.blog/categories">Categories</a></li>
     <li><a href="https://havn.blog/garden">Pocket garden</a></li>
     <li><a href="https://havn.blog/blog">Micro blog</a></li>
     <li><a href="https://havn.blog/About">About</a></li>
-    <li><a href="#top">Back to top</a></li>
   </ul>
 </nav>
+
+<a href="#" id="back-to-top">
+  <img id="up-arrow" src="" alt="Back to top" />
+</a>
+
 <script>
-  window.onscroll = function () {
-    stickyNav();
-  };
+  var topButton = document.getElementById("back-to-top");
+  var topArrow = document.getElementById("up-arrow");
 
-  var navbar = document.getElementById("navbar");
-  var sticky = navbar.offsetTop - window.innerHeight * 0.0625;
-
-  function stickyNav() {
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky");
+  function checkScroll() {
+    if (window.pageYOffset > 250) {
+      topButton.style.display = "block";
     } else {
-      navbar.classList.remove("sticky");
+      topButton.style.display = "none";
     }
   }
+
+  window.onscroll = checkScroll;
+
+  const initialSrc2 = "/assets/short-arrow.png";
+  const hoverSrc2 = "/assets/long-arrow.png";
+
+  topArrow.src = initialSrc2;
+  topArrow.dataset.src = hoverSrc2;
+
+  topArrow.onmouseover = function () {
+    topArrow.src = hoverSrc2;
+  };
+
+  topArrow.onmouseout = function () {
+    topArrow.src = initialSrc2;
+  };
+
+  topButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 </script>

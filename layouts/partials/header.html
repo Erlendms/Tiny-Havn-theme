@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header" id="top">
   {{ if templates.Exists "partials/microhook-profile-photo.html" }} {{ partial
   "microhook-profile-photo.html" . }} {{ else }}
   <a href="/"
@@ -12,26 +12,25 @@
   {{ end }} {{ if templates.Exists "partials/microhook-description.html" }} {{
   partial "microhook-description.html" . }} {{ else }}
   <p class="description">{{ .Site.Params.itunes_description | safeHTML }}</p>
-  {{ end }} {{ if templates.Exists "partials/microhook-navigation.html" }} {{
-  partial "microhook-navigation.html" . }} {{ else }}
-  <nav class="site-nav">
-    <ul>
-      {{ range .Site.Menus.main }} {{ if .Page.Params.redirect_url }}
-      <li>
-        <a class="page-link {{ .Name }}" href="{{ .Page.Params.redirect_url }}"
-          >{{ .Name }}</a
-        >
-      </li>
-      {{ else }}
-      <li>
-        <a
-          class="page-link {{ .Name }}"
-          href="{{ .URL | relLangURL | safeURL }}"
-          >{{ .Name }}</a
-        >
-      </li>
-      {{ end }} {{ end }}
-    </ul>
-  </nav>
   {{ end }}
 </header>
+{{ if templates.Exists "partials/microhook-navigation.html" }} {{ partial
+"microhook-navigation.html" . }} {{ else }}
+<nav class="site-nav">
+  <ul>
+    {{ range .Site.Menus.main }} {{ if .Page.Params.redirect_url }}
+    <li>
+      <a class="page-link {{ .Name }}" href="{{ .Page.Params.redirect_url }}"
+        >{{ .Name }}</a
+      >
+    </li>
+    {{ else }}
+    <li>
+      <a class="page-link {{ .Name }}" href="{{ .URL | relLangURL | safeURL }}"
+        >{{ .Name }}</a
+      >
+    </li>
+    {{ end }} {{ end }}
+  </ul>
+</nav>
+{{ end }}
