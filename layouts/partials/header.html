@@ -34,3 +34,13 @@
   </ul>
 </nav>
 {{ end }}
+<script>
+  window.onscroll = function () {
+    const navPadding = document.getElementById("navPadding");
+    if (window.scrollY >= 100) {
+      navPadding.style.backgroundColor = "var(--border-60)";
+    } else {
+      navPadding.style.backgroundColor = "transparent";
+    }
+  };
+</script>
