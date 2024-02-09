@@ -266,6 +266,16 @@
     casual, cursive;
 }
 
+/* Header */
+header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-header {
+  margin-bottom: 0;
+}
+
 /* Backgrounds and typography */
 body {
   max-width: 40rem;
@@ -330,7 +340,7 @@ a:visited:hover {
   text-decoration-color: transparent;
 }
 
-/* Headers */
+/* Headings */
 h1,
 h1.post-title.p-name,
 h6 {
@@ -451,9 +461,48 @@ span.post-date {
   }
 }
 
-nav a,
-nav a:visited,
-nav a:hover,
+nav {
+  background: var(--border-60);
+  border-radius: var(--radius-l);
+  filter: var(--shadow-image);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  margin: 0;
+}
+.sticky {
+  position: fixed;
+  top: 1rem;
+}
+
+nav ul,
+ul.reply-buttons {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li,
+ul.reply-buttons li {
+  display: inline;
+  margin-right: 0.2rem;
+  line-height: 2.15rem;
+  white-space: nowrap;
+}
+
+nav a:link,
+nav a:link:visited {
+  color: var(--text);
+  text-decoration: none;
+  border-radius: var(--radius-m);
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:link:hover {
+  color: var(--h1);
+  background: var(--border);
+}
+
 a.conversation-on-mb,
 a.reply-on-mastodon,
 a.reply-by-email {
@@ -466,7 +515,6 @@ a.reply-by-email {
   color: var(--text);
 }
 
-nav a:hover,
 a.conversation-on-mb:hover,
 a.reply-on-mastodon:hover,
 a.reply-by-email:hover {
@@ -642,14 +690,6 @@ figcaption {
   margin-bottom: 0.5rem !important;
 }
 
-header {
-  margin-bottom: 2rem;
-}
-
-.post-header {
-  margin-bottom: 0;
-}
-
 header h1 a,
 header h1 a:visited {
   text-decoration: none;
@@ -677,20 +717,6 @@ article p:first-of-type {
 
 img.profile_photo {
   border-radius: 80px;
-}
-
-nav ul,
-ul.reply-buttons {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav ul li,
-ul.reply-buttons li {
-  display: inline;
-  margin-right: 0.2rem;
-  line-height: 2.15rem;
-  white-space: nowrap;
 }
 
 .reply-to {
