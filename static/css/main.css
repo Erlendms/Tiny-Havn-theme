@@ -155,19 +155,19 @@
 /* Neue Montreal Mono */
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Book.otf") format("otf");
+  src: url("../fonts/PPNeueMontrealMono-Book") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-RegularItalic.otf") format("otf");
+  src: url("../fonts/PPNeueMontrealMonoRegular-Italic") format("woff2");
   font-weight: 450;
   font-style: italic;
 }
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Medium.otf") format("otf");
+  src: url("../fonts/PPNeueMontrealMono-Medium") format("woff2");
   font-weight: 530;
   font-style: normal;
 }
@@ -211,13 +211,13 @@
 }
 @font-face {
   font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-Semibold.otf") format("otf");
+  src: url("../fonts/PPWriter-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-SemiboldItalic.otf") format("otf");
+  src: url("../fonts/PPWriter-SemiboldItalic.woff2") format("woff2");
   font-weight: 600;
   font-style: italic;
 }
