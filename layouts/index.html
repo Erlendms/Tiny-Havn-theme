@@ -17,24 +17,16 @@
             {{ if templates.Exists "partials/summary.html" }}
             <div class="p-summary">
                 {{ .Summary | safeHTML }}
-                {{ if .Truncated }}
-                    <p><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></p>
-                    <ul class="post-tags">
-                        {{ range .Params.categories }}
-                            {{ $href := print (absURL "categories/") (urlize .) }}
-                            <li><a href="{{ $href }}">{{ . }}</a></li>
-                        {{ end }}
-                    </ul>
-                {{ else }}
-                    <ul class="post-tags">
-                        {{ range .Params.categories }}
-                            {{ $href := print (absURL "categories/") (urlize .) }}
-                            <li><a href="{{ $href }}">{{ . }}</a></li>
-                        {{ end }}
-                    </ul>
-                {{ end }}
+                <ul class="post-tags">
+                    {{ if .Truncated }}
+                        <li><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></li>
+                    {{ end }}
+                    {{ range .Params.categories }}
+                        {{ $href := print (absURL "categories/") (urlize .) }}
+                        <li><a href="{{ $href }}">{{ . }}</a></li>
+                    {{ end }}
+                </ul>
             </div>
-
             {{ else }}
             <div class="e-content">
                 {{ .Content }}
