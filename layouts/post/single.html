@@ -6,13 +6,6 @@
     {{ if .Title }}
     <h1 class="p-name">{{ .Title }}</h1>
     {{ end }}
-  {{ if .Params.categories }}
-    <ul class="post-tags">
-      {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
-      <li><a href="{{ $href }}">{{ . }}</a></li>
-      {{ end }}
-    </ul>
-    {{ end }}
   </header>
 
   <article class="post-content e-content">
@@ -25,7 +18,7 @@
   {{ if .Params.categories }}
   <ul class="post-tags">
     {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
-    <li><a href="{{ $href }}">#{{ . }}</a></li>
+    <li><a href="{{ $href }}">{{ . }}</a></li>
     {{ end }}
   </ul>
   {{ end }}
