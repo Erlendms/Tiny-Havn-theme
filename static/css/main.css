@@ -81,7 +81,8 @@
     inset 2px 4px 6px var(--inner-shadow-darker),
     inset 4px 8px 12px var(--inner-shadow-darker);
 
-  --font-size-xxs: 0.8rem;
+  --font-size-xxxs: 0.8rem;
+  --font-size-xxs: 0.9rem;
   --font-size-xs: 1rem;
   --font-size-s: 1.2rem;
   --font-size-m: 1.5rem;
@@ -134,7 +135,7 @@
 }
 @font-face {
   font-family: "PP-Neue-Montreal";
-  src: url("../fonts/pp-neue-montreal_normal_700.woff2") format("woff2");
+  src: url("../fonts/PPNeueMontreal-Medium.woff2") format("woff2");
   font-weight: 530;
   font-style: normal;
 }
@@ -218,6 +219,18 @@
   font-family: "PP-Writer";
   src: url("../fonts/PPWriter-SemiboldItalic.otf") format("otf");
   font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "PP-Writer";
+  src: url("../fonts/PPWriter-Bold") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PP-Writer";
+  src: url("../fonts/PPWriter-BoldItalic") format("woff2");
+  font-weight: 700;
   font-style: italic;
 }
 
@@ -335,7 +348,7 @@ h2.post-title.p-name {
   margin-top: -0.1rem;
 }
 
-h2 a {
+h1 a {
   text-decoration: none !important;
 }
 
@@ -386,7 +399,7 @@ h6 {
 /* Date */
 
 a.post-date {
-  font-size: var(--font-size-xxs);
+  font-size: var(--font-size-xxxs);
   color: var(--mid-blue);
   text-decoration: none;
 }
@@ -396,7 +409,7 @@ a.post-date:hover {
 }
 
 span.post-date {
-  font-size: var(--font-size-xxs);
+  font-size: var(--font-size-xxxs);
 }
 
 /* Images and video */
@@ -451,8 +464,7 @@ nav a:visited,
 nav a:hover,
 a.conversation-on-mb,
 a.reply-on-mastodon,
-a.reply-by-email,
-a.read-more {
+a.reply-by-email {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   text-decoration: none;
   padding: 0.4rem 0.8rem;
@@ -465,10 +477,47 @@ a.read-more {
 nav a:hover,
 a.conversation-on-mb:hover,
 a.reply-on-mastodon:hover,
-a.reply-by-email:hover,
-a.read-more:hover {
+a.reply-by-email:hover {
   color: var(--h1);
   animation: shadowImageAnimationIn 0.5s forwards;
+}
+
+a.read-more {
+  padding: 0;
+  background: none;
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-weight: 530;
+  -webkit-text-decoration-line: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--accent1a);
+  text-decoration-color: var(--accent1a);
+  text-decoration-thickness: 2px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+a.read-more:hover {
+  color: var(--accent1b);
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+}
+
+a.read-more:visited {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-weight: 530;
+  -webkit-text-decoration-line: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--accent1a);
+  text-decoration-color: var(--accent1a);
+  text-decoration-thickness: 2px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+a.read-more:visited:hover {
+  color: var(--accent1b);
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
 }
 
 button {
@@ -482,8 +531,9 @@ a[href="https://havn.micro.blog/categories/norsk"]
   display: none;
 }
 
-ul.post-tags a {
-  color: var(--h1);
+ul.post-tags a,
+a.language {
+  color: var(--text);
   text-decoration: none !important;
   background-color: var(--border);
   border-radius: var(--radius-s);
@@ -491,9 +541,39 @@ ul.post-tags a {
   margin-right: 0.5rem;
   animation: shadowIconAnimationOut 0.5s forwards;
 }
-ul.post-tags a:hover {
-  color: var(--text);
+ul.post-tags a:hover,
+a.language:hover {
+  color: var(--h1);
   animation: shadowIconAnimationIn 0.5s forwards;
+}
+
+/* Rule */
+hr {
+  margin: 2rem 0;
+  border: none;
+  text-align: center;
+}
+
+hr::before {
+  content: "○○○○○";
+  display: block;
+  color: var(--accent1a);
+  font-size: var(--font-size-xxxs);
+  font-weight: 100;
+  letter-spacing: 0.5em;
+}
+
+/* Lists */
+
+ul,
+ol {
+  font-family: "PP-Writer", var(--font_old_style), serif;
+  padding-left: 1.5rem;
+}
+
+li::marker {
+  font-weight: 700;
+  color: var(--accent1a);
 }
 
 header {
@@ -584,6 +664,7 @@ article img,
 ul.post-tags li {
   display: inline;
   font-size: 0.8rem;
+  line-height: 2rem;
 }
 
 ul.post-tags,
@@ -601,10 +682,11 @@ ul.post-list a.u-url {
 
 blockquote {
   padding: 1rem;
-  background: var(--border);
-  border-radius: 5px;
-  font-size: 0.9rem;
-  margin: 1rem;
+  border-radius: var(--radius-m);
+  font-size: var(--font-size-xxs);
+  letter-spacing: 0.01em;
+  margin: 1rem 1rem 1rem 0.5rem;
+  border-left: 0.4rem solid var(--accent1a);
 }
 
 blockquote p:last-of-type {
@@ -617,18 +699,6 @@ blockquote p:first-of-type {
 
 div.highlight div {
   border-radius: 5px;
-}
-
-hr {
-  margin: 2rem 0;
-  border: none;
-  text-align: center;
-}
-
-hr::before {
-  content: "•••••";
-  display: block;
-  color: var(--mid-blue);
 }
 
 sup a {
