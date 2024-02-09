@@ -495,8 +495,6 @@ nav::before {
   height: 1rem;
   width: calc(100% + 5rem);
   margin-left: -2.5rem;
-}
-
 nav ul,
 ul.reply-buttons {
   list-style-type: none;
@@ -536,7 +534,11 @@ nav a:link:hover {
   max-height: 1rem;
   background: var(--accent1a);
   width: calc((var(--scroll-ratio) * 100%) + (var(--scroll-ratio) * 5rem));
+<<<<<<< HEAD
   z-index: 3;
+=======
+  z-index: 2;
+>>>>>>> main
   margin-left: -2.5rem;
 }
 
