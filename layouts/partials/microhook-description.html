@@ -1,29 +1,59 @@
 <p class="description">Trying, and failing, to make sense of it all.</p>
-<p class="follow">Contact and/or follow:</p>
 
-<div id="follow-list">
-  <ul>
-    <li>
-      <a href="https://havn.blog/rss" class="follow-icon"
-        ><img id="rss-icon" src="" alt="RSS"
-      /></a>
-    </li>
-    <li>
-      <a href="https://havn.blog/micro" class="follow-icon"
-        ><img id="micro-icon" src="" alt="Micro.blog"
-      /></a>
-    </li>
-    <li>
-      <a href="https://havn.blog/masto" class="follow-icon"
-        ><img id="mastodon-icon" src="" alt="Mastodon"
-      /></a>
-    </li>
-    <li>
-      <a href="https://havn.blog/email" class="follow-icon"
-        ><img id="email-icon" src="" alt="Email"
-      /></a>
-    </li>
-  </ul>
+<a href="https://havn.blog" class="header-image">
+  <img id="logo" src="" data-src="" alt="Havn logo" />
+</a>
+
+<div id="info">
+  <script>
+    const style = getComputedStyle(document.documentElement);
+
+    const initialSrc = style
+      .getPropertyValue("--havn-logo")
+      .trim()
+      .replace(/['"]+/g, "");
+    const hoverSrc = style
+      .getPropertyValue("--havn-logo-hover")
+      .trim()
+      .replace(/['"]+/g, "");
+
+    var logo = document.getElementById("logo");
+    logo.src = initialSrc;
+    logo.dataset.src = hoverSrc;
+
+    logo.onmouseover = function () {
+      logo.src = hoverSrc;
+    };
+
+    logo.onmouseout = function () {
+      logo.src = initialSrc;
+    };
+  </script>
+  <div id="follow-list">
+    <p>Contact and/or follow</p>
+    <ul>
+      <li>
+        <a href="https://havn.blog/rss" class="follow-icon"
+          ><img id="rss-icon" src="" alt="RSS"
+        /></a>
+      </li>
+      <li>
+        <a href="https://havn.blog/micro" class="follow-icon"
+          ><img id="micro-icon" src="" alt="Micro.blog"
+        /></a>
+      </li>
+      <li>
+        <a href="https://havn.blog/masto" class="follow-icon"
+          ><img id="mastodon-icon" src="" alt="Mastodon"
+        /></a>
+      </li>
+      <li>
+        <a href="https://havn.blog/email" class="follow-icon"
+          ><img id="email-icon" src="" alt="Email"
+        /></a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <script>
@@ -44,4 +74,16 @@
   document.getElementById("micro-icon").src = microIcon;
   document.getElementById("mastodon-icon").src = mastodonIcon;
   document.getElementById("email-icon").src = emailIcon;
+
+  let followList = document.getElementById("follow-list");
+  window.addEventListener("scroll", function () {
+    let pageHeight = document.documentElement.scrollHeight;
+    let scrollDistanceFromBottom =
+      pageHeight - window.pageYOffset - window.innerHeight;
+    if (scrollDistanceFromBottom < 50) {
+      followList.classList.add("move-down");
+    } else {
+      followList.classList.remove("move-down");
+    }
+  });
 </script>
