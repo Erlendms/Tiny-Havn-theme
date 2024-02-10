@@ -475,6 +475,13 @@ span.post-date {
   right: 2rem;
 }
 
+#back-to-top img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 nav {
   background: var(--border-90);
   border-radius: var(--radius-l);
