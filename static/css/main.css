@@ -28,6 +28,10 @@
   --havn-logo-hover: "https://gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true";
   --top-arrow: "https://gist.githubusercontent.com/Erlendms/bf5eb65d97f473b01d70721f31cfab75/raw/1ef36c782c2ed547cf8fe4a64a80db393b7db1a2/sol.svg?sanetize=true";
   --top-arrow-hover: "https://gist.githubusercontent.com/Erlendms/4d2fdd247378c8e819a50f314918547e/raw/7b9a75b6371525d1ac901947dd05faae9def405a/sol-hover.svg?sanetize=true";
+  --rss-icon: "https://gist.githubusercontent.com/Erlendms/5063cc9cbb2b515f13cfcc9af973536c/raw/a8ed72ed6751d633210fef96802e5e39e2ef710a/havn-rss.svg?sanetize=true";
+  --micro-icon: "https://gist.githubusercontent.com/Erlendms/1d853c4f9101b7c54916847cb6f9c716/raw/3dd617971bc044d8c70267b822be7202d4184b9c/havn-icon-n.svg?sanetize=true";
+  --mastodon-icon: "https://gist.githubusercontent.com/Erlendms/e78d01f19dc3916c47505b0c96b0e617/raw/046e1cec51735d4bc145f815461da56c984057a7/havn-masto.svg?sanetize=true";
+  --email-icon: "https://gist.githubusercontent.com/Erlendms/9aaa47a7aa756e514c725290f638c767/raw/33cf8121e0337594488baf724e15d69ac3afd593/havn-mail.svg?sanetize=true";
 }
 @media (prefers-color-scheme: dark) {
   :root {

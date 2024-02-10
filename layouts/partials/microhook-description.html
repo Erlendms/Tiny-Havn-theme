@@ -1,2 +1,47 @@
 <p class="description">Trying, and failing, to make sense of it all.</p>
 <p class="follow">Contact and/or follow:</p>
+
+<div id="follow-list">
+  <ul>
+    <li>
+      <a href="https://havn.blog/rss" class="follow-icon"
+        ><img id="rss-icon" src="" alt="RSS"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/micro" class="follow-icon"
+        ><img id="micro-icon" src="" alt="Micro.blog"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/masto" class="follow-icon"
+        ><img id="mastodon-icon" src="" alt="Mastodon"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/email" class="follow-icon"
+        ><img id="email-icon" src="" alt="Email"
+      /></a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  let rssIcon = getComputedStyle(document.documentElement)
+    .getPropertyValue("--rss-icon")
+    .replace(/['"]+/g, "");
+  let microIcon = getComputedStyle(document.documentElement)
+    .getPropertyValue("--micro-icon")
+    .replace(/['"]+/g, "");
+  let mastodonIcon = getComputedStyle(document.documentElement)
+    .getPropertyValue("--mastodon-icon")
+    .replace(/['"]+/g, "");
+  let emailIcon = getComputedStyle(document.documentElement)
+    .getPropertyValue("--email-icon")
+    .replace(/['"]+/g, "");
+
+  document.getElementById("rss-icon").src = rssIcon;
+  document.getElementById("micro-icon").src = microIcon;
+  document.getElementById("mastodon-icon").src = mastodonIcon;
+  document.getElementById("email-icon").src = emailIcon;
+</script>
