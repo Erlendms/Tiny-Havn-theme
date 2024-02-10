@@ -45,16 +45,4 @@
   {{ if templates.Exists "partials/microhook-head.html" }}
     {{ partial "microhook-head.html" . }}
   {{ end }}
-  <script>
-    var topButton = document.getElementById("back-to-top");
-    var topArrow = document.getElementById("up-arrow");
-
-    window.onscroll = function () {
-      if ((window.scrollY || document.documentElement.scrollTop) > 250) {
-        topButton.style.display = "block";
-      } else {
-        topButton.style.display = "none";
-      }
-    };
-  </script>
 </head>

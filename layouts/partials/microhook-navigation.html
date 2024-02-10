@@ -10,8 +10,18 @@
 <a href="#" id="back-to-top">
   <img id="up-arrow" src="" alt="Back to top" />
 </a>
-
 <script>
+  var topButton = document.getElementById("back-to-top");
+  var topArrow = document.getElementById("up-arrow");
+
+  window.onscroll = function () {
+    if ((window.scrollY || document.documentElement.scrollTop) > 250) {
+      topButton.style.display = "block";
+    } else {
+      topButton.style.display = "none";
+    }
+  };
+
   const initialSrc2 = "/assets/short-arrow.png";
   const hoverSrc2 = "/assets/long-arrow.png";
 
