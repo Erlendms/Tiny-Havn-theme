@@ -1,59 +1,27 @@
-<p class="description">Trying, and failing, to make sense of it all.</p>
-
-<a href="https://havn.blog" class="header-image">
-  <img id="logo" src="" data-src="" alt="Havn logo" />
-</a>
-
-<div id="info">
-  <script>
-    const style = getComputedStyle(document.documentElement);
-
-    const initialSrc = style
-      .getPropertyValue("--havn-logo")
-      .trim()
-      .replace(/['"]+/g, "");
-    const hoverSrc = style
-      .getPropertyValue("--havn-logo-hover")
-      .trim()
-      .replace(/['"]+/g, "");
-
-    var logo = document.getElementById("logo");
-    logo.src = initialSrc;
-    logo.dataset.src = hoverSrc;
-
-    logo.onmouseover = function () {
-      logo.src = hoverSrc;
-    };
-
-    logo.onmouseout = function () {
-      logo.src = initialSrc;
-    };
-  </script>
-  <div id="follow-list">
-    <p>Contact and/or follow</p>
-    <ul>
-      <li>
-        <a href="https://havn.blog/rss" class="follow-icon"
-          ><img id="rss-icon" src="" alt="RSS"
-        /></a>
-      </li>
-      <li>
-        <a href="https://havn.blog/micro" class="follow-icon"
-          ><img id="micro-icon" src="" alt="Micro.blog"
-        /></a>
-      </li>
-      <li>
-        <a href="https://havn.blog/masto" class="follow-icon"
-          ><img id="mastodon-icon" src="" alt="Mastodon"
-        /></a>
-      </li>
-      <li>
-        <a href="https://havn.blog/email" class="follow-icon"
-          ><img id="email-icon" src="" alt="Email"
-        /></a>
-      </li>
-    </ul>
-  </div>
+<div id="follow-list">
+  <p>Contact and/or follow</p>
+  <ul>
+    <li>
+      <a href="https://havn.blog/rss" class="follow-icon"
+        ><img id="rss-icon" src="" alt="RSS"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/micro" class="follow-icon"
+        ><img id="micro-icon" src="" alt="Micro.blog"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/masto" class="follow-icon"
+        ><img id="mastodon-icon" src="" alt="Mastodon"
+      /></a>
+    </li>
+    <li>
+      <a href="https://havn.blog/email" class="follow-icon"
+        ><img id="email-icon" src="" alt="Email"
+      /></a>
+    </li>
+  </ul>
 </div>
 
 <script>
