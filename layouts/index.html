@@ -7,6 +7,7 @@
     {{ partial "microhook-before-post-list.html" . }}
 {{ end }}
 <div class="posts h-feed">
+    <div id="navPadding"></div>
     <div class="post_list" role="main">
         {{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
         {{ range .Paginator.Pages }}

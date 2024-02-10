@@ -538,6 +538,7 @@ nav a:link:hover {
   margin-left: -2.5rem;
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
+  z-index: 2;
 }
 
 a.conversation-on-mb,
