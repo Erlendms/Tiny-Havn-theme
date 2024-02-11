@@ -516,13 +516,21 @@ ul.reply-buttons li {
 nav a:link,
 nav a:link:visited {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-  font-size: var(--font-size-xxs);
+  font-size: var(--font-size-xs);
+  font-weight: 530;
   color: var(--text);
   text-decoration: none;
   border-radius: var(--radius-m);
   padding: 0.4rem 0.8rem;
   background: transparent;
   transition: all 0.3s ease-in-out;
+}
+@media (max-width: 650px) {
+  nav a:link,
+  nav a:link:visited {
+    font-size: var(--font-size-xxs);
+    padding: 0.2rem 0.4rem;
+  }
 }
 
 nav a:link:hover {
@@ -569,8 +577,13 @@ p.description {
 }
 #follow-list.move-down {
   position: fixed;
-  top: calc(100vh - 5rem);
+  top: calc(100vh - 8rem);
   bottom: auto;
+}
+@media (max-width: 650px) {
+  #follow-list.move-down {
+    top: calc(100vh - 11rem);
+  }
 }
 
 #follow-list ul {
