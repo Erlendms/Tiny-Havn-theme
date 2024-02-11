@@ -302,10 +302,13 @@ div.post.h-entry {
   background: var(--background);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-l);
-  padding: 0.5em 2.5em;
   margin-bottom: 2em;
   position: relative;
   z-index: 1;
+  padding: 0.5rem 2.5rem;
+  @media (max-width: 650px) {
+    padding: 0.5rem 1rem;
+  }
 }
 
 p {
@@ -476,8 +479,8 @@ span.post-date {
   position: fixed;
   height: 3rem;
   width: 3rem;
-  bottom: 3rem;
-  right: 2rem;
+  bottom: 2rem;
+  right: 1rem;
   background: transparent;
   backdrop-filter: var(--blur-more);
   -webkit-backdrop-filter: var(--blur-more);
@@ -570,7 +573,11 @@ nav a:link:hover {
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   z-index: 2;
+  @media (max-width: 650px) {
+    width: calc(100% + 2rem);
+  }
 }
+
 p.description {
   font-weight: 100;
   font-size: var(--font-size-m);
@@ -608,14 +615,13 @@ p.description {
   margin: 0;
 }
 
-#follow-list img {
-  width: 2rem;
+#follow-list li {
   padding: 0 0.5rem;
   opacity: 0.85;
   transition: all 0.3s ease-in-out;
 }
 
-#follow-list img:hover {
+#follow-list li:hover {
   opacity: 1;
 }
 
@@ -627,6 +633,7 @@ p.description {
   display: inline-block;
   width: 2rem;
   height: 2rem;
+  background-size: contain;
 }
 #havn-icon {
   display: none;
@@ -786,8 +793,23 @@ li::marker {
 }
 
 /* Images and video */
-.header-image img {
-  max-width: 9rem;
+#logo {
+  width: 9rem;
+  height: auto;
+  background-image: url("/assets/havn-logo-transp.png")
+  @media (prefers-color-scheme: dark) {
+    background-image: url("/assets/havn-logo-dm-transp.png");
+  }
+  @media (max-width: 650px) {
+    margin-top: -1rem;
+  }
+}
+
+#logo:hover {
+  background-image: url("/assets/havn-logo.png")
+  @media (prefers-color-scheme: dark) {
+    background-image: url("/assets/havn-logo-dm.png");
+  }
 }
 
 .gslide-image img {
