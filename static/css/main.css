@@ -230,13 +230,13 @@
 }
 @font-face {
   font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-Bold") format("woff2");
+  src: url("../fonts/PPWriter-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-BoldItalic") format("woff2");
+  src: url("../fonts/PPWriter-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
 }
