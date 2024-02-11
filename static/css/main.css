@@ -630,22 +630,22 @@ p.description {
 }
 #havn-icon {
   display: none;
-  background-image: url("/assets/havn-icon-neutral.svg");
+  background-image: url("/assets/havn-icon-neutral.png");
 }
 #follow-list.move-down #havn-icon {
   display: inline-block;
 }
 #rss-icon {
-  background-image: url("/assets/havn-rss.svg");
+  background-image: url("/assets/havn-rss.png");
 }
 #masto-icon {
-  background-image: url("/assets/havn-masto.svg");
+  background-image: url("/assets/havn-masto.png");
 }
 #micro-icon {
-  background-image: url("/assets/havn-microblog.svg");
+  background-image: url("/assets/havn-microblog.png");
 }
 #email-icon {
-  background-image: url("/assets/havn-mail.svg");
+  background-image: url("/assets/havn-mail.png");
 }
 
 .asset-alt {
