@@ -482,6 +482,9 @@ span.post-date {
   backdrop-filter: var(--blur-more);
   -webkit-backdrop-filter: var(--blur-more);
   border-radius: var(--radius-m);
+  @media (min-width: 651px) {
+    right: calc(50% - 320px);
+  }
 }
 
 #back-to-top.show-button {
@@ -584,7 +587,6 @@ p.description {
   align-items: center;
   transform: translateX(-50%);
   transition: all 0.8s ease-in-out;
-  right: calc(50% - 300px);
 }
 #follow-list.move-down {
   position: fixed;
@@ -609,6 +611,52 @@ p.description {
 #follow-list img {
   width: 2rem;
   padding: 0 0.5rem;
+  opacity: 0.85;
+  transition: all 0.3s ease-in-out;
+}
+
+#follow-list img:hover {
+  opacity: 1;
+}
+
+#havn-icon,
+#rss-icon,
+#micro-icon,
+#masto-icon,
+#email-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+#havn-icon {
+  display: none;
+  background-image: url("/assets/havn-icon-neutral.svg");
+}
+#follow-list.move-down #havn-icon {
+  display: inline-block;
+}
+#rss-icon {
+  background-image: url("/assets/havn-rss.svg");
+}
+#masto-icon {
+  background-image: url("/assets/havn-masto.svg");
+}
+#micro-icon {
+  background-image: url("/assets/havn-microblog.svg");
+}
+#email-icon {
+  background-image: url("/assets/havn-mail.svg");
+}
+
+.asset-alt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 #follow-list p {

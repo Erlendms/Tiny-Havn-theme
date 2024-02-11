@@ -2,47 +2,32 @@
   <p>Contact and/or follow</p>
   <ul>
     <li>
-      <a href="https://havn.blog/rss" class="follow-icon"
-        ><img id="rss-icon" src="" alt="RSS"
-      /></a>
+      <a href="https://havn.blog" class="follow-icon" id="havn-icon"
+        ><span class="asset-alt">Havn.blog</span></a
+      >
+      <a href="https://havn.blog/rss" class="follow-icon" id="rss-icon"
+        ><span class="asset-alt">RSS</span></a
+      >
     </li>
     <li>
-      <a href="https://havn.blog/micro" class="follow-icon"
-        ><img id="micro-icon" src="" alt="Micro.blog"
-      /></a>
+      <a href="https://havn.blog/micro" class="follow-icon" id="micro-icon"
+        ><span class="asset-alt">Micro.blog</span></a
+      >
     </li>
     <li>
-      <a href="https://havn.blog/masto" class="follow-icon"
-        ><img id="mastodon-icon" src="" alt="Mastodon"
-      /></a>
+      <a href="https://havn.blog/masto" class="follow-icon" id="masto-icon"
+        ><span class="asset-alt">Mastodon</span></a
+      >
     </li>
     <li>
-      <a href="https://havn.blog/email" class="follow-icon"
-        ><img id="email-icon" src="" alt="Email"
-      /></a>
+      <a href="https://havn.blog/email" class="follow-icon" id="email-icon"
+        ><span class="asset-alt">Email</span></a
+      >
     </li>
   </ul>
 </div>
 
 <script>
-  let rssIcon = getComputedStyle(document.documentElement)
-    .getPropertyValue("--rss-icon")
-    .replace(/['"]+/g, "");
-  let microIcon = getComputedStyle(document.documentElement)
-    .getPropertyValue("--micro-icon")
-    .replace(/['"]+/g, "");
-  let mastodonIcon = getComputedStyle(document.documentElement)
-    .getPropertyValue("--mastodon-icon")
-    .replace(/['"]+/g, "");
-  let emailIcon = getComputedStyle(document.documentElement)
-    .getPropertyValue("--email-icon")
-    .replace(/['"]+/g, "");
-
-  document.getElementById("rss-icon").src = rssIcon;
-  document.getElementById("micro-icon").src = microIcon;
-  document.getElementById("mastodon-icon").src = mastodonIcon;
-  document.getElementById("email-icon").src = emailIcon;
-
   let followList = document.getElementById("follow-list");
 
   window.addEventListener(
