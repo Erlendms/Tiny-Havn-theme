@@ -43,8 +43,6 @@
   document.getElementById("mastodon-icon").src = mastodonIcon;
   document.getElementById("email-icon").src = emailIcon;
 
-  import _ from "lodash";
-
   let followList = document.getElementById("follow-list");
 
   window.addEventListener(
@@ -54,11 +52,11 @@
       let scrollDistanceFromBottom =
         pageHeight - window.pageYOffset - window.innerHeight;
 
-      if (scrollDistanceFromBottom < 50) {
+      if (scrollDistanceFromBottom < 100) {
         followList.classList.add("move-down");
       } else {
         followList.classList.remove("move-down");
       }
-    }, 200),
+    }, 700),
   );
 </script>

@@ -304,6 +304,8 @@ div.post.h-entry {
   border-radius: var(--radius-l);
   padding: 0.5em 2.5em;
   margin-bottom: 2em;
+  position: relative;
+  z-index: 1;
 }
 
 p {
@@ -573,6 +575,7 @@ p.description {
 
 #follow-list {
   position: relative;
+  z-index: 1;
   top: 0;
   left: 50%;
   margin-top: 0.5rem;
@@ -581,6 +584,7 @@ p.description {
   align-items: center;
   transform: translateX(-50%);
   transition: all 0.8s ease-in-out;
+  right: calc(50% - 300px);
 }
 #follow-list.move-down {
   position: fixed;
