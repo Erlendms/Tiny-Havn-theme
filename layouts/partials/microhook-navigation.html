@@ -11,19 +11,21 @@
   <img id="up-arrow" src="" alt="Back to top" />
 </a>
 <script>
+  import _ from "lodash";
+
   var topButton = document.getElementById("back-to-top");
   var topArrow = document.getElementById("up-arrow");
 
-  window.onscroll = function () {
-    var currScrollPos = window.scrollY || document.documentElement.scrollTop;
-    console.log("Current Scroll Position:", currScrollPos);
-
-    if (currScrollPos > 250) {
-      topButton.style.display = "block";
-    } else {
-      topButton.style.display = "none";
-    }
-  };
+  window.addEventListener(
+    "scroll",
+    _.throttle(function () {
+      if (window.pageYOffset > 250) {
+        topButton.classList.add("show-button");
+      } else {
+        topButton.classList.remove("show-button");
+      }
+    }, 100),
+  );
 
   const initialSrc2 = "/assets/short-arrow.png";
   const hoverSrc2 = "/assets/long-arrow.png";

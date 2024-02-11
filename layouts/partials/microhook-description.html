@@ -43,15 +43,22 @@
   document.getElementById("mastodon-icon").src = mastodonIcon;
   document.getElementById("email-icon").src = emailIcon;
 
+  import _ from "lodash";
+
   let followList = document.getElementById("follow-list");
-  window.addEventListener("scroll", function () {
-    let pageHeight = document.documentElement.scrollHeight;
-    let scrollDistanceFromBottom =
-      pageHeight - window.pageYOffset - window.innerHeight;
-    if (scrollDistanceFromBottom < 50) {
-      followList.classList.add("move-down");
-    } else {
-      followList.classList.remove("move-down");
-    }
-  });
+
+  window.addEventListener(
+    "scroll",
+    _.throttle(function () {
+      let pageHeight = document.documentElement.scrollHeight;
+      let scrollDistanceFromBottom =
+        pageHeight - window.pageYOffset - window.innerHeight;
+
+      if (scrollDistanceFromBottom < 50) {
+        followList.classList.add("move-down");
+      } else {
+        followList.classList.remove("move-down");
+      }
+    }, 200),
+  );
 </script>

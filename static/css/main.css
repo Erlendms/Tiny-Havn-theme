@@ -75,10 +75,9 @@
     drop-shadow(3px 6px 9px var(--outer-shadow-darker))
     drop-shadow(6px 12px 18px var(--outer-shadow-darker))
     drop-shadow(12px 24px 32px var(--outer-shadow-darker));
-  --shadow-card: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(2px 4px 6px var(--outer-shadow))
-    drop-shadow(4px 8px 12px var(--outer-shadow))
-    drop-shadow(8px 16px 24px var(--outer-shadow));
+  --shadow-card: 1px 2px 3px var(--outer-shadow),
+    2px 4px 6px var(--outer-shadow), 4px 8px 12px var(--outer-shadow),
+    8px 16px 24px var(--outer-shadow);
   --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
     drop-shadow(2px 4px 6px var(--outer-shadow));
   --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
@@ -301,7 +300,7 @@ body {
 div.post-preview,
 div.post.h-entry {
   background: var(--background);
-  filter: var(--shadow-card);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-l);
   padding: 0.5em 2.5em;
   margin-bottom: 2em;
@@ -477,6 +476,14 @@ span.post-date {
   width: 3rem;
   bottom: 3rem;
   right: 2rem;
+  background: transparent;
+  backdrop-filter: var(--blur-more);
+  -webkit-backdrop-filter: var(--blur-more);
+  border-radius: var(--radius-m);
+}
+
+#back-to-top.show-button {
+  display: block;
 }
 
 #back-to-top img {
