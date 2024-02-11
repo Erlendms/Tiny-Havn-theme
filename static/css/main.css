@@ -636,11 +636,13 @@ p.description {
   background-size: contain;
 }
 #havn-icon {
-  display: none;
   background-image: url("/assets/havn-icon-neutral.png");
 }
-#follow-list.move-down #havn-icon {
-  display: inline-block;
+#icon-li {
+  display: none;
+}
+#follow-list.move-down #icon-li {
+  display: list-item;
 }
 #rss-icon {
   background-image: url("/assets/havn-rss.png");
@@ -794,9 +796,13 @@ li::marker {
 
 /* Images and video */
 #logo {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 9rem;
-  height: auto;
-  background-image: url("/assets/havn-logo-transp.png")
+  height: 3rem;
+  background-image: url("/assets/havn-logo-transp.png");
   @media (prefers-color-scheme: dark) {
     background-image: url("/assets/havn-logo-dm-transp.png");
   }
@@ -806,7 +812,7 @@ li::marker {
 }
 
 #logo:hover {
-  background-image: url("/assets/havn-logo.png")
+  background-image: url("/assets/havn-logo.png");
   @media (prefers-color-scheme: dark) {
     background-image: url("/assets/havn-logo-dm.png");
   }
