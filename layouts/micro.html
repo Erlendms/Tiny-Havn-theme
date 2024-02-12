@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div>
+  {{ range .Site.RegularPages }} {{ if not .Title }}
+  <div class="micro-post">
+    <p>{{ .Content }}</p>
+  </div>
+  {{ end }} {{ end }}
+</div>
+{{ end }}

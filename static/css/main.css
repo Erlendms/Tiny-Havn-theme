@@ -531,6 +531,10 @@ nav {
   top: 0.3rem;
 }
 
+nav ul {
+  margin: 0;
+}
+
 nav ul,
 ul.reply-buttons {
   list-style-type: none;
@@ -607,10 +611,17 @@ p.description {
   font-size: var(--font-size-m);
 }
 
-#follow-list {
+#follow-list-containter {
   position: relative;
+}
+
+#follow-list {
+  position: absolute;
   z-index: 1;
-  top: 0;
+  top: 5.5rem;
+  @media (max-width: 650px) {
+    top: 4.5rem;
+  }
   left: 50%;
   margin-top: 0.5rem;
   display: flex;
@@ -621,12 +632,12 @@ p.description {
 }
 #follow-list.move-down {
   position: fixed;
-  top: calc(100vh - 8rem);
+  top: calc(100vh - 7rem);
   bottom: auto;
 }
 @media (max-width: 650px) {
   #follow-list.move-down {
-    top: calc(100vh - 11rem);
+    top: calc(100vh - 7rem);
   }
 }
 
@@ -713,7 +724,7 @@ p.description {
 
 div.follow-list-spacer {
   content: "";
-  height: 75px;
+  height: 50px;
   width: 240px;
 }
 
@@ -1129,6 +1140,7 @@ sup a {
 
 footer {
   text-align: center;
+  margin-top: 3rem;
 }
 
 footer .custom_footer {
