@@ -37,7 +37,7 @@
   :root {
     --border: hsl(228, 31%, 10%);
     --border-90: hsla(228, 31%, 10%, 90%);
-    --border-60: hsla(228, 31%, 10%, 80%);
+    --border-60: hsla(228, 31%, 10%, 60%);
     --background: hsl(228, 31%, 15%);
     --h1: hsl(228, 31%, 96%);
     --h2: hsl(228, 31%, 94%);
@@ -367,8 +367,26 @@ h6 {
   margin-bottom: 0.5rem;
   text-decoration: none;
 }
-h2.post-title.p-name {
+h1.category-name {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  background: var(--background);
+  border-top-left-radius: var(--radius-l);
+  border-top-right-radius: var(--radius-l);
+  padding: 0.5rem 0 2rem 2.5rem;
+  @media (max-width: 650px) {
+    padding-left: 1rem;
+  }
+  margin-bottom: -3.2rem;
+}
+h1.post-title.p-name {
   margin-top: -0.1rem;
+}
+.post-content h1,
+.post-content h6 {
+  position: relative;
+  text-align: center;
+  width: 110%;
+  left: -5%;
 }
 
 h1 a {
@@ -571,7 +589,7 @@ nav a:link:hover {
 #navPadding {
   position: sticky;
   top: 0;
-  background-color: var(--border-60);
+  background-color: transparent;
   width: calc(100% + 5rem);
   height: 1rem;
   margin-left: -2.5rem;
@@ -693,6 +711,12 @@ p.description {
   display: block;
 }
 
+div.follow-list-spacer {
+  content: "";
+  height: 75px;
+  width: 240px;
+}
+
 a.conversation-on-mb,
 a.reply-on-mastodon,
 a.reply-by-email {
@@ -777,6 +801,12 @@ ul.post-tags a:hover,
 a.language:hover {
   color: var(--h1);
   animation: shadowIconAnimationHover 0.5s forwards;
+}
+
+.post-content div.language-container {
+  display: flex;
+  justify-content: center;
+  margin: -0.5rem auto 0.5rem;
 }
 
 /* Rule */
@@ -998,7 +1028,7 @@ img.profile_photo {
 
 .post-nav {
   margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  /*   margin-bottom: 2.5rem; */
   text-align: center;
 }
 

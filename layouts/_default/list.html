@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="home h-feed">
+  <div id="navPadding"></div>
  <h1 class="category-name">{{ .Title }}</h1>
   <ul class="post-list">
     {{ $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") }}
