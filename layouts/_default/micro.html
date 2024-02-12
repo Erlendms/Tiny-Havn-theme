@@ -2,7 +2,8 @@
 <div>
   {{ range .Site.RegularPages }} {{ if not .Title }}
   <div class="micro-post">
-    <p>{{ .Content }}</p>
+    <p>Date: {{ .Date.Format "Jan 2, 2006" }}</p>
+    <p>Permalink: <a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
   </div>
   {{ end }} {{ end }}
 </div>
