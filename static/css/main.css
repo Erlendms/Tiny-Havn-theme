@@ -298,7 +298,8 @@ body {
 }
 
 div.post-preview,
-div.post.h-entry {
+div.post.h-entry,
+div.micro-post {
   background: var(--background);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-l);
