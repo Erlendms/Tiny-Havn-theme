@@ -14,6 +14,19 @@
         {{ .Summary | safeHTML }}
         {{ if .Truncated }}
         <p><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></p>
+        <ul class="post-tags">
+                {{ range .Params.categories }}
+                    {{ $href := print (absURL "categories/") (urlize .) }}
+                    <li><a href="{{ $href }}">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        {{ else }}
+            <ul class="post-tags">
+                {{ range .Params.categories }}
+                    {{ $href := print (absURL "categories/") (urlize .) }}
+                    <li><a href="{{ $href }}">{{ . }}</a></li>
+                {{ end }}
+            </ul>
         {{ end }}
       </div>
       {{ else }}
