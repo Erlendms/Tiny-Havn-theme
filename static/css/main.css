@@ -629,7 +629,8 @@ p.description {
 #rss-icon,
 #micro-icon,
 #masto-icon,
-#email-icon {
+#email-icon,
+#norsk-icon {
   display: inline-block;
   width: 2rem;
   height: 2rem;
@@ -655,6 +656,13 @@ p.description {
 }
 #email-icon {
   background-image: url("/assets/havn-mail.png");
+}
+#norsk-icon {
+  background-image: url("/assets/havn-no.png");
+}
+
+#follow-list.move-down #norsk-li {
+  display: none;
 }
 
 .asset-alt {
