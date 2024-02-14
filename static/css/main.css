@@ -17,8 +17,8 @@
   --accent2b: hsl(283, 25%, 62%);
   --accent2bg: hsla(283, 25%, 62%, 10%);
   --mid-blue: hsl(228, 31%, 69%);
-  --outer-shadow: hsla(228, 31%, 31%, 7%);
-  --outer-shadow-darker: hsla(228, 31%, 31%, 15%);
+  --outer-shadow: hsla(228, 31%, 31%, 6%);
+  --outer-shadow-darker: hsla(228, 31%, 31%, 10%);
   --inner-shadow: hsla(228, 31%, 31%, 2%);
   --inner-shadow-darker: hsla(228, 31%, 31%, 5%);
   --lightbox-background: hsla(228, 31%, 10%, 80%);
@@ -27,6 +27,54 @@
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
 }
+
+/* Other variables */
+:root {
+  --radius-s: 0.4rem;
+  --radius-m: 0.7rem;
+  --radius-l: 1rem;
+
+  --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow))
+    drop-shadow(8px 16px 24px var(--outer-shadow));
+  --shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
+    drop-shadow(2px 4px 6px var(--outer-shadow-darker))
+    drop-shadow(8px 16px 24px var(--outer-shadow-darker));
+  --shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 3%),
+    0.4px 0.8px 2px -10px hsla(228, 31%, 10%, 3%),
+    0.8px 2px 4px -10px hsla(228, 31%, 10%, 4%),
+    1.6px 3px 7px -10px hsla(228, 31%, 10%, 5%),
+    2.4px 6px 13px -10px hsla(228, 31%, 10%, 6%),
+    6px 12px 30px -10px hsla(228, 31%, 10%, 8%);
+  --shadow-link: drop-shadow(0.2px 0.4px 0.8px hsla(228, 31%, 10%, 3%))
+    drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 3%))
+    drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 4%))
+    drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 5%))
+    drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 6%))
+    drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 8%));
+  --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
+    drop-shadow(2px 4px 6px var(--outer-shadow));
+  --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
+    drop-shadow(3px 6px 9px var(--outer-shadow-darker));
+  --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
+    inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
+  --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
+    inset 2px 4px 6px var(--inner-shadow-darker),
+    inset 4px 8px 12px var(--inner-shadow-darker);
+
+  --font-size-xxxs: 0.8rem;
+  --font-size-xxs: 0.9rem;
+  --font-size-xs: 1rem;
+  --font-size-s: 1.2rem;
+  --font-size-m: 1.5rem;
+  --font-size-l: 1.8rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  --blur: blur(0.4rem);
+  --blur-more: blur(0.6rem);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --border: hsl(228, 31%, 10%);
@@ -49,47 +97,16 @@
     --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
+
+    --shadow-image: none;
+    --shadow-image-hover: none;
+    --shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 6%),
+      0.4px 0.8px 2px -10px hsla(228, 31%, 9%, 7%),
+      0.8px 2px 4px -10px hsla(228, 31%, 8%, 8%),
+      1.6px 3px 7px -10px hsla(228, 31%, 7%, 10%),
+      2.4px 6px 13px -10px hsla(228, 31%, 6%, 12%),
+      6px 12px 30px -10px hsla(228, 31%, 5%, 16%);
   }
-}
-
-/* Other variables */
-:root {
-  --radius-s: 0.4rem;
-  --radius-m: 0.7rem;
-  --radius-l: 1rem;
-
-  --shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(2px 4px 6px var(--outer-shadow))
-    drop-shadow(4px 8px 12px var(--outer-shadow))
-    drop-shadow(8px 16px 24px var(--outer-shadow));
-  --shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(3px 6px 9px var(--outer-shadow-darker))
-    drop-shadow(6px 12px 18px var(--outer-shadow-darker))
-    drop-shadow(12px 24px 32px var(--outer-shadow-darker));
-  --shadow-card: 1px 2px 3px var(--outer-shadow),
-    2px 4px 6px var(--outer-shadow), 4px 8px 12px var(--outer-shadow),
-    8px 16px 24px var(--outer-shadow);
-  --shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
-    drop-shadow(2px 4px 6px var(--outer-shadow));
-  --shadow-icon-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
-    drop-shadow(3px 6px 9px var(--outer-shadow-darker));
-  --shadow-inner: inset 1px 2px 3px var(--inner-shadow),
-    inset 2px 4px 6px var(--inner-shadow), inset 3px 6px 9px var(--inner-shadow);
-  --shadow-inner-hover: inset 1px 2px 3px var(--inner-shadow-darker),
-    inset 2px 4px 6px var(--inner-shadow-darker),
-    inset 4px 8px 12px var(--inner-shadow-darker);
-
-  --font-size-xxxs: 0.8rem;
-  --font-size-xxs: 0.9rem;
-  --font-size-xs: 1rem;
-  --font-size-s: 1.2rem;
-  --font-size-m: 1.5rem;
-  --font-size-l: 1.8rem;
-  --font-size-xl: 2rem;
-  --font-size-xxl: 2.5rem;
-
-  --blur: blur(0.4rem);
-  --blur-more: blur(0.6rem);
 }
 
 /* Font stacks */
@@ -324,13 +341,13 @@ b {
 a:link,
 a:visited {
   color: var(--text);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 a:link:hover {
-  color: var(--accent1b);
+  color: var(--accent1a);
 }
 a:visited:hover {
-  color: var(--accent2b);
+  color: var(--accent2a);
 }
 
 div.post-preview a:link,
@@ -343,8 +360,8 @@ div.micro-post a:visited,
 li.h-entry a:visited {
   text-decoration: none;
   box-shadow: inset 0 -2px 0 var(--mid-blue);
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
 }
 
 div.post-preview a:link:hover,
@@ -354,8 +371,15 @@ li.h-entry a:link:hover {
   border-radius: var(--radius-s);
   padding: 0 0.3rem;
   margin: 0 -0.3rem;
-  box-shadow: inset 0 -23px 0 var(--border);
-  filter: var(--shadow-icon);
+  box-shadow: inset 0 -30px 0 var(--border-60);
+  filter: var(--shadow-link);
+}
+
+div.post-preview a.glightbox:link,
+li.h-entry a.glightbox:link,
+div.micro-post a.glightbox:link,
+div.post.h-entry a.glightbox:link {
+  box-shadow: none;
 }
 
 /* Headings */
@@ -372,8 +396,7 @@ h6 {
   margin-bottom: 0.5rem;
   text-decoration: none;
 }
-h1.category-name,
-div.h-entry h2 {
+h1.category-name {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   background: var(--background);
   border-top-left-radius: var(--radius-l);
@@ -398,10 +421,8 @@ h1.post-title.p-name {
 
 h1 a {
   text-decoration: none !important;
-  box-shadow: inset 0 -2px 0 transparent !important;
-}
-h1 a:hover {
-  box-shadow: inset 0 -57px 0 var(--border) !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 h2,
@@ -756,7 +777,6 @@ a.reply-by-email:hover {
 }
 
 a.read-more {
-  padding: 0;
   background: none;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 530;
