@@ -1,28 +1,3 @@
 <a href="https://havn.blog" id="logo"
   ><span class="asset-alt">Havn logo</span></a
 >
-
-<script>
-  const style = getComputedStyle(document.documentElement);
-
-  const initialSrc = style
-    .getPropertyValue("--havn-logo")
-    .trim()
-    .replace(/['"]+/g, "");
-  const hoverSrc = style
-    .getPropertyValue("--havn-logo-hover")
-    .trim()
-    .replace(/['"]+/g, "");
-
-  var logo = document.getElementById("logo");
-  logo.src = initialSrc;
-  logo.dataset.src = hoverSrc;
-
-  logo.onmouseover = function () {
-    logo.src = hoverSrc;
-  };
-
-  logo.onmouseout = function () {
-    logo.src = initialSrc;
-  };
-</script>

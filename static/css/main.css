@@ -11,9 +11,11 @@
   --text: hsl(228, 31%, 35%);
   --accent1a: hsl(150, 31%, 32%);
   --accent1b: hsl(150, 31%, 40%);
+  --accent1bg: hsla(150, 31%, 40%, 10%);
   --selection: hsla(150, 31%, 40%, 20%);
   --accent2a: hsl(283, 25%, 56%);
   --accent2b: hsl(283, 25%, 62%);
+  --accent2bg: hsla(283, 25%, 62%, 10%);
   --mid-blue: hsl(228, 31%, 69%);
   --outer-shadow: hsla(228, 31%, 31%, 7%);
   --outer-shadow-darker: hsla(228, 31%, 31%, 15%);
@@ -24,14 +26,6 @@
   --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
-  --havn-logo: "https://gist.githubusercontent.com/Erlendms/22dfdc9548b1d9ccb12b304706045532/raw/1f48e4115dbe92f11f1866225b4b95a00e83e53c/havn-logo-transp.svg?sanetize=true";
-  --havn-logo-hover: "https://gist.githubusercontent.com/Erlendms/ae758ed6dd96d3c7aa9536d375cc09eb/raw/d30612effeb43882fabb5ce1cd9d25f99600fd08/havn-logo.svg?sanetize=true";
-  --top-arrow: "https://gist.githubusercontent.com/Erlendms/bf5eb65d97f473b01d70721f31cfab75/raw/1ef36c782c2ed547cf8fe4a64a80db393b7db1a2/sol.svg?sanetize=true";
-  --top-arrow-hover: "https://gist.githubusercontent.com/Erlendms/4d2fdd247378c8e819a50f314918547e/raw/7b9a75b6371525d1ac901947dd05faae9def405a/sol-hover.svg?sanetize=true";
-  --rss-icon: "https://gist.githubusercontent.com/Erlendms/5063cc9cbb2b515f13cfcc9af973536c/raw/a8ed72ed6751d633210fef96802e5e39e2ef710a/havn-rss.svg?sanetize=true";
-  --micro-icon: "https://gist.githubusercontent.com/Erlendms/1d853c4f9101b7c54916847cb6f9c716/raw/3dd617971bc044d8c70267b822be7202d4184b9c/havn-icon-n.svg?sanetize=true";
-  --mastodon-icon: "https://gist.githubusercontent.com/Erlendms/e78d01f19dc3916c47505b0c96b0e617/raw/046e1cec51735d4bc145f815461da56c984057a7/havn-masto.svg?sanetize=true";
-  --email-icon: "https://gist.githubusercontent.com/Erlendms/9aaa47a7aa756e514c725290f638c767/raw/33cf8121e0337594488baf724e15d69ac3afd593/havn-mail.svg?sanetize=true";
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -46,18 +40,15 @@
     --text: hsl(228, 31%, 88%);
     --accent1a: hsl(170, 31%, 36%);
     --accent1b: hsl(170, 31%, 48%);
+    --accent1bg: hsla(170, 31, 48, 10%);
     --selection: hsla(170, 31%, 48%, 20%);
     --accent2a: hsl(283, 25%, 58%);
     --accent2b: hsl(283, 25%, 68%);
+    --accent2bg: hsla(283, 25%, 68%, 10%);
     --outer-shadow: hsla(228, 31%, 7%, 15%);
     --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
-
-    --havn-logo: "https://gist.githubusercontent.com/Erlendms/349b0faa0915c39d6a7dce9618caaeec/raw/e8bfdf54edadb5ebc1ea5d8a70322e91574484bc/havn-logo-dm-transp.svg?sanetize=true";
-    --havn-logo-hover: "https://gist.githubusercontent.com/Erlendms/188a5309c090ee29fcd7190fe90a619c/raw/02a314625b8f4d198180510f0a9d5a5ac7b1892a/havn-logo-dm.svg?sanetize=true";
-    --top-arrow: "https://gist.githubusercontent.com/Erlendms/5db03aca6d15796bcacf5bed5e5177fd/raw/a8a3c734f414a85d3f485b80d5ec00c22f83ee70/moon.svg?sanetize=true";
-    --top-arrow-hover: "https://gist.githubusercontent.com/Erlendms/614daadfe481d68e45a431b94b5675ff/raw/f2a60ef38e8f9ed7f9ae3d5f9adfe6acfa814832/moon-hover2.svg?sanetize=true";
   }
 }
 
@@ -299,7 +290,8 @@ body {
 
 div.post-preview,
 div.post.h-entry,
-div.micro-post {
+div.micro-post,
+li.h-entry {
   background: var(--background);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-l);
@@ -310,6 +302,11 @@ div.micro-post {
   @media (max-width: 650px) {
     padding: 0.5rem 1rem;
   }
+}
+
+div.post.h-entry,
+div.micro-post:first-of-type {
+  margin-top: 1rem;
 }
 
 p {
@@ -323,35 +320,42 @@ b {
 }
 
 /* Links */
-a:link {
-  color: var(--text);
-  -webkit-text-decoration-line: underline;
-  text-decoration: underline;
-  -webkit-text-decoration-color: var(--accent1a);
-  text-decoration-color: var(--accent1a);
-  text-decoration-thickness: 2px;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
+
+a:link,
 a:visited {
   color: var(--text);
-  -webkit-text-decoration-line: underline;
-  text-decoration: underline;
-  -webkit-text-decoration-color: var(--accent2a);
-  text-decoration-color: var(--accent2a);
-  text-decoration-thickness: 2px;
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
 }
 a:link:hover {
   color: var(--accent1b);
-  -webkit-text-decoration-color: transparent;
-  text-decoration-color: transparent;
 }
 a:visited:hover {
   color: var(--accent2b);
-  -webkit-text-decoration-color: transparent;
-  text-decoration-color: transparent;
+}
+
+div.post-preview a:link,
+div.post.h-entry a:link,
+div.micro-post a:link,
+li.h-entry a:link,
+div.post-preview a:visited,
+div.post.h-entry a:visited,
+div.micro-post a:visited,
+li.h-entry a:visited {
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 var(--mid-blue);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+div.post-preview a:link:hover,
+div.post.h-entry a:link:hover,
+div.micro-post a:link:hover,
+li.h-entry a:link:hover {
+  border-radius: var(--radius-s);
+  padding: 0 0.3rem;
+  margin: 0 -0.3rem;
+  box-shadow: inset 0 -23px 0 var(--border);
+  filter: var(--shadow-icon);
 }
 
 /* Headings */
@@ -368,7 +372,8 @@ h6 {
   margin-bottom: 0.5rem;
   text-decoration: none;
 }
-h1.category-name {
+h1.category-name,
+div.h-entry h2 {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   background: var(--background);
   border-top-left-radius: var(--radius-l);
@@ -377,7 +382,7 @@ h1.category-name {
   @media (max-width: 650px) {
     padding-left: 1rem;
   }
-  margin-bottom: -3.2rem;
+  margin-bottom: -3rem;
 }
 h1.post-title.p-name {
   margin-top: -0.1rem;
@@ -388,10 +393,15 @@ h1.post-title.p-name {
   text-align: center;
   width: 110%;
   left: -5%;
+  margin-bottom: 0.9rem;
 }
 
 h1 a {
   text-decoration: none !important;
+  box-shadow: inset 0 -2px 0 transparent !important;
+}
+h1 a:hover {
+  box-shadow: inset 0 -57px 0 var(--border) !important;
 }
 
 h2,
@@ -432,22 +442,24 @@ h5 {
 h6 {
   font-family: "PP-Writer", var(--font_old_style), serif;
   font-weight: 100;
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-m);
   color: var(--h2);
-  letter-spacing: 0.005em;
+  letter-spacing: 0.01em;
   margin-top: 0;
 }
 
 /* Date */
 
 a.post-date {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-size: var(--font-size-xxxs);
   color: var(--mid-blue);
-  text-decoration: none;
+  box-shadow: inset 0 -2px 0 transparent !important;
 }
 
 a.post-date:hover {
   text-decoration: none;
+  box-shadow: inset 0 -24px 0 var(--border) !important;
 }
 
 span.post-date {
@@ -619,9 +631,10 @@ p.description {
 #follow-list {
   position: absolute;
   z-index: 1;
-  top: 5.5rem;
+  top: auto;
+  bottom: calc(100vh - 8.1rem);
   @media (max-width: 650px) {
-    top: 4.5rem;
+    bottom: calc(100vh - 12.5rem);
   }
   left: 50%;
   margin-top: 0.5rem;
@@ -633,13 +646,7 @@ p.description {
 }
 #follow-list.move-down {
   position: fixed;
-  top: calc(100vh - 7rem);
-  bottom: auto;
-}
-@media (max-width: 650px) {
-  #follow-list.move-down {
-    top: calc(100vh - 7rem);
-  }
+  bottom: 2rem;
 }
 
 #follow-list ul {
@@ -805,14 +812,16 @@ a.language {
   text-decoration: none !important;
   background-color: var(--border);
   border-radius: var(--radius-s);
-  padding: 0.2rem 0.4rem;
-  margin-right: 0.5rem;
+  padding: 0.2rem 0.4rem !important;
+  margin: 0 0.5rem 0 0 !important;
   animation: shadowIconAnimation 0.5s forwards;
+  box-shadow: none !important;
 }
 ul.post-tags a:hover,
 a.language:hover {
   color: var(--h1);
   animation: shadowIconAnimationHover 0.5s forwards;
+  box-shadow: none !important;
 }
 
 .post-content div.language-container {
@@ -880,11 +889,13 @@ li::marker {
 
 article img,
 .e-content img,
-.p-summary img {
+.p-summary img,
+div.micro-post img {
   width: 100%;
   height: auto;
   border-radius: var(--radius-m) !important;
   animation: shadowImageAnimation 0.5s forwards;
+  margin-top: 0.6rem;
 }
 
 article img:hover,
@@ -1001,15 +1012,35 @@ figcaption {
   margin-bottom: 0.5rem !important;
 }
 
-header h1 a,
-header h1 a:visited {
-  text-decoration: none;
-  color: var(--text);
+/* Footnotes */
+
+.bf-footnote {
+  font-size: var(--font-size-xxs);
+  font-weight: 100;
+  color: var(--h1);
+  background: var(--border-60) !important;
+  border: none !important;
+  border-radius: var(--radius-s) !important;
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  box-shadow: var(--shadow-card);
+}
+.footnote-button {
+  background: var(--border) !important;
+  border-radius: var(--radius-s) !important;
+}
+.footnote-button:after {
+  color: var(--text) !important;
+}
+.footnote-button:hover {
+  background: var(--mid-blue) !important;
+}
+.footnote-button:hover:after {
+  color: var(--background) !important;
 }
 
-header h1 a:hover {
-  color: var(--h1);
-  text-decoration: none;
+.bf-footnote.footnote-is-active {
+  opacity: 1 !important;
 }
 
 header p {
@@ -1065,6 +1096,7 @@ ul.post-tags li {
 ul.post-tags,
 ul.post-list {
   padding-left: 0;
+  margin-bottom: 1rem;
 }
 
 ul.post-list {
