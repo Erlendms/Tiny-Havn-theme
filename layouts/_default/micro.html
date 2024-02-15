@@ -4,8 +4,7 @@
   <h1 class="Micro posts">Micro posts</h1>
   <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
   <ul class="post-list">
-    {{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
-    {{ range $paginator.Pages }}
+    {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
       {{ if not .Title }}
         <li class="micro-post">
           <a href="{{ .Permalink }}" class="post-date u-url">
@@ -18,17 +17,5 @@
       {{ end }}
     {{ end }}
   </ul>
-<div class="post-nav">
-  {{ if $paginator.HasPrev }}
-  <span class="prev">
-    <a href="{{ $paginator.Prev.URL }}" title="Previous Page"><span class="arrow">← Newer Posts</span></a>
-  </span>
-  {{ end }}
-  {{ if $paginator.HasNext }}
-  <span class="next">
-    <a href="{{ $paginator.Next.URL }}"><span class="arrow">Older Posts →</span></a>
-  </span>
-  {{ end }}
-</div>
 </div>
 {{ end }}
