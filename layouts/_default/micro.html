@@ -2,12 +2,12 @@
 <div>
   {{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
   {{ range where .Site.Pages "Type" "post" }}
-  {{ with .Title }}{{ else }}
-  <div class="micro-post">
-      <a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time> ∞</a>
-    <p>{{ .Content }}</p>
-  </div>
-  {{ end }}
+    {{ if not .Title }}
+      <div class="micro-post">
+          <a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time> ∞</a>
+        <p>{{ .Content }}</p>
+      </div>
+    {{ end }}
   {{ end }}
 </div>
 {{ end }}
