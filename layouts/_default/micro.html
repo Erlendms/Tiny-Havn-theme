@@ -15,6 +15,12 @@
             </time> ∞
           </a>
           <p>{{ .Content }}</p>
+          <ul class="post-tags">
+              {{ range .Params.categories }}
+                  {{ $href := print (absURL "categories/") (urlize .) }}
+                  <li><a href="{{ $href }}">{{ . }}</a></li>
+              {{ end }}
+          </ul>
         </li>
       {{ end }}
     {{ end }}
