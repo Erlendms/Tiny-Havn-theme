@@ -1,8 +1,10 @@
 {{ define "main" }}
 <div class="home h-feed">
   <div id="navPadding"></div>
-  <h1 class="Micro posts">Micro posts</h1>
-  <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
+  <div id="Micro-header-containter">
+    <h1 class="Micro posts">Micro posts</h1>
+    <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
+  </div>
   <ul class="post-list">
     {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
       {{ if not .Title }}
