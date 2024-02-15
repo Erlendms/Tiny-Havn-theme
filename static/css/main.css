@@ -75,6 +75,19 @@
   --blur-more: blur(0.6rem);
 }
 
+@media (max-width: 650px) {
+  :root {
+    --font-size-xxxs: 0.8rem;
+    --font-size-xxs: 0.9rem;
+    --font-size-xs: 1rem;
+    --font-size-s: 1.1rem;
+    --font-size-m: 1.2rem;
+    --font-size-l: 1.4rem;
+    --font-size-xl: 1.6rem;
+    --font-size-xxl: 1.9rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --border: hsl(228, 31%, 10%);
@@ -428,26 +441,46 @@ h5 {
   margin-bottom: 0;
 }
 
+/* Page heading */
 h1.category-name,
-h2 {
+h2,
+div.micro-header-container {
+  position: relative;
+  z-index: 2;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-weight: 300;
+  font-size: var(--font-size-xxl);
   background: var(--background);
-  border-top-left-radius: var(--radius-l);
-  border-top-right-radius: var(--radius-l);
-  padding: 0.5rem 0 2rem 2.5rem;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
+  padding: 0.5rem 3.5rem 0.5rem 3.5rem;
+  width: calc(100% - 5rem);
+  left: -1rem;
   @media (max-width: 650px) {
-    padding-left: 1rem;
+    padding-left: 2rem;
+    width: calc(100% - 3.5rem);
   }
-  margin-bottom: -3rem;
+}
+
+ul.post-list div.post-preview:first-of-type,
+ul.post-list li.h-entry:first-of-type {
+  padding-top: 3rem;
+  margin-top: -3rem;
 }
 
 p-summary h2,
-post-content h2 {
+article.post-content h2 {
   font-weight: 300;
   font-size: var(--font-size-xl);
   color: var(--h2);
   letter-spacing: 0;
   margin-top: 2.2rem;
+  box-shadow: unset;
+  background: unset;
+  border-radius: unset;
+  padding: unset;
+  width: unset;
+  left: unset;
 }
 
 h4 {
@@ -564,7 +597,7 @@ nav {
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   margin: 0;
-  z-index: 4;
+  z-index: 11;
   position: sticky;
   top: 0.3rem;
 }
@@ -637,7 +670,7 @@ nav a:link:hover {
   margin-left: -2.5rem;
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
-  z-index: 2;
+  z-index: 10;
   @media (max-width: 650px) {
     width: calc(100% + 2rem);
     margin-left: -1rem;
@@ -992,7 +1025,7 @@ figcaption {
     margin-left: 0.5rem;
   }
   .img-gallery a:last-child {
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
   .img-gallery img {
     max-width: 75vw !important;
