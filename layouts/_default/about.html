@@ -1,29 +1,69 @@
 {{ define "main" }}
-<div class="home h-feed">
+<div class="custom-page-content">
   <div id="navPadding"></div>
-  <div id="micro-header-container">
-    <h1 class="micro-posts">Micro posts</h1>
-    <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
-  </div>
-  <ul class="post-list">
-    {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
-      {{ if not .Title }}
-        <li class="micro-post">
-          <a href="{{ .Permalink }}" class="post-date u-url">
-            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </time> ∞
-          </a>
-          <p>{{ .Content }}</p>
-          <ul class="post-tags">
-              {{ range .Params.categories }}
-                  {{ $href := print (absURL "categories/") (urlize .) }}
-                  <li><a href="{{ $href }}">{{ . }}</a></li>
-              {{ end }}
-          </ul>
-        </li>
-      {{ end }}
-    {{ end }}
-  </ul>
+  <h1 class="page-header">About Havn</h1>
+  <p>
+    My name is Erlend
+    <button
+      class="footnote-button"
+      id="#fnref:1"
+      data-footnote="fn:1"
+      alt="See Footnote 1"
+      rel="footnote"
+      data-fn-number="1"
+      data-fn-content="You can pronounce it like the name 'Allen', but with a long A-sound - like if it only had one L."
+    ></button
+    >, and I live in Oslo, Norway with my wife and our dog, Vincent.
+  </p>
+  <img
+    id="e-and-v"
+    src="https://havn.blog/uploads/2024/erlend-og-vincent.png"
+    width="300"
+    height="300"
+    alt="Me, in a blue Hawaii shirt, hugging my dog, Vincent. He's a large, tan eurasier."
+  />
+  <h2>I started this blog because I needed shelter ...</h2>
+  <p>
+    ... from the storms in my head. And that's why I named it
+    <strong>Havn</strong> (which means <em>harbour</em> in Norwegian).
+  </p>
+  <p>
+    Here I'll try to collect my thoughts, that tend to jolt in every direction
+    in search of connections and meaning.
+  </p>
+  <h2>Sometimes, I make pedal boards,</h2>
+  <p>
+    and I like to make them <em>nice</em>. That's why I've started a small
+    business named "Erlend Mekker Nice", which means "Erlend makes it nice" (it
+    a bit broken Norwegian).
+  </p>
+  <p>I make stuff like this:</p>
+  <img
+    id="pedalboards"
+    src="https://havn.blog/uploads/2024/pedalbrett.jpg"
+    width="600"
+    height="337"
+    alt="A picture of four different pedal boards for guitar players. I think they're nice, with colour codes and cable management."
+  />
+  <p>
+    So if you know anyone with a duct tape and velcro infested pedal chaos on
+    their hands (or feet) - let me know, and I can help! (Especially if it's in
+    Norway.)
+  </p>
+  <h2>I also play in a band!</h2>
+  <p>
+    It's called Klondike, and I think it's a lot of fun. I've also spent some
+    time making our rehearsal room/studio <em>nice</em>!
+  </p>
+  <h2>Sometimes, I make pedal boards,</h2>
+  <p>
+    Here I'll try to collect my thoughts, that tend to jolt in every direction
+    in search of connections and meaning.
+  </p>
+  <h2>Sometimes, I make pedal boards,</h2>
+  <p>
+    Here I'll try to collect my thoughts, that tend to jolt in every direction
+    in search of connections and meaning.
+  </p>
 </div>
 {{ end }}

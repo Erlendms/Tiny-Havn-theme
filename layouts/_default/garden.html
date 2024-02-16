@@ -1,29 +1,16 @@
 {{ define "main" }}
-<div class="home h-feed">
+<div class="custom-page-content">
   <div id="navPadding"></div>
-  <div id="micro-header-container">
-    <h1 class="micro-posts">Micro posts</h1>
-    <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
-  </div>
-  <ul class="post-list">
-    {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
-      {{ if not .Title }}
-        <li class="micro-post">
-          <a href="{{ .Permalink }}" class="post-date u-url">
-            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </time> ∞
-          </a>
-          <p>{{ .Content }}</p>
-          <ul class="post-tags">
-              {{ range .Params.categories }}
-                  {{ $href := print (absURL "categories/") (urlize .) }}
-                  <li><a href="{{ $href }}">{{ . }}</a></li>
-              {{ end }}
-          </ul>
-        </li>
-      {{ end }}
-    {{ end }}
+  <h1 class="page-header">Pocket Garden</h1>
+  <p>
+    Here I'll add semi-permanent posts, inspired by
+    <a href="https://maggieappleton.com/garden">digital gardens like this</a>.
+  </p>
+  <p>The ones I have planned for now, are the following:</p>
+  <ul>
+    <li>The principles and ethics of this site</li>
+    <li>My default apps</li>
+    <li>My tech setup</li>
+    <li>My bass guitar setup</li>
   </ul>
 </div>
-{{ end }}

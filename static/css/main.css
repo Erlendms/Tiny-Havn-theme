@@ -381,12 +381,12 @@ div.post-preview a:link,
 div.post.h-entry a:link,
 li.micro-post a:link,
 li.h-entry a:link,
-#micro-post-header a:link,
+#micro-header-container a:link,
 div.post-preview a:visited,
 div.post.h-entry a:visited,
 li.micro-post a:visited,
 li.h-entry a:visited,
-#micro-post-header a:visited {
+#micro-header-container a:visited {
   text-decoration: none;
   box-shadow: inset 0 -2px 0 var(--mid-blue);
   transition: all 0.35s ease-in-out;
@@ -397,7 +397,7 @@ div.post-preview a:link:hover,
 div.post.h-entry a:link:hover,
 li.micro-post a:link:hover,
 li.h-entry a:link:hover,
-#micro-post-header a:link:hover {
+#micro-header-container a:link:hover {
   border-radius: var(--radius-s);
   padding: 0 0.3rem;
   margin: 0 -0.3rem;
