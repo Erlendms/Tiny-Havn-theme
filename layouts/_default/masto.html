@@ -1,29 +1,20 @@
 {{ define "main" }}
-<div class="home h-feed">
+<div class="custom-page-content">
   <div id="navPadding"></div>
-  <div id="micro-header-container">
-    <h1 class="micro-posts">Micro posts</h1>
-    <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
-  </div>
-  <ul class="post-list">
-    {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
-      {{ if not .Title }}
-        <li class="micro-post">
-          <a href="{{ .Permalink }}" class="post-date u-url">
-            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </time> ∞
-          </a>
-          <p>{{ .Content }}</p>
-          <ul class="post-tags">
-              {{ range .Params.categories }}
-                  {{ $href := print (absURL "categories/") (urlize .) }}
-                  <li><a href="{{ $href }}">{{ . }}</a></li>
-              {{ end }}
-          </ul>
-        </li>
-      {{ end }}
-    {{ end }}
-  </ul>
+  <h1 class="page-header">Mastodon etc.</h1>
+  <p>
+    You can follow the blog, and it's micro blog portion, directly in Mastodon,
+    Firefish, etc. by searching for this username there:
+    <code>@micro@havn.blog</code>
+  </p>
+  <p>
+    You can also follow my personal account! Search for this username:
+    <code>@havn@mas.to</code>
+    writing.exchange
+  </p>
+  <p>
+    You could also follow <a href="https://mas.to/havn">this link</a>. (If
+    you're on mobile, you can long press, share and click "Open in [your app of
+    choice]".)
+  </p>
 </div>
-{{ end }}
