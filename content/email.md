@@ -1,4 +1,4 @@
 ---
-title: "E-mail"
+title: "Email"
 layout: "email"
 ---
