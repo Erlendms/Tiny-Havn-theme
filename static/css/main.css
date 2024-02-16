@@ -503,7 +503,7 @@ ul.post-list li.h-entry:first-of-type,
 ul.post-list li.micro-post:first-of-type,
 div.custom-page-content {
   padding-top: 3rem;
-  margin-top: -3rem;
+  margin-top: -2.5rem;
 }
 
 p-summary h2,
