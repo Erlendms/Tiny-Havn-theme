@@ -466,7 +466,7 @@ h5 {
 }
 
 /* Page heading */
-h1.category-name,
+h1.page-header,
 h2,
 #micro-header-container {
   position: relative;
@@ -514,8 +514,8 @@ article.post-content h2 {
   box-shadow: unset;
   background: unset;
   border-radius: unset;
-  padding: unset;
-  width: unset;
+  padding: unset !important;
+  width: unset !important;
   left: unset;
 }
 
@@ -610,9 +610,13 @@ span.post-date {
   backdrop-filter: var(--blur-more);
   -webkit-backdrop-filter: var(--blur-more);
   border-radius: var(--radius-m);
+  box-shadow: none;
   @media (min-width: 651px) {
     right: calc(50% - 320px);
   }
+}
+#back-to-top:hover {
+  box-shadow: var(--shadow-card);
 }
 
 #back-to-top.show-button {
@@ -633,7 +637,7 @@ nav {
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   margin: 0;
-  z-index: 11;
+  z-index: 12;
   position: sticky;
   top: 0.3rem;
 }
@@ -689,7 +693,7 @@ nav a:link:hover {
   max-height: 1rem;
   background: var(--accent1a);
   width: calc((var(--scroll-ratio) * 100%) + (var(--scroll-ratio) * 5rem));
-  z-index: 3;
+  z-index: 11;
   margin-left: -2.5rem;
   @media (max-width: 650px) {
     width: calc((var(--scroll-ratio) * 100%) + (var(--scroll-ratio) * 2rem));
@@ -994,7 +998,8 @@ li.micro-post img {
 @media (min-width: 651px) {
   article img:hover,
   .e-content img:hover,
-  .p-summary img:hover {
+  .p-summary img:hover,
+  li.micro-post img:hover {
     max-width: calc(100% + 4px) !important;
     width: calc(100% + 4px);
     transform: translate3d(-2px, -2px, 0);

@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="home h-feed">
+  <div id="navPadding"></div>
+  <h1 class="page-header">E-mail contact and newsletter</h1>
+  <p>
+    Subscribe to the email newsletter for this blog. If I've written any longs
+    posts that week, you'll get an email with them on Sundays.
+  </p>
+  <p>You'll also find links to the Norwegian versions of the posts!</p>
+
+  <form method="POST" action="https://micro.blog/users/subscribe/92331">
+    <input
+      type="text"
+      name="email"
+      size="30"
+      placeholder="Your email address"
+    />
+    <input type="submit" value="Subscribe" />
+  </form>
+</div>
