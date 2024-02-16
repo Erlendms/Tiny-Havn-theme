@@ -41,20 +41,25 @@
 </div>
 
 <script>
-  let followList = document.getElementById("follow-list");
+  let currentUrl = window.location.href;
+  const excludedUrls = ["https://havn.blog/email/", "https://havn.blog/masto/"];
 
-  window.addEventListener(
-    "scroll",
-    _.throttle(function () {
-      let pageHeight = document.documentElement.scrollHeight;
-      let scrollDistanceFromBottom =
-        pageHeight - window.pageYOffset - window.innerHeight;
+  if (!excludedUrls.includes(currentUrl)) {
+    let followList = document.getElementById("follow-list");
 
-      if (scrollDistanceFromBottom < 100) {
-        followList.classList.add("move-down");
-      } else {
-        followList.classList.remove("move-down");
-      }
-    }, 700),
-  );
+    window.addEventListener(
+      "scroll",
+      _.throttle(function () {
+        let pageHeight = document.documentElement.scrollHeight;
+        let scrollDistanceFromBottom =
+          pageHeight - window.pageYOffset - window.innerHeight;
+
+        if (scrollDistanceFromBottom < 100) {
+          followList.classList.add("move-down");
+        } else {
+          followList.classList.remove("move-down");
+        }
+      }, 700),
+    );
+  }
 </script>

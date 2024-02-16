@@ -467,7 +467,7 @@ h5 {
 }
 
 /* Page heading */
-h1.page-header,
+h1.category-header,
 h2,
 #micro-header-container {
   position: relative;
@@ -486,7 +486,7 @@ h2,
     width: calc(100% - 3.5rem);
   }
 }
-h1.micro-posts {
+h1.page-header {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 300;
   font-size: var(--font-size-xxl);
