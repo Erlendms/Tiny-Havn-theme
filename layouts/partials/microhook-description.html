@@ -42,7 +42,11 @@
 
 <script>
   let currentUrl = window.location.href;
-  const excludedUrls = ["https://havn.blog/email/", "https://havn.blog/masto/"];
+  const excludedUrls = [
+    "https://havn.blog/email/",
+    "https://havn.blog/masto/",
+    "https://havn.blog/garden/",
+  ];
 
   if (!excludedUrls.includes(currentUrl)) {
     let followList = document.getElementById("follow-list");

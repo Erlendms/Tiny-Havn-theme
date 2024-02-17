@@ -495,7 +495,6 @@ h1.page-header {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 300;
   font-size: var(--font-size-xxl);
-  padding-left: 1rem;
 }
 
 #micro-header-container p {
@@ -937,11 +936,6 @@ button:hover {
   box-shadow: none !important;
 }
 
-input[type="submit"],
-button {
-  margin-bottom: 1rem !important;
-}
-
 .post-content div.language-container {
   display: flex;
   justify-content: center;
@@ -1008,7 +1002,8 @@ li::marker {
 article img,
 .e-content img,
 .p-summary img,
-li.micro-post img {
+li.micro-post img,
+div.custom-page-content img {
   width: 100%;
   height: auto;
   border-radius: var(--radius-m) !important;
@@ -1020,7 +1015,8 @@ li.micro-post img {
   article img:hover,
   .e-content img:hover,
   .p-summary img:hover,
-  li.micro-post img:hover {
+  li.micro-post img:hover,
+  div.custom-page-content img:hover {
     max-width: calc(100% + 4px) !important;
     width: calc(100% + 4px);
     transform: translate3d(-2px, -2px, 0);
