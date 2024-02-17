@@ -1,4 +1,4 @@
 ---
-title: "About Havn"
+title: "About"
 layout: "about"
 ---
