@@ -345,8 +345,12 @@ div.custom-page-content {
   z-index: 1;
   padding: 0.5rem 2.5rem;
   @media (max-width: 650px) {
-    padding: 0.5rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
+}
+div.custom-page-content {
+  padding-bottom: 2rem;
 }
 
 div.post.h-entry,
@@ -468,6 +472,7 @@ h5 {
 
 /* Page heading */
 h1.category-header,
+h1.page-header,
 h2,
 #micro-header-container {
   position: relative;
@@ -490,6 +495,9 @@ h1.page-header {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 300;
   font-size: var(--font-size-xxl);
+  padding-left: 1rem;
+  box-shadow: unset;
+  padding-bottom: unset;
 }
 
 #micro-header-container p {
@@ -504,6 +512,8 @@ ul.post-list li.micro-post:first-of-type,
 div.custom-page-content {
   padding-top: 3rem;
   margin-top: -2.5rem;
+}
+div.custom-page-conten {
 }
 
 p-summary h2,

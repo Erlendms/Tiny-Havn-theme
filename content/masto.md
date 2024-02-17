@@ -1,4 +1,4 @@
 ---
-title: "Follow on the Fediverse"
+title: "Fediverse"
 layout: "masto"
 ---
