@@ -472,7 +472,7 @@ h5 {
 
 /* Page heading */
 h1.category-header,
-h1.page-header,
+h1.page-title,
 h2,
 #micro-header-container {
   position: relative;
@@ -496,8 +496,6 @@ h1.page-header {
   font-weight: 300;
   font-size: var(--font-size-xxl);
   padding-left: 1rem;
-  box-shadow: unset;
-  padding-bottom: unset;
 }
 
 #micro-header-container p {
