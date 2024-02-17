@@ -936,6 +936,12 @@ button:hover {
   box-shadow: none !important;
 }
 
+input[type="submit"],
+button {
+  padding: 0.4rem 0.8rem !important;
+  font-size: var(--font-size-xxs);
+}
+
 .post-content div.language-container {
   display: flex;
   justify-content: center;
@@ -1405,13 +1411,14 @@ input[type="search"],
 input[type="email"] {
   padding: 10px;
   font-size: var(--font-size-xxs);
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   border: none !important;
   border-radius: var(--radius-s) !important;
   color: var(--text);
   display: block;
   height: auto;
   background: var(--border);
-  margin: 1rem 0 0.5rem;
+  margin: 1rem 0 0.7rem;
   box-shadow: var(--shadow-inner);
   transition: all 0.3s ease-in-out;
   outline: none !important;
