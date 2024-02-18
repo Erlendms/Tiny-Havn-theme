@@ -664,6 +664,33 @@ ul.reply-buttons {
   list-style-type: none;
   padding: 0;
   text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.did_select {
+  background: var(--border);
+  color: var(--text);
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.tinylytics_webring {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  justify-content: center;
+}
+
+a.tinylytics_webring {
+  text-decoration: none;
+}
+
+.tinylytics_webring_avatar {
+  width: auto;
+  height: 1.75rem;
+  border-radius: 100%;
 }
 
 nav ul li,
@@ -1412,31 +1439,6 @@ video {
 }
 
 /* Styling specific to Tinylytics Plugin */
-
-.did_select {
-  background: var(--border);
-  color: var(--text);
-  opacity: 0.8;
-  cursor: not-allowed;
-}
-
-.tinylytics_webring {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 3px;
-  justify-content: center;
-}
-
-a.tinylytics_webring {
-  text-decoration: none;
-}
-
-.tinylytics_webring_avatar {
-  width: auto;
-  height: 1.75rem;
-  border-radius: 100%;
-}
 
 /* STYLING TO TWEAK CODE BLOCKS (SYNTAX HIGHLIGHTING) */
 
