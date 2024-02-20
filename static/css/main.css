@@ -3,6 +3,7 @@
   --border: hsl(228, 31%, 92%);
   --border-90: hsla(228, 31%, 91%, 90%);
   --border-60: hsla(228, 31%, 90%, 60%);
+  --border-20: hsla(228, 31%, 90%, 20%);
   --background: hsl(228, 31%, 96%);
   --h1: hsl(228, 31%, 19%);
   --h2: hsl(228, 31%, 23%);
@@ -100,6 +101,7 @@
     --border: hsl(228, 31%, 10%);
     --border-90: hsla(228, 31%, 10%, 90%);
     --border-60: hsla(228, 31%, 10%, 60%);
+    --border-20: hsla(228, 31%, 10%, 20%);
     --background: hsl(228, 31%, 15%);
     --h1: hsl(228, 31%, 96%);
     --h2: hsl(228, 31%, 94%);
@@ -1312,6 +1314,8 @@ ul.post-list a.u-url {
 }
 
 blockquote {
+  background: var(--border-20);
+  box-shadow: var(--shadow-card);
   padding: 1rem;
   border-radius: var(--radius-m);
   font-size: var(--font-size-xxs);
