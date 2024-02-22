@@ -1453,6 +1453,9 @@ video {
 pre {
   overflow: auto;
   padding: 1rem;
+  background: var(--border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-inner);
 }
 
 /* OVERRIDING DEFAULT MICROBLOG AND PLUGIN CSS. Using !important isn't ideal, but it's the most effective for these things. */
