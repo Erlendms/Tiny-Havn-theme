@@ -1,29 +1,53 @@
 {{ define "main" }}
-<div class="home h-feed">
-  <div id="navPadding"></div>
-  <div id="micro-header-container">
-    <h1 class="micro-posts">Micro posts</h1>
-    <p><a href="https://havn.blog/replies">Click here</a> to see my replies to other people.</p>
-  </div>
-  <ul class="post-list">
-    {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
-      {{ if not .Title }}
-        <li class="micro-post">
-          <a href="{{ .Permalink }}" class="post-date u-url">
-            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </time> ∞
-          </a>
-          <p>{{ .Content }}</p>
-          <ul class="post-tags">
-              {{ range .Params.categories }}
-                  {{ $href := print (absURL "categories/") (urlize .) }}
-                  <li><a href="{{ $href }}">{{ . }}</a></li>
-              {{ end }}
-          </ul>
-        </li>
-      {{ end }}
-    {{ end }}
-  </ul>
+<div id="navPadding"></div>
+<h1 class="page-title">Kontakt</h1>
+<div class="custom-page-content">
+  <p>Ønsker du å komme i kontakt med meg? Så hyggelig!</p>
+  <p>
+    Jeg er litt kjip, med at jeg ønsker å se om jeg kan klare meg uten
+    Meta-tjenester, som Facebook og Messenger. Men det er likevel mange måter å
+    få kontakt med meg på!
+  </p>
+  <p>
+    Du kan for eksempel sende meg en <strong>e-post</strong>, til
+    <a href="mailto:erlend@msaltnes.no">erlend ætt msaltnes.no</a>.
+  </p>
+  <h2>Jeg er også på mange ulike chatte-tjenester:</h2>
+  <p>
+    Hvis du har iPhone eller andre Apple-produkter, kan du skrive inn e-posten
+    fra over i den vanlige meldings-/SMS-appen for å sende meg en
+    <strong>iMessage</strong>-melding.
+  </p>
+  <p>
+    Appen jeg bruker mest, er <a href=""><strong>Telegram</strong></a> - og du
+    kan sende meg melding ved å <a href="https://t.me/erlendms">trykke her</a>,
+    eller ved å skanne QR-koden under:
+  </p>
+  <img
+    src="https://havn.blog/uploads/2024/174397f5b9.jpeg"
+    class="medium"
+    alt="Telegram-QR-kode"
+  />
+  <p>
+    For å sende meg melding via
+    <a href="https://signal.org/"><strong>Signal</strong></a
+    >, kan du
+    <a
+      href="https://signal.me/#eu/uj7OAFJT-V1YYCfR5-tvvSvOCDyugV5Ew2rxJiLpL1K7onV2tUZD74VVchrjQB1i"
+      >trykke her</a
+    >
+    eller skanne <em>denne</em> QR-koden:
+  </p>
+  <img
+    src="https://havn.blog/uploads/2024/20a273999e.jpeg"
+    class="medium"
+    alt="Telegram-QR-kode"
+  />
+  <p>
+    Dersom du bruker en <a href="https://matrix.org/"><strong>Matrix</strong></a
+    >-tjeneste, som
+    <a href="https://element.io/app-for-productivity">Element</a>, kan du sende
+    meg melding til adressa @erlendm:matrix.org.
+  </p>
 </div>
 {{ end }}
