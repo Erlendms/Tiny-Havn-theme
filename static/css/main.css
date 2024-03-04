@@ -522,7 +522,7 @@ p.description {
   top: auto;
   bottom: calc(100vh - 8.1rem);
 
-  @media (max-width: 650px) {
+  @media (max-width: 450px) {
     bottom: calc(100vh - 12.5rem);
   }
 
@@ -651,7 +651,8 @@ a[href="https://havn.blog/categories/norsk"]
 ul.post-tags a,
 a.language,
 input[type="submit"],
-button {
+button,
+.post-nav span {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-size: var(--font-size-xxxs);
   color: var(--text);
@@ -668,7 +669,8 @@ button {
 ul.post-tags a:hover,
 a.language:hover,
 input[type="submit"]:hover,
-button:hover {
+button:hover,
+.post-nav span:hover {
   color: var(--h1);
   animation: shadowIconAnimationHover 0.5s forwards;
   box-shadow: none !important;
@@ -696,6 +698,31 @@ ul.post-list a.u-url {
 
 div.custom-page-content div.language-container {
   marign-top: 0.5rem;
+}
+
+/* Older/Newer Posts */
+.post-nav {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.post-nav span {
+  background: var(--background);
+}
+
+.post-nav span a {
+  text-decoration: none;
+}
+.post-nav span.arrow {
+  background: none;
+  animation: none;
+}
+
+.post-nav a:visited {
+  color: var(--text);
 }
 
 input[type="submit"],
@@ -790,7 +817,8 @@ div.post.h-entry a:visited,
 li.micro-post a:visited,
 li.h-entry a:visited,
 #micro-header-container a:visited,
-div.custom-page-content a:visited {
+div.custom-page-content a:visited,
+a.u-url.mention {
   text-decoration: none;
   box-shadow: inset 0 -2px 0 var(--mid-blue);
   transition: all 0.35s ease-in-out;
@@ -802,7 +830,8 @@ div.post.h-entry a:link:hover,
 li.micro-post a:link:hover,
 li.h-entry a:link:hover,
 #micro-header-container a:link:hover,
-div.custom-page-content a:link:hover {
+div.custom-page-content a:link:hover,
+a.u-url.mention:hover {
   border-radius: var(--radius-s);
   padding: 0 0.3rem;
   margin: 0 -0.3rem;
@@ -1088,7 +1117,7 @@ blockquote p:first-of-type {
     background-image: url("/assets/havn-logo-dm-transp.png");
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 450px) {
     margin-top: -1rem;
   }
 }
@@ -1337,6 +1366,58 @@ div.twitter-tweet-rendered {
   opacity: 1 !important;
 }
 
+/* Comments */
+.microblog_conversation {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--border-20);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  box-shadow: var(--shadow-card);
+  z-index: 1;
+  position: relative;
+  border-radius: var(--radius-l);
+  @media (max-width: 650px) {
+    padding: 2rem 1rem;
+  }
+}
+
+.microblog_post {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius-m);
+  background: var(--background);
+  box-shadow: var(--shadow-card);
+}
+
+.microblog_post:last-of-type {
+  margin-bottom: 0;
+}
+
+.microblog_user {
+  font-weight: bold;
+}
+
+.microblog_user img {
+  vertical-align: middle;
+  width: 40px;
+  height: auto;
+  border-radius: var(--radius-l);
+  max-width: 40px !important;
+}
+
+.microblog_text img {
+  max-width: 100%;
+}
+
+.microblog_time a,
+.microblog_time a:visited {
+  color: var(--mid-blue);
+  font-size: var(--font-size-xxs);
+  text-decoration: none;
+}
+
 /* Older */
 
 header p {
@@ -1374,20 +1455,6 @@ img.profile_photo {
   }
 }
 
-.post-nav {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.post-nav span {
-  padding: 0 5px;
-}
-
-.post-nav a:visited {
-  color: var(--text);
-}
-
 .post-meta {
   color: var(--mid-blue);
 }
@@ -1401,41 +1468,6 @@ sup a {
 }
 
 .footnote-backref {
-  text-decoration: none;
-}
-
-.microblog_conversation {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.microblog_post {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-}
-
-.microblog_user {
-  font-weight: bold;
-}
-
-.microblog_user img {
-  vertical-align: middle;
-  width: 40px;
-  height: auto;
-  border-radius: 40px;
-  max-width: 40px !important;
-}
-
-.microblog_text img {
-  max-width: 100%;
-}
-
-.microblog_time a,
-.microblog_time a:visited {
-  color: var(--accent2a);
-  font-size: 0.8rem;
   text-decoration: none;
 }
 
