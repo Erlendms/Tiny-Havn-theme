@@ -412,7 +412,7 @@ ul.reply-buttons {
   padding: 0;
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .did_select {
@@ -761,7 +761,7 @@ div.custom-page-content {
   border-radius: var(--radius-l);
   margin-bottom: 2em;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 0.5rem 2.5rem;
 
   @media (max-width: 650px) {
@@ -900,7 +900,7 @@ h1.page-title,
 h2,
 #micro-header-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 300;
   font-size: var(--font-size-xxl);
@@ -1213,6 +1213,13 @@ div.custom-page-content img.medium {
   }
 }
 
+iframe {
+  border-radius: var(--radius-l);
+  filter: var(--shadow-image);
+  margin: 0.6rem auto;
+  display: block;
+}
+
 /* Caption */
 figcaption {
   font-family: "PP-Writer", var(--font_old_style), serif !important;
@@ -1368,9 +1375,8 @@ div.twitter-tweet-rendered {
 
 /* Comments */
 .microblog_conversation {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 2rem;
+  margin: -9rem auto 2rem;
+  padding: 10rem 2rem 2rem;
   background: var(--border-20);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
@@ -1379,7 +1385,8 @@ div.twitter-tweet-rendered {
   position: relative;
   border-radius: var(--radius-l);
   @media (max-width: 650px) {
-    padding: 2rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
