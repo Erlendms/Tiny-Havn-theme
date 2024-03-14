@@ -18,6 +18,8 @@
   --accent2b: hsl(283, 25%, 62%);
   --accent2bg: hsla(283, 25%, 62%, 10%);
   --mid-blue: hsl(228, 31%, 69%);
+  --link-line: hsl(228, 31%, 69%);
+  --link-background: hsl(228, 31%, 92%);
   --outer-shadow: hsla(228, 31%, 31%, 6%);
   --outer-shadow-darker: hsla(228, 31%, 31%, 10%);
   --inner-shadow: hsla(228, 31%, 31%, 2%);
@@ -79,6 +81,7 @@
   --font-size-xl: 2rem;
   --font-size-xxl: 2.5rem;
 
+  --blur-some: blur(0.1rem);
   --blur: blur(0.4rem);
   --blur-more: blur(0.6rem);
 }
@@ -115,6 +118,8 @@
     --accent2a: hsl(283, 25%, 58%);
     --accent2b: hsl(283, 25%, 68%);
     --accent2bg: hsla(283, 25%, 68%, 10%);
+    --link-line: hsl(228, 31%, 69%);
+    --background: hsl(228, 31%, 20%);
     --outer-shadow: hsla(228, 31%, 7%, 15%);
     --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
@@ -361,7 +366,7 @@ header {
 /* Back to top button */
 #back-to-top {
   display: none;
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   height: 3rem;
   width: 3rem;
@@ -520,7 +525,7 @@ p.description {
   position: absolute;
   z-index: 1;
   top: auto;
-  bottom: calc(100vh - 8.1rem);
+  bottom: calc(100vh - 8.8rem);
 
   @media (max-width: 450px) {
     bottom: calc(100vh - 12.5rem);
@@ -635,6 +640,165 @@ div.follow-list-spacer {
   width: 240px;
 }
 
+/* Backgrounds and typography */
+body {
+  max-width: 40rem;
+  margin: 2rem auto;
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  padding: 0 1rem;
+  line-height: 1.6;
+  background-color: var(--border);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+div.post-preview,
+div.post.h-entry,
+li.micro-post,
+li.h-entry,
+div.custom-page-content {
+  background: var(--background);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-l);
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 2.5rem;
+
+  @media (max-width: 650px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+div.custom-page-content {
+  padding-bottom: 2rem;
+}
+
+div.post.h-entry,
+li.micro-post:first-of-type {
+  margin-top: 1rem;
+}
+
+p {
+  font-family: "PP-Writer", var(--font_old_style), serif;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+/* Links */
+
+a:link,
+a:visited {
+  color: var(--text);
+  transition: all 0.35s ease-in-out;
+  text-decoration: none;
+}
+
+a:link:hover {
+  color: var(--h1);
+}
+
+a:visited:hover {
+  color: var(--accent2a);
+}
+
+div.post-preview a:link,
+div.post.h-entry a:link,
+li.micro-post a:link,
+li.h-entry a:link,
+#micro-header-container a:link,
+div.custom-page-content a:link,
+div.post-preview a:visited,
+div.post.h-entry a:visited,
+li.micro-post a:visited,
+li.h-entry a:visited,
+#micro-header-container a:visited,
+div.custom-page-content a:visited,
+a.u-url.mention,
+sup,
+.footnote-button {
+  box-shadow: inset 0 -2px 0 var(--link-line);
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  filter: none;
+}
+
+div.post-preview a:link:hover,
+div.post.h-entry a:link:hover,
+li.micro-post a:link:hover,
+li.h-entry a:link:hover,
+#micro-header-container a:link:hover,
+div.custom-page-content a:link:hover,
+a.u-url.mention:hover,
+.footnote-button:hover {
+  border-radius: var(--radius-s);
+  padding: 0 0.3rem;
+  margin: 0 -0.3rem;
+  box-shadow: inset 0 -50px 0 var(--link-background);
+  filter: var(--shadow-card);
+}
+
+div.post-preview a.glightbox:link,
+li.h-entry a.glightbox:link,
+li.micro-post a.glightbox:link,
+div.post.h-entry a.glightbox:link {
+  box-shadow: unset;
+  filter: unset;
+}
+
+/* Footnotes */
+
+.bf-footnote {
+  font-size: var(--font-size-xxs);
+  font-weight: 100;
+  color: var(--h1);
+  background: var(--border-60) !important;
+  border: none !important;
+  border-radius: var(--radius-s) !important;
+  backdrop-filter: var(--blur-some);
+  -webkit-backdrop-filter: var(--blur-some);
+  box-shadow: var(--shadow-card);
+  z-index: 3;
+}
+
+sup a,
+.footnote-button {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+}
+
+.footnote-backref {
+  text-decoration: none;
+}
+
+/* .footnote-button {
+background: var(--border) !important;
+border-radius: var(--radius-s) !important;
+} */
+
+.footnote-button:after {
+  color: var(--text) !important;
+}
+
+/* .footnote-button:hover {
+background: var(--mid-blue) !important;
+} */
+
+.footnote-button:hover:after {
+  color: var(--background) !important;
+}
+
+.bf-footnote.footnote-is-active {
+  opacity: 1 !important;
+}
+
 /* Buttons and forms */
 
 button {
@@ -735,116 +899,6 @@ button {
   display: flex;
   justify-content: center;
   margin: -0.5rem auto 0.5rem;
-}
-
-/* Backgrounds and typography */
-body {
-  max-width: 40rem;
-  margin: 2rem auto;
-  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-  font-size: var(--font-size-xs);
-  font-weight: 400;
-  padding: 0 1rem;
-  line-height: 1.6;
-  background-color: var(--border);
-  color: var(--text);
-  scroll-behavior: smooth;
-}
-
-div.post-preview,
-div.post.h-entry,
-li.micro-post,
-li.h-entry,
-div.custom-page-content {
-  background: var(--background);
-  box-shadow: var(--shadow-card);
-  border-radius: var(--radius-l);
-  margin-bottom: 2em;
-  position: relative;
-  z-index: 2;
-  padding: 0.5rem 2.5rem;
-
-  @media (max-width: 650px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-div.custom-page-content {
-  padding-bottom: 2rem;
-}
-
-div.post.h-entry,
-li.micro-post:first-of-type {
-  margin-top: 1rem;
-}
-
-p {
-  font-family: "PP-Writer", var(--font_old_style), serif;
-  margin-top: 0.6rem;
-  margin-bottom: 0;
-}
-
-strong,
-b {
-  font-weight: 600;
-}
-
-/* Links */
-
-a:link,
-a:visited {
-  color: var(--text);
-  transition: all 0.35s ease-in-out;
-}
-
-a:link:hover {
-  color: var(--h1);
-}
-
-a:visited:hover {
-  color: var(--accent2a);
-}
-
-div.post-preview a:link,
-div.post.h-entry a:link,
-li.micro-post a:link,
-li.h-entry a:link,
-#micro-header-container a:link,
-div.custom-page-content a:link,
-div.post-preview a:visited,
-div.post.h-entry a:visited,
-li.micro-post a:visited,
-li.h-entry a:visited,
-#micro-header-container a:visited,
-div.custom-page-content a:visited,
-a.u-url.mention {
-  text-decoration: none;
-  box-shadow: inset 0 -2px 0 var(--mid-blue);
-  transition: all 0.35s ease-in-out;
-  -webkit-transition: all 0.35s ease-in-out;
-}
-
-div.post-preview a:link:hover,
-div.post.h-entry a:link:hover,
-li.micro-post a:link:hover,
-li.h-entry a:link:hover,
-#micro-header-container a:link:hover,
-div.custom-page-content a:link:hover,
-a.u-url.mention:hover {
-  border-radius: var(--radius-s);
-  padding: 0 0.3rem;
-  margin: 0 -0.3rem;
-  box-shadow: inset 0 -50px 0 var(--border-60);
-  filter: var(--shadow-link);
-}
-
-div.post-preview a.glightbox:link,
-li.h-entry a.glightbox:link,
-li.micro-post a.glightbox:link,
-div.post.h-entry a.glightbox:link {
-  box-shadow: unset;
-  filter: unset;
 }
 
 /* Headings */
@@ -954,6 +1008,7 @@ div.custom-page-content h2 {
   padding: unset !important;
   width: unset !important;
   left: unset;
+  z-index: 1;
 }
 
 h4 {
@@ -1020,37 +1075,37 @@ a.read-more {
   background: none;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 530;
-  -webkit-text-decoration-line: underline;
+  /*-webkit-text-decoration-line: underline;
   text-decoration: underline;
   -webkit-text-decoration-color: var(--accent1a);
   text-decoration-color: var(--accent1a);
-  text-decoration-thickness: 2px;
+text-decoration-thickness: 2px; */
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
 }
 
 a.read-more:hover {
-  color: var(--accent1b);
-  -webkit-text-decoration-color: transparent;
-  text-decoration-color: transparent;
+  color: var(--h1);
+  /* -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent; */
 }
 
 a.read-more:visited {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 530;
-  -webkit-text-decoration-line: underline;
+  /* -webkit-text-decoration-line: underline;
   text-decoration: underline;
   -webkit-text-decoration-color: var(--accent1a);
   text-decoration-color: var(--accent1a);
   text-decoration-thickness: 2px;
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out; */
 }
 
 a.read-more:visited:hover {
-  color: var(--accent1b);
+  /* color: var(--accent1b);
   -webkit-text-decoration-color: transparent;
-  text-decoration-color: transparent;
+  text-decoration-color: transparent; */
 }
 
 /* Rule */
@@ -1080,6 +1135,10 @@ ol {
 li::marker {
   font-weight: 700;
   color: var(--accent1a);
+}
+
+li {
+  margin: 0.4rem 0;
 }
 
 /* Quotes */
@@ -1213,13 +1272,6 @@ div.custom-page-content img.medium {
   }
 }
 
-iframe {
-  border-radius: var(--radius-l);
-  filter: var(--shadow-image);
-  margin: 0.6rem auto;
-  display: block;
-}
-
 /* Caption */
 figcaption {
   font-family: "PP-Writer", var(--font_old_style), serif !important;
@@ -1338,39 +1390,12 @@ div.twitter-tweet-rendered {
   box-shadow: var(--shadow-card);
 }
 
-/* Footnotes */
-
-.bf-footnote {
-  font-size: var(--font-size-xxs);
-  font-weight: 100;
-  color: var(--h1);
-  background: var(--border-60) !important;
-  border: none !important;
-  border-radius: var(--radius-s) !important;
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
+iframe,
+embed-container {
+  border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
-}
-
-.footnote-button {
-  background: var(--border) !important;
-  border-radius: var(--radius-s) !important;
-}
-
-.footnote-button:after {
-  color: var(--text) !important;
-}
-
-.footnote-button:hover {
-  background: var(--mid-blue) !important;
-}
-
-.footnote-button:hover:after {
-  color: var(--background) !important;
-}
-
-.bf-footnote.footnote-is-active {
-  opacity: 1 !important;
+  margin: 0.6rem auto;
+  display: block;
 }
 
 /* Comments */
@@ -1468,14 +1493,6 @@ img.profile_photo {
 
 div.highlight div {
   border-radius: 5px;
-}
-
-sup a {
-  text-decoration: none;
-}
-
-.footnote-backref {
-  text-decoration: none;
 }
 
 footer {
