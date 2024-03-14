@@ -19,7 +19,7 @@
   --accent2bg: hsla(283, 25%, 62%, 10%);
   --mid-blue: hsl(228, 31%, 69%);
   --link-line: hsl(228, 31%, 69%);
-  --link-background: hsl(228, 31%, 92%);
+  --link-background: hsla(228, 31%, 90%, 60%);
   --outer-shadow: hsla(228, 31%, 31%, 6%);
   --outer-shadow-darker: hsla(228, 31%, 31%, 10%);
   --inner-shadow: hsla(228, 31%, 31%, 2%);
@@ -118,8 +118,8 @@
     --accent2a: hsl(283, 25%, 58%);
     --accent2b: hsl(283, 25%, 68%);
     --accent2bg: hsla(283, 25%, 68%, 10%);
-    --link-line: hsl(228, 31%, 69%);
-    --background: hsl(228, 31%, 20%);
+    --link-line: hsl(170, 31%, 36%);
+    --link-background: hsl(228, 31%, 10%, 60%);
     --outer-shadow: hsla(228, 31%, 7%, 15%);
     --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
@@ -519,30 +519,16 @@ p.description {
 
 #follow-list-containter {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 #follow-list {
-  position: absolute;
-  z-index: 1;
-  top: auto;
-  bottom: calc(100vh - 8.8rem);
-
-  @media (max-width: 450px) {
-    bottom: calc(100vh - 12.5rem);
-  }
-
-  left: 50%;
-  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateX(-50%);
   transition: all 0.8s ease-in-out;
-}
-
-#follow-list.move-down {
-  position: fixed;
-  bottom: 2rem;
 }
 
 #follow-list ul {
@@ -584,10 +570,6 @@ p.description {
   display: none;
 }
 
-#follow-list.move-down #icon-li {
-  display: list-item;
-}
-
 #rss-icon {
   background-image: url("/assets/havn-rss.png");
 }
@@ -608,10 +590,6 @@ p.description {
   background-image: url("/assets/havn-no.png");
 }
 
-#follow-list.move-down #norsk-li {
-  display: none;
-}
-
 .asset-alt {
   border: 0;
   clip: rect(0 0 0 0);
@@ -623,6 +601,7 @@ p.description {
   width: 1px;
 }
 
+/* Dette er "Contact and/or follow". */
 #follow-list p {
   display: none;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
@@ -630,14 +609,103 @@ p.description {
   margin: 0 0 0.5rem 0;
 }
 
-#follow-list.move-down p {
-  display: block;
+/* Buttons and forms */
+
+button {
+  cursor: pointer;
 }
 
-div.follow-list-spacer {
-  content: "";
-  height: 50px;
-  width: 240px;
+/* Categories */
+a[href="https://havn.blog/categories/english"],
+a[href="https://havn.blog/categories/norsk"]
+{
+  display: none;
+}
+
+ul.post-tags a,
+a.language,
+input[type="submit"],
+.post-nav span {
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-size: var(--font-size-xxxs);
+  color: var(--text);
+  text-decoration: none !important;
+  background-color: var(--border);
+  border-radius: var(--radius-s);
+  padding: 0.2rem 0.4rem !important;
+  margin: 0 0.5rem 0 0 !important;
+  animation: shadowIconAnimation 0.5s forwards;
+  box-shadow: none !important;
+  border: none;
+}
+
+ul.post-tags a:hover,
+a.language:hover,
+input[type="submit"]:hover,
+.post-nav span:hover {
+  color: var(--h1);
+  animation: shadowIconAnimationHover 0.5s forwards;
+  box-shadow: none !important;
+}
+
+ul.post-tags li {
+  display: inline;
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+
+ul.post-tags,
+ul.post-list {
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+ul.post-list {
+  list-style-type: none;
+}
+
+ul.post-list a.u-url {
+  text-decoration: none;
+}
+
+div.custom-page-content div.language-container {
+  marign-top: 0.5rem;
+}
+
+/* Older/Newer Posts */
+.post-nav {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.post-nav span {
+  background: var(--background);
+}
+
+.post-nav span a {
+  text-decoration: none;
+}
+.post-nav span.arrow {
+  background: none;
+  animation: none;
+}
+
+.post-nav a:visited {
+  color: var(--text);
+}
+
+input[type="submit"] {
+  padding: 0.4rem 0.8rem !important;
+  font-size: var(--font-size-xxs);
+}
+
+.post-content div.language-container {
+  display: flex;
+  justify-content: center;
+  margin: -0.5rem auto 0.5rem;
 }
 
 /* Backgrounds and typography */
@@ -707,7 +775,7 @@ a:link:hover {
 }
 
 a:visited:hover {
-  color: var(--accent2a);
+  color: var(--h1);
 }
 
 div.post-preview a:link,
@@ -722,13 +790,12 @@ li.micro-post a:visited,
 li.h-entry a:visited,
 #micro-header-container a:visited,
 div.custom-page-content a:visited,
-a.u-url.mention,
-sup,
-.footnote-button {
+a.u-url.mention {
   box-shadow: inset 0 -2px 0 var(--link-line);
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   filter: none;
+  background: transparent;
 }
 
 div.post-preview a:link:hover,
@@ -738,12 +805,15 @@ li.h-entry a:link:hover,
 #micro-header-container a:link:hover,
 div.custom-page-content a:link:hover,
 a.u-url.mention:hover,
-.footnote-button:hover {
+.footnote-button:hover:after,
+.footnote-button.is-active:after {
   border-radius: var(--radius-s);
   padding: 0 0.3rem;
   margin: 0 -0.3rem;
   box-shadow: inset 0 -50px 0 var(--link-background);
   filter: var(--shadow-card);
+  backdrop-filter: var(--blur-some);
+  -webkit-backdrop-filter: var(--blur-some);
 }
 
 div.post-preview a.glightbox:link,
@@ -756,149 +826,178 @@ div.post.h-entry a.glightbox:link {
 
 /* Footnotes */
 
-.bf-footnote {
-  font-size: var(--font-size-xxs);
-  font-weight: 100;
-  color: var(--h1);
-  background: var(--border-60) !important;
-  border: none !important;
-  border-radius: var(--radius-s) !important;
-  backdrop-filter: var(--blur-some);
-  -webkit-backdrop-filter: var(--blur-some);
-  box-shadow: var(--shadow-card);
-  z-index: 3;
+.footnote-container {
+  display: inline-block;
+  position: relative;
+  transform: translateX(-40%);
+  z-index: 1;
+  margin-right: -0.5rem;
 }
-
-sup a,
-.footnote-button {
-  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+.footnote-container.is-active {
+  z-index: 2;
 }
-
-.footnote-backref {
-  text-decoration: none;
-}
-
-/* .footnote-button {
-background: var(--border) !important;
-border-radius: var(--radius-s) !important;
-} */
-
-.footnote-button:after {
-  color: var(--text) !important;
-}
-
-/* .footnote-button:hover {
-background: var(--mid-blue) !important;
-} */
-
-.footnote-button:hover:after {
-  color: var(--background) !important;
-}
-
-.bf-footnote.footnote-is-active {
-  opacity: 1 !important;
-}
-
-/* Buttons and forms */
-
-button {
+.footnote-backdrop {
   cursor: pointer;
 }
 
-/* Categories */
-a[href="https://havn.blog/categories/english"],
-a[href="https://havn.blog/categories/norsk"]
-{
-  display: none;
-}
-
-ul.post-tags a,
-a.language,
-input[type="submit"],
-button,
-.post-nav span {
-  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-  font-size: var(--font-size-xxxs);
-  color: var(--text);
-  text-decoration: none !important;
-  background-color: var(--border);
-  border-radius: var(--radius-s);
-  padding: 0.2rem 0.4rem !important;
-  margin: 0 0.5rem 0 0 !important;
-  animation: shadowIconAnimation 0.5s forwards;
-  box-shadow: none !important;
-  border: none;
-}
-
-ul.post-tags a:hover,
-a.language:hover,
-input[type="submit"]:hover,
-button:hover,
-.post-nav span:hover {
-  color: var(--h1);
-  animation: shadowIconAnimationHover 0.5s forwards;
-  box-shadow: none !important;
-}
-
-ul.post-tags li {
-  display: inline;
-  font-size: 0.8rem;
-  line-height: 2rem;
-}
-
-ul.post-tags,
-ul.post-list {
-  padding-left: 0;
-  margin-bottom: 1rem;
-}
-
-ul.post-list {
-  list-style-type: none;
-}
-
-ul.post-list a.u-url {
-  text-decoration: none;
-}
-
-div.custom-page-content div.language-container {
-  marign-top: 0.5rem;
-}
-
-/* Older/Newer Posts */
-.post-nav {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  z-index: 1;
+.footnote-button {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
   position: relative;
+  top: -0.2em;
+  vertical-align: super;
+  z-index: 2;
 }
 
-.post-nav span {
-  background: var(--background);
-}
-
-.post-nav span a {
-  text-decoration: none;
-}
-.post-nav span.arrow {
-  background: none;
-  animation: none;
-}
-
-.post-nav a:visited {
+.footnote-button:after {
   color: var(--text);
+  content: attr(data-fn-number);
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  box-shadow: inset 0 -2px 0 var(--link-line);
+  transition: all 0.35s ease-in-out;
+  padding-bottom: 0.1rem;
 }
 
-input[type="submit"],
-button {
-  padding: 0.4rem 0.8rem !important;
-  font-size: var(--font-size-xxs);
+.footnote-button:hover:after {
+  padding: 0.1rem 0.5rem;
+  margin: -0.1rem -0.5rem;
+  backdrop-filter: var(--blur-some);
+  -webkit-backdrop-filter: var(--blur-some);
+}
+.footnote-button.is-active:after {
+  padding: 0.1rem 0.5rem 0.9rem 0.5rem;
+  margin: -0.1rem -0.5rem -0.9rem -0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--border-60);
 }
 
-.post-content div.language-container {
-  display: flex;
-  justify-content: center;
-  margin: -0.5rem auto 0.5rem;
+.footnote-button.footnote-is-top.is-active:after {
+  padding: 0.9rem 0.5rem 0.1rem 0.5rem;
+  margin: -0.9rem -0.5rem -0.1rem -0.5rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: var(--radius-s);
+  border-bottom-right-radius: var(--radius-s);
+  background: var(--border-60);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutTop {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.bf-footnote {
+  background: var(--border-60);
+  border-radius: var(--radius-m);
+  backdrop-filter: var(--blur-some);
+  -webkit-backdrop-filter: var(--blur-some);
+  box-shadow: var(--shadow-card);
+  left: 0;
+  margin: 1.5rem 0;
+  max-width: 90vw;
+  position: absolute;
+  opacity: 0;
+  animation: fadeOut 1.7s forwards;
+  top: 0;
+  transition: transform 0.35s ease-in-out;
+  z-index: 3;
+}
+.bf-footnote.footnote-is-active {
+  animation: fadeIn 0.7s forwards;
+}
+
+.bf-footnote.footnote-is-top {
+  transform: translateY(calc(-100% - 2.2rem));
+}
+
+.footnote-wrapper {
+  background: inherit;
+  border-radius: var(--radius-s);
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 22em;
+  z-index: 5;
+}
+.footnote-tooltip {
+  background: inherit;
+  border: 1px solid #d8d8d8;
+  height: 1.3em;
+  position: absolute;
+  top: -0.49em;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 1.3em;
+  z-index: 4;
+  opacity: 0;
+}
+.footnote-is-top .footnote-tooltip {
+  bottom: -0.49em;
+  top: auto;
+}
+.footnote-content {
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.418em;
+  max-height: 15em;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1em;
+  position: relative;
+  z-index: 2;
+}
+.footnote-content :first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+.footnote-content :last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* Headings */
@@ -975,6 +1074,25 @@ h1.page-header {
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
   font-weight: 300;
   font-size: var(--font-size-xxl);
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  z-index: -1;
+}
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  content: "";
+  display: block;
+  height: 50px;
+  margin-top: -50px;
+  visibility: hidden;
 }
 
 #micro-header-container p {
