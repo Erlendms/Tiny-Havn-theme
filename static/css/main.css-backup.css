@@ -711,6 +711,57 @@ input[type="submit"] {
 }
 
 /* Backgrounds and typography */
+body {
+  max-width: 40rem;
+  margin: 2rem auto;
+  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  padding: 0 1rem;
+  line-height: 1.6;
+  background-color: var(--border);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+div.post-preview,
+div.post.h-entry,
+li.micro-post,
+li.h-entry,
+div.custom-page-content {
+  background: var(--background);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-l);
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 2.5rem;
+
+  @media (max-width: 650px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+div.custom-page-content {
+  padding-bottom: 2rem;
+}
+
+div.post.h-entry,
+li.micro-post:first-of-type {
+  margin-top: 1rem;
+}
+
+p {
+  font-family: "PP-Writer", var(--font_old_style), serif;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
 
 /* Links */
 
@@ -997,7 +1048,7 @@ h2,
   position: relative;
   z-index: 3;
   font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   font-size: var(--font-size-xxl);
   background: var(--background);
   border-radius: var(--radius-l);

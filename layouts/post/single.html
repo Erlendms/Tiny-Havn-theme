@@ -2,7 +2,8 @@
 <div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}">
   <script>
  window.onscroll = function () {
-   const offset = 160;
+   const isMobile = window.innerWidth <= 650;
+   const offset = isMobile ? 162 : 186;
    const winScroll = Math.max(0, document.body.scrollTop || document.documentElement.scrollTop - offset);
    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight - offset;
    const scrolled = Math.max(0, (height > 0) ? (winScroll / height) : 0);
