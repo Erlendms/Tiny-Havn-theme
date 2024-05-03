@@ -1284,11 +1284,27 @@
   }
 
   /* Dette er "Contact and/or follow". */
-  #follow-list p {
+  #footer-list p {
     display: none;
     font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
     color: var(--mid-blue);
     margin: 0 0 0.5rem 0;
+  }
+
+  /* Ko-Fi */
+
+  #coffee-button {
+    display: inline-block;
+
+    height: 2rem;
+    width: 100%;
+
+    background-image: url(/assets/buy-me-a-coffee-png.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    filter: var(--drop-shadow-icon);
   }
 
   /* Back to top button */
