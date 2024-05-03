@@ -1388,7 +1388,7 @@
 
   footer div.wrapper {
     position: fixed;
-    bottom: clamp(1.5rem, 0.375rem + 5vw, 3rem);
+    bottom: clamp(2rem, 1.25rem + 3.33vw, 3rem);
     left: 50%;
     transform: translateX(-50%);
   }
@@ -1408,7 +1408,7 @@
     width: 100%;
 
     margin: var(--margin-default);
-    background-image: url(/assets/buy-me-a-coffee-png.png);
+    background-image: url(/assets/buy-me-a-coffee.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
