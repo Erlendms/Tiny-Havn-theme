@@ -25,20 +25,6 @@
     }, 1000),
   );
 
-  const initialSrc2 = "/assets/short-arrow.png";
-  const hoverSrc2 = "/assets/long-arrow.png";
-
-  topArrow.src = initialSrc2;
-  topArrow.dataset.src = hoverSrc2;
-
-  topArrow.onmouseover = function () {
-    topArrow.src = hoverSrc2;
-  };
-
-  topArrow.onmouseout = function () {
-    topArrow.src = initialSrc2;
-  };
-
   topButton.addEventListener("click", function (e) {
     e.preventDefault();
     window.scrollTo({

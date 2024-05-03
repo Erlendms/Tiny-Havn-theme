@@ -505,6 +505,32 @@
     color: var(--h4);
   }
 
+  div.page-content {
+    position: relative;
+  }
+
+  div.page-content::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-radius: var(--radius-3);
+
+    box-shadow: var(--box-shadow-card);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+  }
+
+  div.page-content:has(.post-nav)::after {
+    height: calc(100% - 6rem);
+  }
+
   p {
     font-family: "PP-Writer", var(--font_old_style);
     font-weight: 340;
@@ -1108,7 +1134,7 @@
     }
   }
 
-  /* Language button */
+  /* Buttons */
 
   div.post:has(a.language) h1,
   div.post-preview:has(a.language) h1 {
@@ -1119,9 +1145,17 @@
     bottom: -1.5rem;
   }
 
+  div.post-nav {
+    position: relative;
+    z-index: 20;
+
+    margin-top: 3rem;
+  }
+
   a.language,
   input[type="submit"],
-  .post-nav span {
+  .post-nav span.next,
+  .post-nav span.prev {
     font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
     font-size: var(--font-size-2);
     background-color: var(--border);
@@ -1133,6 +1167,20 @@
     animation: unset;
     transition: var(--transition-all);
   }
+
+  .post-nav span.next,
+  .post-nav span.prev {
+    position: absolute;
+    bottom: 0.5rem;
+    right: var(--radius-4);
+
+    margin: 0;
+    background: var(--background);
+  }
+  .post-nav span.prev {
+    left: var(--radius-4);
+  }
+
   a.language {
     position: absolute;
     top: 2.15rem;
@@ -1145,7 +1193,8 @@
   }
   a.language:hover,
   input[type="submit"]:hover,
-  .post-nav span:hover {
+  .post-nav span.next:hover,
+  .post-nav span.prev:hover {
     color: var(--h4);
     filter: var(--drop-shadow-icon);
     @media (prefers-color-scheme: dark) {
@@ -1176,7 +1225,8 @@
 
     height: 3rem;
     width: 9rem;
-    margin-top: clamp(-1rem, -1.75rem, 3.33vw, 0rem);
+    margin: clamp(-1rem, -1.75rem + 3.33vw, 0rem) 0
+      calc(-1 * var(--margin-top-default));
 
     background-image: url("/assets/havn-logo-transp.png");
 
@@ -1193,13 +1243,12 @@
     }
   }
 
-  #follow-list-container {
+  #follow-list-container,
+  #footer-list-container {
     position: relative;
     display: flex;
     align-items: center;
     justify-items: center;
-  }
-  #footer-list-container {
   }
 
   #follow-list,
@@ -1217,7 +1266,7 @@
     justify-content: space-around;
     padding: 0;
     max-width: 20rem;
-    margin: 0;
+    margin: var(--margin-default);
   }
 
   #follow-list li,
@@ -1230,6 +1279,12 @@
   #follow-list li:hover,
   #footer-list li:hover {
     opacity: 1;
+    transform: scale(1.05);
+  }
+  #coffee-button:hover {
+    opacity: 1;
+    transform: scale(1.03);
+    filter: var(--drop-shadow-icon-hover);
   }
 
   #havn-icon,
@@ -1243,31 +1298,21 @@
     height: 2rem;
     background-size: contain;
   }
-
   #havn-icon {
     background-image: url("/assets/havn-icon-neutral.png");
   }
-
-  /*   #icon-li {
-      display: none;
-    } */
-
   #rss-icon {
     background-image: url("/assets/havn-rss.png");
   }
-
   #masto-icon {
     background-image: url("/assets/havn-masto.png");
   }
-
   #micro-icon {
     background-image: url("/assets/havn-microblog.png");
   }
-
   #email-icon {
     background-image: url("/assets/havn-mail.png");
   }
-
   #norsk-icon {
     background-image: url("/assets/havn-no.png");
   }
@@ -1283,12 +1328,21 @@
     width: 1px;
   }
 
+  footer {
+    height: 9rem;
+  }
+
+  footer div.wrapper {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   /* Dette er "Contact and/or follow". */
   #footer-list p {
-    display: none;
     font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
     color: var(--mid-blue);
-    margin: 0 0 0.5rem 0;
   }
 
   /* Ko-Fi */
@@ -1299,6 +1353,7 @@
     height: 2rem;
     width: 100%;
 
+    margin: var(--margin-default);
     background-image: url(/assets/buy-me-a-coffee-png.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -1325,6 +1380,7 @@
     -webkit-backdrop-filter: var(--blur);
   }
   #back-to-top:hover {
+    transform: scale(1.1);
     box-shadow: var(--box-shadow-card);
     backdrop-filter: var(--blur-more);
     -webkit-backdrop-filter: var(--blur-more);
@@ -1357,6 +1413,8 @@
   ul.reply-buttons {
     position: relative;
     z-index: 30;
+
+    padding: 0;
 
     font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
     font-weight: 450;
