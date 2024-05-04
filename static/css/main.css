@@ -816,7 +816,7 @@
   }
 
   header.post-header {
-    margin-top: -0.5rem;
+    margin-top: -1.5rem;
   }
   h1,
   h6 {
@@ -1203,8 +1203,6 @@
   a.language,
   input[type="submit"] {
     padding: var(--padding-button-small);
-
-    border-radius: var(--radius-1);
 
     font-size: var(--font-size-2);
 
