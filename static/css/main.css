@@ -560,6 +560,9 @@
   li.micro-post:first-of-type {
     margin-top: 1rem;
   }
+  div.h-feed {
+    margin-top: -0.7rem;
+  }
 }
 
 /******/
@@ -575,13 +578,13 @@
     font-size: 3em;
     float: left;
     line-height: 0.5;
-    margin-right: clamp(0.05em, -0.0125em + 0.5vw, 0.1em);
-    margin-top: 13px;
+    margin-right: 0.15em;
+    margin-top: 0.27em;
   }
   @supports (-moz-appearance: none) {
     .post-content > p:not(:has(.language)):first-of-type::first-letter,
     .post-content > p:has(.language) + p::first-letter {
-      margin-top: 8px;
+      margin-top: 0.17em;
     }
   }
 
@@ -735,7 +738,8 @@
   #micro-header-container a::after,
   div.custom-page-content a::after,
   a.u-url.mention::after,
-  a.post-date::after {
+  a.post-date::after,
+  .microblog_time a::after {
     content: "";
     position: absolute;
     bottom: 0.1em;
@@ -757,7 +761,8 @@
   #micro-header-container a:hover::after,
   div.custom-page-content a:hover::after,
   a.u-url.mention:hover::after,
-  a.post-date:hover::after {
+  a.post-date:hover::after,
+  .microblog_time a:hover::after {
     right: 0;
     bottom: 0;
     width: 100%;
@@ -1115,6 +1120,11 @@
     list-style-type: none;
   }
 
+  .microblog_time a {
+    padding: var(--padding-button-small);
+    margin: 0 var(--padding-button-small-inline-negate);
+  }
+
   a.post-date:hover,
   ul.post-tags li a:hover,
   .microblog_time a:hover {
@@ -1144,13 +1154,15 @@
 
   /* Buttons */
 
-  div.post:has(a.language) h1,
+  div.post:has(a.language) h1 {
+    margin-top: 1.7rem;
+  }
   div.post-preview:has(a.language) h1 {
     margin-top: 2.1rem;
   }
   div.post:has(a.language) h6::after,
   div.post-preview:has(a.language) h6::after {
-    bottom: -1.5rem;
+    bottom: 0.5rem;
   }
 
   div.post-nav {
@@ -1202,11 +1214,12 @@
 
   a.language {
     position: absolute;
-    top: 2.15rem;
+    top: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
   }
   .post-preview a.language {
+    top: 2.15rem;
     left: unset;
     transform: translateX(var(--padding-button-small-inline-negate));
   }
@@ -1535,12 +1548,9 @@
     z-index: 100;
 
     height: 0.5rem;
-    width: calc(100% + 2 * var(--padding-article-inline));
-    margin: 0 calc(-1 * var(--padding-article-inline));
+    width: 100%;
+    margin: 0;
     background: transparent;
-
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
   }
   .microblog_conversation {
     position: relative;
@@ -1568,9 +1578,8 @@
   }
 
   .microblog_user img {
-    vertical-align: middle;
+    margin: 0;
     height: auto;
-    max-width: 40px;
     width: 40px;
     border-radius: var(--radius-1);
 
@@ -1578,7 +1587,7 @@
   }
 
   .microblog_fullname {
-    margin-left: 0.5rem;
+    margin: 0 0.5rem;
   }
 
   .microblog_text img {

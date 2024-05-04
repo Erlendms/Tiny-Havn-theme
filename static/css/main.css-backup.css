@@ -502,8 +502,6 @@ nav a:link:hover {
   width: calc(100% + 5rem);
   height: 1rem;
   margin-left: -2.5rem;
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
   z-index: 10;
 
   @media (max-width: 650px) {
