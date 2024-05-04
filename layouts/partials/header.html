@@ -34,17 +34,3 @@
   </ul>
 </nav>
 {{ end }}
-<script>
-  window.onscroll = function () {
-    const navPadding = document.getElementById("navPadding");
-    if (window.scrollY >= 130) {
-      navPadding.style.backgroundColor = "var(--border-60)";
-      navPadding.style.backdropFilter = "blur(var(--blur))";
-      navPadding.style.webkitBackdropFilter = "blur(var(--blur))";
-    } else {
-      navPadding.style.backgroundColor = "transparent";
-      navPadding.style.backdropFilter = "none";
-      navPadding.style.webkitBackdropFilter = "none";
-    }
-  };
-</script>

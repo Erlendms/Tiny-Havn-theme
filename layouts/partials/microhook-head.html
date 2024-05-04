@@ -2,8 +2,6 @@
 <link rel="preload" as="image" href="/assets/havn-logo-dm.png" />
 <link rel="preload" as="image" href="/assets/long-arrow.png" />
 
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-
 <link rel="shortcut icon" href="/assets/havn-icon-lm.png" type="image/x-icon" />
 <link
   rel="apple-touch-icon"
@@ -19,3 +17,20 @@
   type="application/rss+xml"
   href="https://havn.blog/categories/norsk/feed.xml"
   title="RSS feed for Norwegian posts" />
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+<script>
+  window.onscroll = function () {
+    const navPadding = document.getElementById("navPadding");
+    if (window.scrollY >= 130) {
+      navPadding.style.backgroundColor = "var(--border-60)";
+      navPadding.style.backdropFilter = "var(--blur)";
+      navPadding.style.setProperty("-webkit-backdrop-filter", "var(--blur)");
+    } else {
+      navPadding.style.backgroundColor = "transparent";
+      navPadding.style.backdropFilter = "none";
+      navPadding.style.setProperty("-webkit-backdrop-filter", "none");
+    }
+  };
+</script>
