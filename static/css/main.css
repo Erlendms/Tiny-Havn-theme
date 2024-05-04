@@ -1082,7 +1082,8 @@
   /* Date, categories, languages */
 
   a.post-date,
-  ul.post-tags li a {
+  ul.post-tags li a,
+  .microblog_time a {
     z-index: 10;
 
     font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
@@ -1115,7 +1116,8 @@
   }
 
   a.post-date:hover,
-  ul.post-tags li a:hover {
+  ul.post-tags li a:hover,
+  .microblog_time a:hover {
     padding: var(--padding-button-small);
     margin: 0 var(--padding-button-small-inline-negate);
     color: var(--h4);
@@ -1124,13 +1126,15 @@
     }
   }
   a.post-date::after,
-  ul.post-tags li a::after {
+  ul.post-tags li a::after,
+  .microblog_time a::after {
     box-shadow: none;
     filter: none;
     transition: var(--transition-all);
   }
   a.post-date:hover::after,
-  ul.post-tags li a:hover::after {
+  ul.post-tags li a:hover::after,
+  .microblog_time a:hover::after {
     box-shadow: var(--box-shadow-border-background);
     filter: var(--drop-shadow-icon);
     @media (prefers-color-scheme: dark) {
@@ -1142,7 +1146,7 @@
 
   div.post:has(a.language) h1,
   div.post-preview:has(a.language) h1 {
-    margin-top: 2.5rem;
+    margin-top: 2.1rem;
   }
   div.post:has(a.language) h6::after,
   div.post-preview:has(a.language) h6::after {
@@ -1383,7 +1387,7 @@
   }
 
   footer {
-    height: clamp(9rem, 8.25rem + 3.33vw, 10rem);
+    height: clamp(9rem, 6.75rem + 10vw, 12rem);
   }
 
   footer div.wrapper {
@@ -1537,5 +1541,47 @@
 
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
+  }
+  .microblog_conversation {
+    position: relative;
+    z-index: 10;
+
+    padding: 2rem clamp(1rem, 0.25rem + 3.33vw, 2rem);
+    margin-top: -2.5rem;
+  }
+
+  .microblog_post {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: var(--radius-2);
+    background: var(--background);
+    box-shadow: var(--box-shadow-card);
+  }
+
+  .microblog_post:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .microblog_user {
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .microblog_user img {
+    vertical-align: middle;
+    height: auto;
+    max-width: 40px;
+    width: 40px;
+    border-radius: var(--radius-1);
+
+    filter: var(--drop-shadow-image);
+  }
+
+  .microblog_fullname {
+    margin-left: 0.5rem;
+  }
+
+  .microblog_text img {
+    max-width: 100%;
   }
 }
