@@ -36,7 +36,7 @@
     document.documentElement.style.setProperty("--scroll-ratio", scrolled);
 
     const navPadding = document.getElementById("navPadding");
-    if (window.scrollY >= 250) {
+    if (window.scrollY >= (isMobile ? 150 : 180)) {
       navPadding.style.backgroundColor = "var(--border-60)";
       navPadding.style.backdropFilter = "var(--blur)";
       navPadding.style.setProperty("-webkit-backdrop-filter", "var(--blur)");
@@ -46,4 +46,12 @@
       navPadding.style.setProperty("-webkit-backdrop-filter", "none");
     }
   };
+</script>
+
+<script src="/js/barefoot.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    var barefoot = new BareFoot();
+    barefoot.init();
+  });
 </script>
