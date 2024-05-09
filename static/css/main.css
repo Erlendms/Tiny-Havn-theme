@@ -24,8 +24,7 @@
   --inner-shadow: hsla(228, 31%, 31%, 2%);
   --inner-shadow-darker: hsla(228, 31%, 31%, 5%);
   --lightbox-background: hsla(228, 31%, 10%, 80%);
-  --lightbox-caption: hsla(228, 31%, 92%, 60%);
-  --lightbox-caption-hover: hsla(228, 31%, 92%, 90%);
+  --lightbox-button: hsla(228, 31%, 92%, 40%);
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
   accent-color: var(--link-line);
@@ -651,7 +650,7 @@
       > .post-content
       > p:not(:has(.language)):first-of-type::first-letter,
     :not(div.adhdikt) > .post-content > p:has(.language) + p::first-letter {
-      margin-top: 0.17em;
+      margin-top: 0.12em;
     }
   }
 
@@ -1682,7 +1681,6 @@
       outline: none;
       border: none;
       user-select: none;
-      max-width: 100vw;
       width: auto;
       height: auto;
       object-fit: cover;
@@ -1690,13 +1688,13 @@
       margin: auto;
       min-width: 200px;
 
-      padding-bottom: 4rem;
+      max-width: calc(100% - 2rem);
+      bottom: 2rem;
       border-radius: var(--radius-3);
-      filter: var(--drop-shadow-image);
+      filter: var(--drop-shadow-image-hover);
 
       @media (--medium-small-viewport) {
         max-height: 97vh;
-        max-width: 100%;
       }
 
       .desc-top &,
@@ -1707,7 +1705,6 @@
       .desc-left &,
       .desc-right & {
         width: auto;
-        max-width: 100%;
       }
 
       &.zoomable {
@@ -2006,7 +2003,7 @@
     }
 
     &.disabled {
-      opacity: 0.1;
+      opacity: 0.3;
     }
 
     .garrow {
@@ -2032,12 +2029,6 @@
 
   /*Skin */
   .glightbox-clean {
-    .gslide-media {
-      /* @media (--medium-small-viewport) {
-              box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.65);
-            } */
-    }
-
     .gslide-description {
       background: transparent;
       background-image: linear-gradient(
@@ -2081,51 +2072,50 @@
     .gprev,
     .gnext,
     .gclose {
-      background-color: rgba(0, 0, 0, 0.75);
-      border-radius: 4px;
+      background-color: var(--lightbox-button);
+      border-radius: var(--radius-2);
 
-      @media (--medium-small-viewport) {
-        background-color: rgba(0, 0, 0, 0.32);
+      transition: var(--transition-all);
 
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.7);
-        }
+      &:hover {
+        -webkit-backdrop-filter: var(--blur);
+        backdrop-filter: var(--blur);
       }
 
       path {
-        fill: #fff;
+        fill: var(--lightbox-background);
       }
     }
 
     .gprev {
       position: absolute;
-      top: -100%;
-      left: 30px;
+      top: calc(50% - 2rem);
+      left: 2rem;
       width: 40px;
       height: 50px;
 
       @media (--medium-small-viewport) {
-        top: 45%;
+        top: 40%;
       }
     }
 
     .gnext {
       position: absolute;
-      top: -100%;
-      right: 30px;
+      top: calc(50% - 2rem);
+      right: 2rem;
       width: 40px;
       height: 50px;
 
       @media (--medium-small-viewport) {
-        top: 45%;
+        top: 40%;
       }
     }
 
     .gclose {
-      width: 35px;
-      height: 35px;
-      top: 15px;
-      right: 10px;
+      width: 2rem;
+      height: 2rem;
+      top: 1rem;
+      right: 1rem;
       position: absolute;
 
       svg {
