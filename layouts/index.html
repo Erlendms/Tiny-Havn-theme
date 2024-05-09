@@ -6,8 +6,8 @@
 {{ if templates.Exists "partials/microhook-before-post-list.html" }}
     {{ partial "microhook-before-post-list.html" . }}
 {{ end }}
+<div id="navPadding"></div>
 <div class="posts h-feed">
-    <div id="navPadding"></div>
     <div class="post_list" role="main">
         {{ $paginator := .Paginate .Site.Taxonomies.categories.english 10 }}
         {{ range $paginator.Pages }}

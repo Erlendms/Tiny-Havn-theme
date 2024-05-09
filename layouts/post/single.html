@@ -1,8 +1,8 @@
 {{ define "main" }}
+<div id="navPadding"></div>
+<div id="scrollIndicator"></div>
 <div
   class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}">
-  <div id="navPadding"></div>
-  <div id="scrollIndicator"></div>
   <header class="post-header">
     <a href="{{ .Permalink }}" class="post-date u-url">
       <time
