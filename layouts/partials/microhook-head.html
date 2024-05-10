@@ -19,39 +19,15 @@
   title="RSS feed for Norwegian posts" />
 
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-
-<script>
-  window.onscroll = function () {
-    const isMobile = window.innerWidth <= 650;
-    const offset = isMobile ? 162 : 186;
-    const winScroll = Math.max(
-      0,
-      document.body.scrollTop || document.documentElement.scrollTop - offset,
-    );
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight -
-      offset;
-    const scrolled = Math.max(0, height > 0 ? winScroll / height : 0);
-    document.documentElement.style.setProperty("--scroll-ratio", scrolled);
-
-    const navPadding = document.getElementById("navPadding");
-    if (window.scrollY >= (isMobile ? 150 : 180)) {
-      navPadding.style.backgroundColor = "var(--border-60)";
-      navPadding.style.backdropFilter = "var(--blur)";
-      navPadding.style.setProperty("-webkit-backdrop-filter", "var(--blur)");
-    } else {
-      navPadding.style.backgroundColor = "transparent";
-      navPadding.style.backdropFilter = "none";
-      navPadding.style.setProperty("-webkit-backdrop-filter", "none");
-    }
-  };
-</script>
-
+<script src="/js/lite-yt-embed.js"></script>
+<script src="/js/havn-scripts.js"></script>
 <script src="/js/barefoot.min.js"></script>
+// Bearfoot initialisation
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
-    var barefoot = new BareFoot();
+    var barefoot = new BareFoot({
+      scope: "body, .p-summary",
+    });
     barefoot.init();
   });
 </script>
