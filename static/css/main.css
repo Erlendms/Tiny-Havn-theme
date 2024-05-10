@@ -1973,26 +1973,22 @@
   /* Negate indicator height */
 
   header.post-header {
-    margin-top: calc(clamp(2rem, 1.625rem + 1.67vw, 2.5rem) * -1);
+    /* margin-top: calc(clamp(2rem, 1.625rem + 1.67vw, 2.5rem) * -1); */
   }
 
   #scrollIndicator {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 110;
 
     height: calc(var(--scroll-ratio) * 70rem);
     max-height: 1.3rem;
-    width: calc(
-      (var(--scroll-ratio) * 100%) +
-        (var(--scroll-ratio) * var(--padding-article-inline))
-    );
-    margin-left: calc(-1 * var(--padding-article-inline));
+    width: calc(var(--scroll-ratio) * 100%);
     background: var(--link-line);
   }
 
   #navPadding {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
 
