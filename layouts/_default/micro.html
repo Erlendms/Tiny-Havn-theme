@@ -14,7 +14,9 @@
               {{ .Date.Format "Jan 2, 2006" }}
             </time> ∞
           </a>
-          <p>{{ .Content }}</p>
+          <div class ="post-content content-container">
+            <p>{{ .Content }}</p>
+          </div>
           <ul class="post-tags">
               {{ range .Params.categories }}
                   {{ $href := print (absURL "categories/") (urlize .) }}

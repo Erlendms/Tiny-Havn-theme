@@ -17,7 +17,9 @@
           <h1 class="post-title p-name"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
           {{ if templates.Exists "partials/summary.html" }}
           <div class="p-summary">
+            <div class ="post-content content-container">
               {{ .Summary | safeHTML }}
+            </div>
               {{ if .Truncated }}
                   <p><a class="read-more" href="{{ .Permalink }}">{{ .Site.Params.read_more_text | safeHTML }}</a></p>
                   <ul class="post-tags">

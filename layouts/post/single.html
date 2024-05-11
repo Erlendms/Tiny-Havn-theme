@@ -15,8 +15,9 @@
     <h1 class="p-name">{{ .Title }}</h1>
     {{ end }}
   </header>
-
-  <article class="post-content e-content">{{ .Content }}</article>
+  <div class="post-content content-container">
+    <article class="post-content e-content">{{ .Content }}</article>
+  </div>
 
   {{ if templates.Exists "partials/microhook-categories.html" }} {{ partial
   "microhook-categories.html" . }} {{ else }} {{ if .Params.categories }}
