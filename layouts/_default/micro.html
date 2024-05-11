@@ -9,15 +9,17 @@
     {{ range where .Site.Pages.ByDate.Reverse "Type" "post" }}
       {{ if not .Title }}
         <li class="micro-post">
-          <a href="{{ .Permalink }}" class="post-date u-url">
-            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-              {{ .Date.Format "Jan 2, 2006" }}
-            </time> ∞
-          </a>
-          <div class ="post-content content-container">
+          <div class="micro-content">
+            <a href="{{ .Permalink }}" class="post-date u-url">
+              <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{ .Date.Format "Jan 2, 2006" }}
+              </time> ∞
+            </a>
+          </div>
+          <div class ="post-content content-container micro-content">
             <p>{{ .Content }}</p>
           </div>
-          <ul class="post-tags">
+          <ul class="post-tags micro-content">
               {{ range .Params.categories }}
                   {{ $href := print (absURL "categories/") (urlize .) }}
                   <li><a href="{{ $href }}">{{ . }}</a></li>

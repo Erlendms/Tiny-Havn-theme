@@ -501,7 +501,14 @@
   }
 
   body {
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    font-smooth: auto;
+    @media (prefers-color-scheme: dark) {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-smooth: always;
+    }
   }
 
   h1,
@@ -632,8 +639,9 @@
 
     box-shadow: var(--box-shadow-card);
   }
+
   li.micro-post {
-    padding-inline: calc(var(--padding-article-inline) / 2);
+    padding-inline: 0;
     overflow: auto;
 
     &::before,
@@ -646,7 +654,7 @@
       z-index: 90;
 
       height: calc(100% - 2.2rem);
-      width: 0.4rem;
+      width: 0.6rem;
       background-color: transparent;
 
       backdrop-filter: var(--blur);
@@ -658,11 +666,13 @@
     &::after {
       right: 0;
     }
+
     .content-container {
       overflow-x: auto;
-
+    }
+    .micro-content {
+      padding-inline: var(--padding-article-inline);
       margin: 0;
-      padding-inline: calc(var(--padding-article-inline) / 2);
     }
   }
 
@@ -1072,7 +1082,7 @@
 
   /* Lists */
 
-  ul:not(.post-list),
+  ul:not(.post-list):not(.post-tags),
   ol {
     padding-left: 1rem;
 
@@ -1189,7 +1199,8 @@
 }
 
 @layer components {
-  blockquote a {
+  blockquote a,
+  #micro-header-container a {
     animation-play-state: paused;
     animation: blockLinkBlurOut 0.4s forwards;
     &:hover {
@@ -1699,8 +1710,8 @@
   }
 
   ul.post-tags {
-    padding-left: 0;
     list-style-type: none;
+
     li {
       display: inline-block;
       margin: 0.5rem clamp(0.5rem, 0.125rem + 1.667vw, 1rem) 0.5rem 0;
@@ -2192,6 +2203,119 @@
 
   .microblog_text img {
     max-width: 100%;
+  }
+}
+
+@layer highlightjs {
+  /*  Comment */
+  .hljs-meta,
+  .hljs-comment {
+    color: #9699a3;
+  }
+
+  /* Red */
+  /*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
+  .hljs-tag,
+  .hljs-doctag,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-regexp,
+  .hljs-template-tag,
+  .hljs-selector-pseudo,
+  .hljs-selector-attr,
+  .hljs-variable.language_,
+  .hljs-deletion {
+    color: #8c4351;
+  }
+
+  /*Orange */
+  /*INFO: Number and Boolean constants, Language support constants */
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-number,
+  .hljs-literal,
+  .hljs-type,
+  .hljs-params,
+  .hljs-link {
+    color: #965027;
+  }
+
+  /*  Yellow */
+  /* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
+  .hljs-built_in,
+  .hljs-attribute {
+    color: #8f5e15;
+  }
+  /* cyan */
+  /* INFO: Language support functions, CSS HTML elements */
+  .hljs-selector-tag {
+    color: #166775;
+  }
+
+  /* light blue */
+  /* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
+  .hljs-keyword,
+  .hljs-title.function_,
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-subst,
+  .hljs-property {
+    color: #0f4b6e;
+  }
+
+  /*Green*/
+  /* INFO: Object literal keys, Markdown links, Terminal Green */
+  .hljs-selector-tag {
+    color: #33635c;
+  }
+
+  /*Green(er) */
+  /* INFO: Strings, CSS class names */
+  .hljs-quote,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-addition {
+    color: #485e30;
+  }
+
+  /* Blue */
+  /* INFO:  	Function names, CSS property names, Terminal Blue */
+  .hljs-code,
+  .hljs-formula,
+  .hljs-section {
+    color: #34548a;
+  }
+
+  /* Magenta */
+  /*INFO: Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta */
+  .hljs-name,
+  .hljs-keyword,
+  .hljs-operator,
+  .hljs-keyword,
+  .hljs-char.escape_,
+  .hljs-attr {
+    color: #5a4a78;
+  }
+
+  /* white*/
+  /* INFO: Variables, Class names, Terminal White */
+  .hljs-punctuation {
+    color: #343b58;
+  }
+
+  .hljs {
+    background: #d5d6db;
+    color: #565a6e;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
   }
 }
 
