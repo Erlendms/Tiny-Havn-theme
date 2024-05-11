@@ -10,26 +10,3 @@
 <a href="#" id="back-to-top">
   <img id="up-arrow" src="" alt="Back to top" />
 </a>
-<script>
-  var topButton = document.getElementById("back-to-top");
-  var topArrow = document.getElementById("up-arrow");
-
-  window.addEventListener(
-    "scroll",
-    _.throttle(function () {
-      if (window.pageYOffset > 250) {
-        topButton.classList.add("show-button");
-      } else {
-        topButton.classList.remove("show-button");
-      }
-    }, 1000),
-  );
-
-  topButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-</script>
