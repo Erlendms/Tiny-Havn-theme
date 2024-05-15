@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // navPadding and scrollIndicator
-  // navPadding and scrollIndicator
   window.onscroll = function () {
     const isMobile = window.innerWidth <= 650;
     const offset = isMobile ? 162 : 186;
@@ -63,4 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   };
+
+  // Lazy loading
+  const lazyPlaceholderDiv = document.querySelector(".lazy-placeholder");
+  const img = lazyPlaceholderDiv.querySelector("img");
+  function loaded() {
+    lazyPlaceholderDiv.classList.add("loaded");
+  }
+
+  if (img.complete) {
+    loaded();
+  } else {
+    img.addEventListener("load", loaded);
+  }
 });

@@ -190,44 +190,46 @@
     -0.25px 1.33px var(--border-lite), 0 1.33px var(--border-lite),
     0.25px 1.33px var(--border-lite), 0.5px 1.33px var(--border-lite),
     0.75px 1.33px var(--border-lite), 1px 1.33px var(--border-lite);
-}
 
---text-shadow-border: -1px -1.66px var(--border), -0.5px -1.66px var(--border),
-  0px -1.66px var(--border), -1px -1.33px var(--border),
-  -0.75px -1.33px var(--border), -0.5px -1.33px var(--border),
-  -0.25px -1.33px var(--border), 0 -1.33px var(--border),
-  0.25px -1.33px var(--border), 0.5px -1.33px var(--border),
-  0.75px -1.33px var(--border), 1px -1.33px var(--border),
-  -1px -1px var(--border), -0.75px -1px var(--border), -0.5px -1px var(--border),
-  -0.25px -1px var(--border), 0 -1px var(--border), 0.25px -1px var(--border),
-  0.5px -1px var(--border), 0.75px -1px var(--border), 1px -1px var(--border),
-  -1px -0.67px var(--border), -0.75px -0.67px var(--border),
-  -0.5px -0.67px var(--border), -0.25px -0.67px var(--border),
-  0 -0.67px var(--border), 0.25px -0.67px var(--border),
-  0.5px -0.67px var(--border), 0.75px -0.67px var(--border),
-  1px -0.67px var(--border), -1px -0.33px var(--border),
-  -0.75px -0.33px var(--border), -0.5px -0.33px var(--border),
-  -0.25px -0.33px var(--border), 0 -0.33px var(--border),
-  0.25px -0.33px var(--border), 0.5px -0.33px var(--border),
-  0.75px -0.33px var(--border), 1px -0.33px var(--border), -1px 0 var(--border),
-  -0.75px 0 var(--border), -0.5px 0 var(--border), -0.25px 0 var(--border),
-  0.25px 0 var(--border), 0.5px 0 var(--border), 0.75px 0 var(--border),
-  1px 0 var(--border), -1px 0.33px var(--border), -0.75px 0.33px var(--border),
-  -0.5px 0.33px var(--border), -0.25px 0.33px var(--border),
-  0 0.33px var(--border), 0.25px 0.33px var(--border),
-  0.5px 0.33px var(--border), 0.75px 0.33px var(--border),
-  1px 0.33px var(--border), -1px 0.67px var(--border),
-  -0.75px 0.67px var(--border), -0.5px 0.67px var(--border),
-  -0.25px 0.67px var(--border), 0 0.67px var(--border),
-  0.25px 0.67px var(--border), 0.5px 0.67px var(--border),
-  0.75px 0.67px var(--border), 1px 0.67px var(--border), -1px 1px var(--border),
-  -0.75px 1px var(--border), -0.5px 1px var(--border), -0.25px 1px var(--border),
-  0 1px var(--border), 0.25px 1px var(--border), 0.5px 1px var(--border),
-  0.75px 1px var(--border), 1px 1px var(--border), -1px 1.33px var(--border),
-  -0.75px 1.33px var(--border), -0.5px 1.33px var(--border),
-  -0.25px 1.33px var(--border), 0 1.33px var(--border),
-  0.25px 1.33px var(--border), 0.5px 1.33px var(--border),
-  0.75px 1.33px var(--border), 1px 1.33px var(--border);
+  --text-shadow-border: -1px -1.66px var(--border), -0.5px -1.66px var(--border),
+    0px -1.66px var(--border), -1px -1.33px var(--border),
+    -0.75px -1.33px var(--border), -0.5px -1.33px var(--border),
+    -0.25px -1.33px var(--border), 0 -1.33px var(--border),
+    0.25px -1.33px var(--border), 0.5px -1.33px var(--border),
+    0.75px -1.33px var(--border), 1px -1.33px var(--border),
+    -1px -1px var(--border), -0.75px -1px var(--border),
+    -0.5px -1px var(--border), -0.25px -1px var(--border), 0 -1px var(--border),
+    0.25px -1px var(--border), 0.5px -1px var(--border),
+    0.75px -1px var(--border), 1px -1px var(--border),
+    -1px -0.67px var(--border), -0.75px -0.67px var(--border),
+    -0.5px -0.67px var(--border), -0.25px -0.67px var(--border),
+    0 -0.67px var(--border), 0.25px -0.67px var(--border),
+    0.5px -0.67px var(--border), 0.75px -0.67px var(--border),
+    1px -0.67px var(--border), -1px -0.33px var(--border),
+    -0.75px -0.33px var(--border), -0.5px -0.33px var(--border),
+    -0.25px -0.33px var(--border), 0 -0.33px var(--border),
+    0.25px -0.33px var(--border), 0.5px -0.33px var(--border),
+    0.75px -0.33px var(--border), 1px -0.33px var(--border),
+    -1px 0 var(--border), -0.75px 0 var(--border), -0.5px 0 var(--border),
+    -0.25px 0 var(--border), 0.25px 0 var(--border), 0.5px 0 var(--border),
+    0.75px 0 var(--border), 1px 0 var(--border), -1px 0.33px var(--border),
+    -0.75px 0.33px var(--border), -0.5px 0.33px var(--border),
+    -0.25px 0.33px var(--border), 0 0.33px var(--border),
+    0.25px 0.33px var(--border), 0.5px 0.33px var(--border),
+    0.75px 0.33px var(--border), 1px 0.33px var(--border),
+    -1px 0.67px var(--border), -0.75px 0.67px var(--border),
+    -0.5px 0.67px var(--border), -0.25px 0.67px var(--border),
+    0 0.67px var(--border), 0.25px 0.67px var(--border),
+    0.5px 0.67px var(--border), 0.75px 0.67px var(--border),
+    1px 0.67px var(--border), -1px 1px var(--border), -0.75px 1px var(--border),
+    -0.5px 1px var(--border), -0.25px 1px var(--border), 0 1px var(--border),
+    0.25px 1px var(--border), 0.5px 1px var(--border), 0.75px 1px var(--border),
+    1px 1px var(--border), -1px 1.33px var(--border),
+    -0.75px 1.33px var(--border), -0.5px 1.33px var(--border),
+    -0.25px 1.33px var(--border), 0 1.33px var(--border),
+    0.25px 1.33px var(--border), 0.5px 1.33px var(--border),
+    0.75px 1.33px var(--border), 1px 1.33px var(--border);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -305,7 +307,13 @@
   --width-small: clamp(8.2rem, 0.24rem + 35.37vw, 25rem);
 
   --bottom-link-underline: 0.19rem;
-  --bottom-link-underline-fig: 0.17rem;
+  --bottom-link-underline-fig: 0.14rem;
+  @supports (text-wrap: pretty) {
+    --bottom-link-underline-fig: 0.07rem;
+  }
+  @supports (-moz-appearance: none) {
+    --bottom-link-underline-fig: 0.11rem;
+  }
 
   /* Typography */
   --font-size-1: clamp(0.7rem, 0.6rem + 0.33vw, 0.8rem);
@@ -632,7 +640,7 @@
         var(--padding-article-inline) +
           var(--margin-negate-inline-button-medium)
       )
-      calc(var(--padding-article-inline));
+      var(--padding-article-inline);
     margin-bottom: 2rem;
     background-color: var(--background);
     border-radius: var(--radius-4);
@@ -642,7 +650,6 @@
 
   li.micro-post {
     padding-inline: 0;
-    overflow: auto;
 
     &::before,
     &::after {
@@ -669,10 +676,6 @@
 
     .content-container {
       overflow-x: auto;
-    }
-    .micro-content {
-      padding-inline: var(--padding-article-inline);
-      margin: 0;
     }
   }
 
@@ -1383,8 +1386,6 @@
     max-height: 15em;
     padding: 0.8em 1em 1em;
     margin: 0;
-
-    -webkit-font-smoothing: subpixel-antialiased;
     p {
       font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
       color: var(--h1);
@@ -1504,6 +1505,89 @@
     font-weight: 450;
     font-style: italic;
   }
+
+  /* Tables */
+
+  table {
+    display: table;
+    border-collapse: collapse;
+    text-align: center;
+    white-space: nowrap;
+
+    background-color: var(--background);
+
+    filter: var(--drop-shadow-image);
+
+    th {
+      padding: var(--padding-button-medium);
+      background: var(--border);
+      border: var(--link-line) 3px solid;
+
+      font-weight: 450;
+    }
+
+    td {
+      padding: var(--padding-button-medium);
+      border: var(--link-line) 2px solid;
+      color: var(--text);
+    }
+    tr:nth-child(even) {
+      background: var(--border-lite);
+    }
+    caption {
+      margin: calc(var(--margin-top-h5) - var(--margin-top-default)) auto
+        var(--margin-top-default);
+
+      font-weight: 450;
+      font-size: var(--font-size-5);
+      letter-spacing: var(--letter-spacing-5);
+    }
+  }
+
+  .table-container {
+    position: relative;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 0.8rem auto 0.8rem;
+    align-items: center;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 0.8rem;
+      height: 1px;
+    }
+  }
+
+  .table-container-container {
+    position: relative;
+    width: calc(100% + 1.2rem);
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+
+      top: 0;
+      z-index: 90;
+
+      height: calc(100% + var(--margin-top-default));
+      width: 0.6rem;
+      background-color: transparent;
+
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    &::before {
+      left: -1px;
+    }
+    &::after {
+      right: -1px;
+    }
+  }
 }
 
 /******/
@@ -1523,45 +1607,72 @@
 }
 
 @layer styling {
-  .p-summary img,
-  article img,
-  .micro-post img,
-  .p-summary video,
-  article video,
-  .micro-post video {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+  .p-summary,
+  article,
+  .micro-post {
+    img,
+    video {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
 
-    border-radius: var(--radius-3);
+      border-radius: var(--radius-3);
 
-    filter: var(--drop-shadow-image);
-    cursor: zoom-in;
-
-    &.medium {
-      width: var(--width-medium);
-    }
-    &.small {
-      width: var(--width-small);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        transform: translateX(-50%) scale(1.005);
-        filter: var(--drop-shadow-image-hover);
+      filter: var(--drop-shadow-image);
+      &.medium {
+        width: var(--width-medium);
+      }
+      &.small {
+        width: var(--width-small);
+      }
+      @media (hover: hover) {
+        &:hover {
+          filter: var(--drop-shadow-image-hover);
+        }
+      }
+      img {
+        cursor: zoom-in;
+        @media (hover: hover) {
+          &:hover {
+            transform: translateX(-50%) scale(1.005);
+          }
+        }
       }
     }
   }
-}
 
-@layer components {
-  video {
-    cursor: unset;
+  .lazy-placeholder {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter: var(--blur-some);
+
+    & img {
+      opacty: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: pulse 2.5s infinite;
+      background-color: var(--lightbox-text);
+    }
+
+    &.loaded {
+      &::before  {
+        animation: none;
+        content: none;
+      }
+
+      img {
+        opacity: 1;
+      }
+    }
   }
-}
 
-@layer styling {
   figcaption {
     position: relative;
 
@@ -1620,7 +1731,7 @@
         z-index: 90;
 
         height: calc(100% - 2.2rem);
-        width: 0.4rem;
+        width: 0.6rem;
         background-color: transparent;
 
         backdrop-filter: var(--blur);
