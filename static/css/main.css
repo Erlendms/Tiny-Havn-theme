@@ -29,6 +29,18 @@
   --lightbox-arrow: hsl(228, 31%, 35%);
   --lightbox-text: hsl(228, 31%, 96%);
   accent-color: var(--link-line);
+
+  /* highlight.js */
+
+  --hl-blue: #6988bc;
+  --hl-dark-blue: #40567a;
+  --hl-rose: #a4879c;
+  --hl-green: var(--accent1a);
+  --hl-greener: var(--accent1b);
+  --hl-purple: #7b7393;
+  --hl-red: #bd533e;
+  --hl-yellow: #e69d28;
+  --hl-orange: #ee6001;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +67,16 @@
     --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
+
+    --hl-blue: #6988bc;
+    --hl-dark-blue: #315184;
+    --hl-rose: #c57eb3;
+    --hl-green: var(--accent1a);
+    --hl-greener: var(--accent1b);
+    --hl-purple: #6856a4;
+    --hl-red: #cb4b16;
+    --hl-yellow: #eeb64e;
+    --hl-orange: #ee7f4e;
   }
 }
 
@@ -404,21 +426,27 @@
 /* Neue Montreal Mono */
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Book") format("woff2");
+  src: url("../fonts/PPNeueMontrealMono-Book") format("otf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMonoRegular-Italic") format("woff2");
+  src: url("../fonts/PPNeueMontrealMono-RegularItalic") format("otf");
   font-weight: 450;
   font-style: italic;
 }
 @font-face {
   font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Medium") format("woff2");
+  src: url("../fonts/PPNeueMontrealMono-Medium") format("otf");
   font-weight: 530;
   font-style: normal;
+}
+@font-face {
+  font-family: "PP-Neue-Montreal-Mono";
+  src: url("../fonts/PPNeueMontrealMono-BoldItalic") format("otf");
+  font-weight: 800;
+  font-style: italic;
 }
 
 /* Writer */
@@ -468,7 +496,7 @@
 /******/
 /* Layers */
 /******/
-@layer reset, base, layout, styling, components;
+@layer reset, base, layout, styling, components, special;
 
 /******/
 /* Reset and defaults */
@@ -991,9 +1019,9 @@
   h1.page-title::after {
     content: none;
   }
-
-  /* Stretching up above page heading */
-
+}
+/* Stretching up above page heading */
+@layer special {
   ul.post-list div.post-preview:first-of-type,
   ul.post-list li.h-entry:first-of-type,
   ul.post-list li.micro-post:first-of-type,
@@ -1002,10 +1030,15 @@
 
     padding-top: 5rem;
     margin-bottom: -3.1rem;
+
+    a.language {
+      transform: translate(var(--margin-negate-inline-button-small), 3.5rem);
+    }
   }
+}
 
-  /* Title and subtitle */
-
+/* Title and subtitle */
+@layer styling {
   h1 {
     margin-top: -0.2rem;
 
@@ -1525,6 +1558,7 @@ blockquote {
 
   code {
     font-family: "PP-Neue-Montreal-Mono", monospace;
+    font-family: "PP Neue Montreal Mono", monospace;
     font-size: var(--font-size-1);
     letter-spacing: var(--letter-spacing-1);
   }
@@ -1548,6 +1582,12 @@ blockquote {
   }
   em > code {
     font-weight: 450;
+    font-style: italic;
+  }
+
+  strong > em > code,
+  em > strong > code {
+    font-weight: 800;
     font-style: italic;
   }
 
@@ -1860,15 +1900,18 @@ blockquote {
 /* Elements */
 /******/
 
-@layer components {
-  /* Date, categories, languages */
-
-  a[href="https://havn.blog/categories/english"],
-  a[href="https://havn.blog/categories/norsk"],
-  a[href="https://havn.blog/categories/adhdikt"]
+@layer special {
+  li:has(a[href="https://havn.blog/categories/english"]),
+  li:has(a[href="https://havn.blog/categories/norsk"]),
+  li:has(a[href="https://havn.blog/categories/adhdikt"])
   {
     display: none;
+    margin: 0;
   }
+}
+
+@layer components {
+  /* Date, categories, languages */
 
   a.post-date,
   ul.post-tags li a,
@@ -2407,7 +2450,7 @@ blockquote {
   /*  Comment */
   .hljs-meta,
   .hljs-comment {
-    color: #9699a3;
+    color: var(--mid-blue);
   }
 
   /* Red */
@@ -2422,7 +2465,7 @@ blockquote {
   .hljs-selector-attr,
   .hljs-variable.language_,
   .hljs-deletion {
-    color: #8c4351;
+    color: var(--hl-red);
   }
 
   /*Orange */
@@ -2434,19 +2477,19 @@ blockquote {
   .hljs-type,
   .hljs-params,
   .hljs-link {
-    color: #965027;
+    color: var(--hl-orange);
   }
 
   /*  Yellow */
   /* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
   .hljs-built_in,
   .hljs-attribute {
-    color: #8f5e15;
+    color: var(--hl-yellow);
   }
   /* cyan */
   /* INFO: Language support functions, CSS HTML elements */
   .hljs-selector-tag {
-    color: #166775;
+    color: var(--hl-rose);
   }
 
   /* light blue */
@@ -2458,13 +2501,13 @@ blockquote {
   .hljs-title.class_.inherited__,
   .hljs-subst,
   .hljs-property {
-    color: #0f4b6e;
+    color: var(--hl-blue);
   }
 
   /*Green*/
   /* INFO: Object literal keys, Markdown links, Terminal Green */
   .hljs-selector-tag {
-    color: #33635c;
+    color: var(--hl-green);
   }
 
   /*Green(er) */
@@ -2474,7 +2517,7 @@ blockquote {
   .hljs-symbol,
   .hljs-bullet,
   .hljs-addition {
-    color: #485e30;
+    color: var(--hl-greener);
   }
 
   /* Blue */
@@ -2482,7 +2525,7 @@ blockquote {
   .hljs-code,
   .hljs-formula,
   .hljs-section {
-    color: #34548a;
+    color: var(--hl-dark-blue);
   }
 
   /* Magenta */
@@ -2493,26 +2536,31 @@ blockquote {
   .hljs-keyword,
   .hljs-char.escape_,
   .hljs-attr {
-    color: #5a4a78;
+    color: var(--hl-purple);
   }
 
   /* white*/
   /* INFO: Variables, Class names, Terminal White */
   .hljs-punctuation {
-    color: #343b58;
+    color: var(--h1);
   }
 
   .hljs {
-    background: #d5d6db;
-    color: #565a6e;
+    color: var(--text);
   }
 
   .hljs-emphasis {
     font-style: italic;
+    font-weight: 450;
   }
 
   .hljs-strong {
-    font-weight: bold;
+    font-weight: 530;
+  }
+
+  .hljs-emphasis.hljs-strong {
+    font-style: italic;
+    font-weight: 800;
   }
 }
 
