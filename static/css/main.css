@@ -61,10 +61,10 @@
     --accent1b: hsl(170, 31%, 48%);
     --accent2a: hsl(283, 25%, 58%);
     --accent2b: hsl(283, 25%, 68%);
-    --link-line: hsl(170, 31%, 36%);
-    --link-background: hsl(228, 31%, 10%, 60%);
-    --outer-shadow: hsla(228, 31%, 7%, 15%);
-    --outer-shadow-darker: hsla(228, 31%, 4%, 25%);
+    --link-line: hsl(228, 31%, 50%);
+    --link-background: hsl(228, 31%, 30%, 60%);
+    --outer-shadow: hsla(228, 31%, 4%, 25%);
+    --outer-shadow-darker: hsla(228, 31%, 2%, 25%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
 
@@ -255,21 +255,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --drop-shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
-      drop-shadow(2px 4px 6px var(--outer-shadow))
-      drop-shadow(8px 16px 24px var(--outer-shadow));
-    --drop-shadow-image-hover: drop-shadow(
-        2px 4px 6px var(--outer-shadow-darker)
-      )
-      drop-shadow(8px 16px 24px var(--outer-shadow-darker))
-      drop-shadow(16px 32px 48px var(--outer-shadow-darker));
-
-    --box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 6%),
-      0.4px 0.8px 2px -10px hsla(228, 31%, 9%, 7%),
-      0.8px 2px 4px -10px hsla(228, 31%, 8%, 8%),
-      1.6px 3px 7px -10px hsla(228, 31%, 7%, 10%),
-      2.4px 6px 13px -10px hsla(228, 31%, 6%, 12%),
-      6px 12px 30px -10px hsla(228, 31%, 5%, 16%);
+    --box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 20%),
+      0.4px 0.8px 2px -10px hsla(228, 31%, 9%, 21%),
+      0.8px 2px 4px -10px hsla(228, 31%, 8%, 22%),
+      1.6px 3px 7px -10px hsla(228, 31%, 7%, 23%),
+      2.4px 6px 13px -10px hsla(228, 31%, 6%, 24%),
+      6px 12px 30px -10px hsla(228, 31%, 5%, 30%);
     --box-shadow-card-hover: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 6%),
       0.4px 0.8px 2px -10px hsla(228, 31%, 10%, 7%),
       0.8px 2px 4px -10px hsla(228, 31%, 10%, 8%),
@@ -1557,8 +1548,8 @@ blockquote {
   }
 
   code {
-    font-family: "PP-Neue-Montreal-Mono", monospace;
     font-family: "PP Neue Montreal Mono", monospace;
+    font-weight: 450;
     font-size: var(--font-size-1);
     letter-spacing: var(--letter-spacing-1);
   }
@@ -1578,16 +1569,9 @@ blockquote {
     filter: var(--drop-shadow-image);
   }
   strong > code {
-    font-weight: 530;
+    font-weight: 800;
   }
   em > code {
-    font-weight: 450;
-    font-style: italic;
-  }
-
-  strong > em > code,
-  em > strong > code {
-    font-weight: 800;
     font-style: italic;
   }
 
@@ -1737,6 +1721,8 @@ blockquote {
     img {
       margin: 0;
       opacity: 0;
+
+      transition: var(--transition-all), opacity 0.7s ease-in-out;
     }
 
     &::before,
@@ -1784,6 +1770,7 @@ blockquote {
 
   figcaption {
     position: relative;
+    z-index: 11;
 
     padding-inline: var(--margin-line);
     margin-bottom: 1.5rem;
@@ -1792,6 +1779,10 @@ blockquote {
     letter-spacing: var(--letter-spacing-3);
     text-align: center;
     color: var(--text);
+
+    &:has(a) {
+      z-index: unset;
+    }
 
     &::after {
       content: "";
@@ -2572,7 +2563,7 @@ blockquote {
     margin-bottom: 1rem;
     position: relative;
     display: block;
-    contain: content;
+    /* contain: content; */
     background-position: center center;
     background-size: cover;
     cursor: pointer;
@@ -2584,6 +2575,7 @@ blockquote {
       display: block;
       position: absolute;
       top: 0;
+      border-radius: var(--radius-3) var(--radius-3) 0 0;
       background-image: linear-gradient(
         var(--lightbox-background),
         transparent
