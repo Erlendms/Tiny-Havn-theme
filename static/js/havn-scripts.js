@@ -64,15 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Lazy loading
-  const lazyPlaceholderDiv = document.querySelector(".lazy-placeholder");
-  const img = lazyPlaceholderDiv.querySelector("img");
-  function loaded() {
-    lazyPlaceholderDiv.classList.add("loaded");
-  }
+  const lazyPlaceholderDivs = document.querySelectorAll(".lazy-placeholder");
+  lazyPlaceholderDivs.forEach(function (lazyPlaceholderDiv) {
+    const img = lazyPlaceholderDiv.querySelector("img");
+    function loaded() {
+      lazyPlaceholderDiv.classList.add("loaded");
+    }
 
-  if (img.complete) {
-    loaded();
-  } else {
-    img.addEventListener("load", loaded);
-  }
+    if (img.complete) {
+      loaded();
+    } else {
+      img.addEventListener("load", loaded);
+    }
+  });
 });
