@@ -317,13 +317,13 @@
   --width-medium: clamp(15rem, 3.75rem + 50vw, 30rem);
   --width-small: clamp(8.2rem, 0.24rem + 35.37vw, 25rem);
 
-  --bottom-link-underline: 0.19rem;
-  --bottom-link-underline-fig: 0.14rem;
+  --bottom-link-underline: 0.18em;
+  --bottom-link-underline-fig: 0.16em;
   @supports (text-wrap: pretty) {
-    --bottom-link-underline-fig: 0.07rem;
+    --bottom-link-underline-fig: 0.09em;
   }
   @supports (-moz-appearance: none) {
-    --bottom-link-underline-fig: 0.11rem;
+    --bottom-link-underline-fig: 0.13em;
   }
 
   /* Typography */
@@ -752,15 +752,6 @@
 
   /* Link animations */
 
-  @keyframes hasHovered {
-    0% {
-      visiblity: hidden;
-    }
-    100% {
-      visibility: visible;
-    }
-  }
-
   @keyframes linkBlurIn {
     0% {
       text-shadow: var(--text-shadow-p);
@@ -783,6 +774,7 @@
       backdrop-filter: var(--blur-some);
     }
   }
+
   @keyframes linkBlurOut {
     0% {
       text-shadow: none;
@@ -790,16 +782,16 @@
       -webkit-backdrop-filter: var(--blur-some);
       backdrop-filter: var(--blur-some);
     }
-    20% {
+    10% {
       -webkit-backdrop-filter: blur(0px);
       backdrop-filter: blur(0px);
     }
-    50% {
+    25% {
       filter: var(--drop-shadow-link);
       -webkit-backdrop-filter: blur(0px);
       backdrop-filter: blur(0px);
     }
-    80% {
+    40% {
       text-shadow: none;
     }
     100% {
@@ -807,53 +799,6 @@
       filter: none;
       -webkit-backdrop-filter: blur(0px);
       backdrop-filter: blur(0px);
-    }
-  }
-  @keyframes underlineIn {
-    0% {
-      bottom: var(--bottom-link-underline);
-    }
-    50% {
-      bottom: calc(-1 * var(--bottom-link-underline));
-    }
-    100% {
-      bottom: 0;
-    }
-  }
-
-  @keyframes underlineOut {
-    0% {
-      bottom: 0;
-    }
-    50% {
-      bottom: calc(-1 * var(--bottom-link-underline));
-    }
-    100% {
-      bottom: var(--bottom-link-underline);
-    }
-  }
-
-  @keyframes underlineInFig {
-    0% {
-      bottom: var(--bottom-link-underline-fig);
-    }
-    50% {
-      bottom: calc(-1 * var(--bottom-link-underline-fig));
-    }
-    100% {
-      bottom: 0;
-    }
-  }
-
-  @keyframes underlineOutFig {
-    0% {
-      bottom: 0;
-    }
-    50% {
-      bottom: calc(-1 * var(--bottom-link-underline-fig));
-    }
-    100% {
-      bottom: var(--bottom-link-underline-fig);
     }
   }
 
@@ -879,7 +824,8 @@
   div.custom-page-content a,
   a.u-url.mention,
   a.post-date,
-  .microblog_time a {
+  .microblog_time a,
+  .microblog_reply_signin a {
     white-space: nowrap;
 
     padding: var(--padding-link);
@@ -889,7 +835,7 @@
     border-radius: var(--radius-2);
 
     animation-play-state: paused;
-    animation: linkBlurOut 0.4s forwards;
+    animation: linkBlurOut 0.8s forwards;
 
     &::after {
       content: "";
@@ -901,8 +847,7 @@
       width: calc(100% - 0.8em);
 
       box-shadow: var(--box-shadow-link-line);
-      animation-play-state: paused;
-      animation: underlineOut 0.45s forwards;
+      bottom: var(--bottom-link-underline);
     }
 
     @media (hover: hover) {
@@ -919,8 +864,6 @@
           border-radius: var(--radius-2);
 
           box-shadow: var(--box-shadow-link-background);
-          animation-play-state: running;
-          animation: underlineIn 0.45s forwards;
         }
       }
     }
@@ -929,14 +872,13 @@
 
 /* Edit to figcaption links, due to Neue Montreal. */
 @layer components {
-  figcaption a,
-  .callout a {
-    &::after {
-      animation: underlineOutFig 0.45s forwards;
-    }
-    @media (hover: hover) {
-      &:hover::after {
-        animation: underlineInFig 0.45s forwards;
+  figcaption,
+  .callout,
+  .footnote-content,
+  .microblog_reply_signin {
+    a {
+      &::after {
+        bottom: var(--bottom-link-underline-fig);
       }
     }
   }
@@ -1007,7 +949,7 @@
     content: none;
   }
 }
-/* Stretching up above page heading */
+/* Stretching up under page heading */
 @layer special {
   ul.post-list div.post-preview:first-of-type,
   ul.post-list li.h-entry:first-of-type,
@@ -1198,13 +1140,13 @@
       -webkit-backdrop-filter: var(--blur-some);
       backdrop-filter: var(--blur-some);
     }
-    50% {
+    25% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
       -webkit-backdrop-filter: blur(0px);
       backdrop-filter: blur(0px);
     }
-    80% {
+    40% {
       text-shadow: none;
     }
     100% {
@@ -1266,13 +1208,15 @@ blockquote {
   }
 }
 
+/* Links with border-lite background */
 @layer components {
+  .microblog_reply_signin,
   blockquote,
   #micro-header-container,
   .callout {
     & a {
       animation-play-state: paused;
-      animation: blockLinkBlurOut 0.4s forwards;
+      animation: blockLinkBlurOut 0.8s forwards;
       &:hover {
         animation-play-state: running;
         animation: blockLinkBlurIn 0.5s forwards;
@@ -1298,7 +1242,7 @@ blockquote {
     transition-delay: 0.1s;
     &.is-active {
       z-index: 20;
-      filter: var(--drop-shadow-image);
+      filter: var(--drop-shadow-image-hover);
     }
   }
   .footnote-backdrop {
@@ -1343,7 +1287,7 @@ blockquote {
     &.is-active::after {
       padding: 0.3rem 0.7rem 0.9rem;
       margin: -0.3rem -0.7rem -0.9rem;
-      border-radius: var(--radius-2) 0;
+      border-radius: var(--radius-2) var(--radius-2) 0 0;
       background-color: var(--border);
 
       color: var(--h1);
@@ -1356,7 +1300,7 @@ blockquote {
   .footnote-button.footnote-is-top.is-active:after {
     padding: 0.9rem 0.7rem 0.3rem;
     margin: -0.9rem -0.7rem -0.3rem;
-    border-radius: 0 var(--radius-2);
+    border-radius: 0 0 var(--radius-2) var(--radius-2);
   }
 
   @keyframes fadeIn {
@@ -1475,13 +1419,25 @@ blockquote {
     margin-bottom: -0.15em;
 
     animation-play-state: paused;
-    animation: borderLinkBlurOut 0.4s forwards;
+    animation: borderLinkBlurOut 0.8s forwards;
 
     @media (hover: hover) {
       &:hover {
         animation-play-state: running;
         animation: borderLinkBlurIn 0.5s forwards;
       }
+    }
+  }
+  a.footnote-ref {
+    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    margin: var(--margin-footnote);
+    font-weight: 450;
+    top: -0.2em;
+    padding: var(--padding-footnote);
+    padding-bottom: 0.3em;
+    &::after {
+      right: 0.6em;
+      width: calc(100% - 1.2em);
     }
   }
 }
@@ -1516,13 +1472,13 @@ blockquote {
       -webkit-backdrop-filter: var(--blur-some);
       backdrop-filter: var(--blur-some);
     }
-    50% {
+    25% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
       -webkit-backdrop-filter: blur(0px);
       backdrop-filter: blur(0px);
     }
-    80% {
+    40% {
       text-shadow: none;
     }
     100% {
@@ -1941,176 +1897,175 @@ blockquote {
       }
     }
   }
-}
 
-ul.post-tags {
-  list-style-type: none;
+  ul.post-tags {
+    list-style-type: none;
 
-  li {
-    display: inline-block;
-    margin: 0.5rem var(--padding-inline-button-medium) 0.5rem 0;
+    li {
+      display: inline-block;
+      margin: 0.5rem var(--padding-inline-button-medium) 0.5rem 0;
+    }
   }
-}
 
-/* Removes padding increase in animation, to fix bug. */
+  /* Removes padding increase in animation, to fix bug. */
 
-.microblog_time a {
-  padding: var(--padding-button-small);
-  margin: 0 calc(-1 * var(--padding-inline-button-small));
-}
-
-/* Buttons */
-
-/* Space for language button */
-
-div.post:has(a.language) h1 {
-  margin-top: 1.7rem;
-}
-div.post-preview:has(a.language) h1 {
-  margin-top: 2.1rem;
-}
-div.post:has(a.language) h6::after,
-div.post-preview:has(a.language) h6::after {
-  bottom: 0.5rem;
-}
-
-/* Older/Newer */
-
-div.post-nav {
-  position: relative;
-  z-index: 120;
-
-  margin-top: 3.5rem;
-}
-
-/* All buttons */
-a.language,
-input[type="submit"],
-.post-nav span.next,
-.post-nav span.prev,
-a.read-more,
-ul.reply-buttons a {
-  width: fit-content;
-  padding: var(--padding-button-medium);
-  margin: 0 0.5rem 0 0;
-
-  background-color: var(--border);
-  border-radius: var(--radius-2);
-
-  font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-  font-size: var(--font-size-3);
-  font-weight: 200;
-
-  filter: var(--drop-shadow-icon);
-}
-
-ul.reply-buttons {
-  position: relative;
-  z-index: 30;
-
-  padding-bottom: 1rem;
-  margin-top: -1rem;
-
-  text-align: center;
-  li {
-    display: inline-block;
+  .microblog_time a {
+    padding: var(--padding-button-small);
+    margin: 0 calc(-1 * var(--padding-inline-button-small));
   }
-  /* This is to remove extra space from empty buttons. */
-  li:has(a) {
-    margin: var(--padding-button-medium);
+
+  /* Buttons */
+
+  /* Space for language button */
+
+  div.post:has(a.language) h1 {
+    margin-top: 1.7rem;
   }
-}
+  div.post-preview:has(a.language) h1 {
+    margin-top: 2.1rem;
+  }
+  div.post:has(a.language) h6::after,
+  div.post-preview:has(a.language) h6::after {
+    bottom: 0.5rem;
+  }
 
-/* Small buttons */
+  /* Older/Newer */
 
-a.language,
-input[type="submit"] {
-  padding: var(--padding-button-small);
+  div.post-nav {
+    position: relative;
+    z-index: 120;
 
-  font-size: var(--font-size-2);
+    margin-top: 3.5rem;
+  }
 
-  filter: none;
-  animation: unset;
+  /* All buttons */
+  a.language,
+  input[type="submit"],
+  .post-nav span.next,
+  .post-nav span.prev,
+  a.read-more,
+  ul.reply-buttons a {
+    width: fit-content;
+    padding: var(--padding-button-medium);
+    margin: 0 0.5rem 0 0;
 
+    background-color: var(--border);
+    border-radius: var(--radius-2);
+
+    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    font-size: var(--font-size-3);
+    font-weight: 200;
+
+    filter: var(--drop-shadow-icon);
+  }
+
+  ul.reply-buttons {
+    position: relative;
+    z-index: 30;
+
+    padding-bottom: 1rem;
+    margin-top: -1rem;
+
+    text-align: center;
+    li {
+      display: inline-block;
+    }
+    /* This is to remove extra space from empty buttons. */
+    li:has(a) {
+      margin: var(--padding-button-medium);
+    }
+  }
+
+  /* Small buttons */
+
+  a.language,
+  input[type="submit"] {
+    padding: var(--padding-button-small);
+
+    font-size: var(--font-size-2);
+
+    filter: none;
+    animation: unset;
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--h4);
+        filter: var(--drop-shadow-icon);
+        @media (prefers-color-scheme: dark) {
+          color: var(--h1);
+          filter: var(--drop-shadow-icon-hover);
+        }
+      }
+    }
+    &::after {
+      content: none;
+    }
+  }
+
+  div a.language:not(.custom-page-content a.language) {
+    position: absolute;
+    top: clamp(1.6rem, 0.8125rem + 3.5vw, 2.65rem);
+    left: 50%;
+    transform: translateX(-50%);
+
+    .post-preview & {
+      top: clamp(2.35rem, 1.6rem + 3.33vw, 3.35rem);
+      left: unset;
+      transform: translateX(calc(-1 * var(--padding-inline-button-small)));
+    }
+  }
+
+  /* Medium buttons */
+  .post-nav span.next,
+  .post-nav span.prev {
+    position: absolute;
+    bottom: 0.5rem;
+    right: var(--radius-4);
+
+    margin: 0;
+    background-color: var(--background-70);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+  }
+
+  .post-nav span.prev {
+    left: var(--radius-4);
+  }
+  ul.reply-buttons a {
+    margin: 0;
+    background-color: var(--background-70);
+
+    backdrop-filter: var(--blur-some);
+    -webkit-backdrop-filter: var(--blur-some);
+  }
   @media (hover: hover) {
-    &:hover {
-      color: var(--h4);
-      filter: var(--drop-shadow-icon);
-      @media (prefers-color-scheme: dark) {
-        color: var(--h1);
+    .post-nav span.next:hover,
+    .post-nav span.prev:hover,
+    ul.reply-buttons a:hover {
+      background-color: var(--background);
+      filter: var(--drop-shadow-icon-hover);
+    }
+  }
+
+  a.read-more {
+    animation: unset;
+
+    &::after {
+      content: none;
+    }
+
+    p:has(&) {
+      margin-top: var(--padding-block);
+    }
+
+    @media (hover: hover) {
+      &:hover {
         filter: var(--drop-shadow-icon-hover);
       }
     }
   }
-  &::after {
-    content: none;
-  }
 }
-
-div a.language:not(.custom-page-content a.language) {
-  position: absolute;
-  top: clamp(1.6rem, 0.8125rem + 3.5vw, 2.65rem);
-  left: 50%;
-  transform: translateX(-50%);
-
-  .post-preview & {
-    top: clamp(2.35rem, 1.6rem + 3.33vw, 3.35rem);
-    left: unset;
-    transform: translateX(calc(-1 * var(--padding-inline-button-small)));
-  }
-}
-
-/* Medium buttons */
-.post-nav span.next,
-.post-nav span.prev {
-  position: absolute;
-  bottom: 0.5rem;
-  right: var(--radius-4);
-
-  margin: 0;
-  background-color: var(--background-70);
-
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-}
-
-.post-nav span.prev {
-  left: var(--radius-4);
-}
-ul.reply-buttons a {
-  margin: 0;
-  background-color: var(--background-70);
-
-  backdrop-filter: var(--blur-some);
-  -webkit-backdrop-filter: var(--blur-some);
-}
-@media (hover: hover) {
-  .post-nav span.next:hover,
-  .post-nav span.prev:hover,
-  ul.reply-buttons a:hover {
-    background-color: var(--background);
-    filter: var(--drop-shadow-icon-hover);
-  }
-}
-
-a.read-more {
-  animation: unset;
-
-  &::after {
-    content: none;
-  }
-
-  p:has(&) {
-    margin-top: var(--padding-block);
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      filter: var(--drop-shadow-icon-hover);
-    }
-  }
-}
-
 @layer layout {
   /* Header */
   header {
@@ -2400,19 +2355,37 @@ a.read-more {
     position: relative;
     z-index: 10;
 
-    padding: 2rem calc(var (--padding-inline-article) - 0.5rem);
+    padding: 2rem calc(var(--padding-inline-article) - 0.5rem);
     margin-top: -2.5rem;
   }
 
-  .microblog_post {
+  .microblog_post,
+  .microblog_reply_form {
+    padding: 1em;
     margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: var(--radius-2);
     background-color: var(--background);
-    box-shadow: var(--box-shadow-card);
+    border-radius: var(--radius-2);
 
-    &:last-of-type {
-      margin-bottom: 0;
+    box-shadow: var(--box-shadow-card);
+  }
+
+  .microblog_reply_form {
+    margin-bottom: unset;
+    background-color: var(--border-lite);
+
+    .microblog_reply_signin {
+      margin-top: 0;
+
+      font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    }
+
+    textarea {
+      background-color: var(--background);
+      border: none;
+      border-radius: var(--radius-1);
+
+      box-shadow: var(--box-shadow-inner);
+      filter: var(--drop-shadow-icon);
     }
   }
 
@@ -2562,6 +2535,7 @@ a.read-more {
     margin-bottom: 1rem;
     position: relative;
     display: block;
+    overflow: hidden;
     /* contain: content; */
     background-position: center center;
     background-size: cover;
@@ -2579,7 +2553,8 @@ a.read-more {
         var(--lightbox-background),
         transparent
       );
-      height: 30%;
+      opacity: 0.5;
+      height: 20%;
       width: 100%;
     }
 
@@ -2587,7 +2562,7 @@ a.read-more {
       &:hover {
         filter: var(--drop-shadow-image-hover);
         &::before {
-          height: 10%;
+          top: -15%;
         }
       }
     }
@@ -2609,6 +2584,8 @@ a.read-more {
     left: 0;
     border: 0;
     margin: 0;
+    padding: 0;
+    transform: unset;
   }
 
   /* play button */
