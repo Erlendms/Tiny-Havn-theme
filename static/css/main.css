@@ -301,7 +301,7 @@
     var(--padding-inline-button-medium);
 
   --padding-footnote: 0 0.6rem;
-  --margin-footnote: 0 -0.6rem;
+  --margin-footnote: 0 -0.8rem 0 0;
 
   --padding-block-link: 0.1rem;
   --padding-inline-link: 0.5rem;
@@ -726,7 +726,7 @@
   /* Paragraphs */
 
   /* Drop cap */
-  :not(div.adhdikt)
+  div.wrapper:not(div.adhdikt)
     > .post-content
     > p:not(:has(.language)):first-of-type::first-letter,
   :not(div.adhdikt) > .post-content > p:has(.language) + p::first-letter {
@@ -816,69 +816,78 @@
 
   /* Text links */
 
-  div.post-preview a,
-  div.post.h-entry a,
-  li.micro-post a,
-  li.h-entry a,
-  #micro-header-container a,
-  div.custom-page-content a,
-  a.u-url.mention,
-  a.post-date,
-  .microblog_time a,
-  .microblog_reply_signin a {
-    white-space: nowrap;
+  div.post-preview,
+  div.post.h-entry,
+  li.micro-post,
+  li.h-entry,
+  #micro-header-container,
+  div.custom-page-content,
+  .microblog_time,
+  .microblog_reply_signin {
+    a {
+      white-space: nowrap;
 
-    padding: var(--padding-link);
-    margin: calc(-1 * var(--padding-block-link))
-      calc(-1 * var(--padding-inline-link));
-    background-color: transparent;
-    border-radius: var(--radius-2);
+      padding: var(--padding-link);
+      margin: calc(-1 * var(--padding-block-link))
+        calc(-1 * var(--padding-inline-link));
+      background-color: transparent;
+      border-radius: var(--radius-2);
 
-    animation-play-state: paused;
-    animation: linkBlurOut 0.8s forwards;
+      animation-play-state: paused;
+      animation: linkBlurOut 0.8s forwards;
 
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0.4em;
-      z-index: -1;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0.4em;
+        z-index: -1;
 
-      height: 100%;
-      width: calc(100% - 0.8em);
+        height: 100%;
+        width: calc(100% - 0.8em);
 
-      box-shadow: var(--box-shadow-link-line);
-      bottom: var(--bottom-link-underline);
-    }
+        box-shadow: var(--box-shadow-link-line);
+        bottom: var(--bottom-link-underline);
+      }
+      h2,
+      h3,
+      h4,
+      h5 {
+        a::after {
+          right: 0.2em;
+          width: calc(100% - 0.4em);
+        }
+      }
 
-    @media (hover: hover) {
-      &:hover {
-        z-index: 20;
+      @media (hover: hover) {
+        &:hover {
+          z-index: 20;
 
-        animation-play-state: running;
-        animation: linkBlurIn 0.5s forwards;
-        &::after {
-          right: 0;
-          bottom: 0;
-          width: 100%;
+          animation-play-state: running;
+          animation: linkBlurIn 0.5s forwards;
+          &::after {
+            right: 0;
+            bottom: 0;
+            width: 100%;
 
-          border-radius: var(--radius-2);
+            border-radius: var(--radius-2);
 
-          box-shadow: var(--box-shadow-link-background);
+            box-shadow: var(--box-shadow-link-background);
+          }
         }
       }
     }
   }
 }
 
-/* Edit to figcaption links, due to Neue Montreal. */
 @layer components {
+  /* Edit to figcaption links, due to Neue Montreal. */
   figcaption,
   .callout,
   .footnote-content,
   .microblog_reply_signin {
     a {
       &::after {
-        bottom: var(--bottom-link-underline-fig);
+        bottom: calc(var(--bottom-link-underline-fig) - 0.02em);
       }
     }
   }
@@ -1114,8 +1123,8 @@
     0% {
       text-shadow: var(--text-shadow-bq);
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     20% {
       text-shadow: none;
@@ -1123,28 +1132,28 @@
     50% {
       text-shadow: none;
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     100% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
+      /* -webkit-backdrop-filter: var(--blur-some);
+      backdrop-filter: var(--blur-some); */
     }
   }
   @keyframes blockLinkBlurOut {
     0% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
+      /* -webkit-backdrop-filter: var(--blur-some);
+      backdrop-filter: var(--blur-some); */
     }
     25% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     40% {
       text-shadow: none;
@@ -1152,8 +1161,8 @@
     100% {
       text-shadow: var(--text-shadow-bq);
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
   }
 }
@@ -1446,8 +1455,8 @@ blockquote {
     0% {
       text-shadow: var(--text-shadow-border);
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     20% {
       text-shadow: none;
@@ -1455,28 +1464,28 @@ blockquote {
     50% {
       text-shadow: none;
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     100% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
+      /* -webkit-backdrop-filter: var(--blur-some);
+      backdrop-filter: var(--blur-some); */
     }
   }
   @keyframes borderLinkBlurOut {
     0% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
+      /* -webkit-backdrop-filter: var(--blur-some);
+      backdrop-filter: var(--blur-some); */
     }
     25% {
       text-shadow: none;
       filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
     40% {
       text-shadow: none;
@@ -1484,8 +1493,8 @@ blockquote {
     100% {
       text-shadow: var(--text-shadow-border);
       filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
+      /* -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px); */
     }
   }
 
@@ -1675,8 +1684,12 @@ blockquote {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: var(--radius-3);
+    max-height: 80vh;
+
+    transition: var(--transition-all), background 1.4s ease-in-out;
 
     img {
+      max-height: 80vh;
       margin: 0;
       opacity: 0;
 
@@ -1702,6 +1715,8 @@ blockquote {
       animation: pulse 2.5s infinite;
     }
     &.loaded {
+      background-image: none !important;
+
       &::before,
       &::after {
         content: none;
@@ -1763,6 +1778,18 @@ blockquote {
     & > p {
       margin-block: 0em;
     }
+    .lazy-placeholder {
+      &.medium {
+        img {
+          max-width: 65vw;
+        }
+      }
+      &.small {
+        img {
+          max-width: 55vw;
+        }
+      }
+    }
   }
 }
 
@@ -1812,21 +1839,26 @@ blockquote {
       padding: 1rem 0;
       margin: -1rem 0;
 
-      a,
-      div {
-        flex: 0 0 auto;
+      .lazy-placeholder {
         margin-right: 0.2rem;
-        &:first-child {
-          margin-left: 0.5rem;
-        }
         &:first-of-type {
-          margin-left: 0.5rem;
+          margin-left: 0.9rem;
         }
         &:last-of-type {
           margin-right: 1.5rem;
         }
         img {
           max-width: 75vw;
+        }
+        &.medium {
+          img {
+            max-width: 65vw;
+          }
+        }
+        &.small {
+          img {
+            max-width: 55vw;
+          }
         }
       }
     }
@@ -1999,6 +2031,23 @@ blockquote {
     }
     &::after {
       content: none;
+    }
+  }
+
+  input[type="submit"] {
+    margin: 0;
+    transform: translateY(0.9em);
+    background-color: var(--background);
+    border: unset;
+    cursor: pointer;
+
+    filter: var(--drop-shadow-icon);
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.05);
+        filter: var(--drop-shadow-icon-hover);
+      }
     }
   }
 
@@ -2355,14 +2404,14 @@ blockquote {
     position: relative;
     z-index: 10;
 
-    padding: 2rem calc(var(--padding-inline-article) - 0.5rem);
-    margin-top: -2.5rem;
+    padding: 2em calc(var(--padding-inline-article) - 0.5em);
+    margin-top: -2.5em;
   }
 
   .microblog_post,
   .microblog_reply_form {
-    padding: 1em;
-    margin-bottom: 2rem;
+    padding: 0.3em 1.2em;
+    margin-bottom: 2em;
     background-color: var(--background);
     border-radius: var(--radius-2);
 
@@ -2370,8 +2419,19 @@ blockquote {
   }
 
   .microblog_reply_form {
-    margin-bottom: unset;
+    position: relative;
+    width: calc(100% + var(--padding-inline-article) - 1em);
+    padding: 0.9em calc(var(--padding-inline-article) - 0.5em)
+      calc(var(--padding-inline-article) - 0.5em);
+    margin-bottom: 0.2em;
     background-color: var(--border-lite);
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    a::after {
+      bottom: calc(var(--bottom-link-underline-fig) - 0.1em);
+    }
 
     .microblog_reply_signin {
       margin-top: 0;
@@ -2380,13 +2440,37 @@ blockquote {
     }
 
     textarea {
+      max-width: 100%;
+      padding: 0.8em 1em;
       background-color: var(--background);
       border: none;
       border-radius: var(--radius-1);
 
+      font-family: "PP-Writer", var(--font_old_style);
+      color: var(--h1);
+
       box-shadow: var(--box-shadow-inner);
       filter: var(--drop-shadow-icon);
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--border-lite);
+
+        box-shadow: none;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: var(--box-shadow-inner-hover);
+        filter: var(--drop-shadow-icon-hover);
+      }
     }
+  }
+  .microblog_reply_button {
+    margin: 0;
+  }
+
+  .microblog_reply_textarea:has(textarea:disabled) + .microblog_reply_button {
+    display: none;
   }
 
   .microblog_user {
