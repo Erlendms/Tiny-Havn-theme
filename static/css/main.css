@@ -301,7 +301,7 @@
     var(--padding-inline-button-medium);
 
   --padding-footnote: 0 0.6rem;
-  --margin-footnote: 0 -0.8rem 0 0;
+  --margin-footnote: 0 -0.6rem;
 
   --padding-block-link: 0.1rem;
   --padding-inline-link: 0.5rem;
@@ -1243,7 +1243,7 @@ blockquote {
 
     position: relative;
     z-index: 10;
-    transform: translateX(-40%);
+    transform: translateX(40%);
 
     margin: -1rem 0.3em 0 0;
     line-height: 1.1em;
@@ -2490,6 +2490,138 @@ blockquote {
 
   .microblog_text img {
     max-width: 100%;
+  }
+}
+
+/* Soundcite */
+@layer soundcite {
+  /* soundcite - v0.5.1 - 2017-07-10
+  * Copyright (c) 2017 Tyler J. Fisher and Northwestern University Knight Lab
+  */
+
+  /*PLAYER CHROME*/
+
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      opacity: 0.4;
+    }
+  }
+
+  @-moz-keyframes spin {
+    from {
+      -moz-transform: rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      -moz-transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      -moz-transform: rotate(360deg);
+      opacity: 0.4;
+    }
+  }
+
+  @-ms-keyframes spin {
+    from {
+      -ms-transform: rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      -ms-transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      opacity: 0.4;
+    }
+  }
+
+  @-o-keyframes spin {
+    from {
+      -o-transform: rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      -o-transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      -o-transform: rotate(360deg);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(360deg);
+      opacity: 0.2;
+    }
+  }
+
+  .soundcite-loaded {
+    border-radius: var(--radius-1);
+    padding: 0 5px 0 5px;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .soundcite-loaded:before {
+    display: inline-block;
+    content: "";
+    vertical-align: -10%;
+    margin-right: 0.25em;
+  }
+
+  .soundcite-loading:before {
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    position: relative;
+    top: -0.05em;
+    height: 0.75em;
+    width: 0.75em;
+    border: 2px solid var(--text);
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    -ms-animation: spin 1s linear infinite;
+    -o-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+  }
+
+  .soundcite-play:before {
+    font-size: 0.9em;
+    position: relative;
+    top: -0.05em;
+    border: 0.5em solid transparent;
+    border-left: 0.75em solid var(--text);
+  }
+
+  .soundcite-pause:before {
+    font-size: 0.9em;
+    position: relative;
+    top: -0.05em;
+    height: 1em;
+    border-left: 0.75em double var(--text);
+    border-right: 0.5em solid transparent;
   }
 }
 

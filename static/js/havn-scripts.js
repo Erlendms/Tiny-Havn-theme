@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         topButton.classList.remove("show-button");
       }
-    }, 1000),
+    }, 1000)
   );
 
   topButton.addEventListener("click", function (e) {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const offset = isMobile ? 162 : 186;
     const winScroll = Math.max(
       0,
-      document.body.scrollTop || document.documentElement.scrollTop - offset,
+      document.body.scrollTop || document.documentElement.scrollTop - offset
     );
     const height =
       document.documentElement.scrollHeight -
