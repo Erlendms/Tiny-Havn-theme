@@ -824,6 +824,16 @@
   div.custom-page-content,
   .microblog_time,
   .microblog_reply_signin {
+    h2,
+    h3,
+    h4,
+    h5 {
+      a::after {
+        right: 0.2em;
+        width: calc(100% - 0.4em);
+        bottom: var(--bottom-link-underline-fig);
+      }
+    }
     a {
       white-space: nowrap;
 
@@ -847,15 +857,6 @@
 
         box-shadow: var(--box-shadow-link-line);
         bottom: var(--bottom-link-underline);
-      }
-      h2,
-      h3,
-      h4,
-      h5 {
-        a::after {
-          right: 0.2em;
-          width: calc(100% - 0.4em);
-        }
       }
 
       @media (hover: hover) {
@@ -2581,6 +2582,12 @@ blockquote {
     padding: 0 5px 0 5px;
     display: inline-block;
     cursor: pointer;
+    filter: var(--drop-shadow-icon);
+    @media (hover: hover) {
+      &:hover {
+        filter: var(--drop-shadow-icon-hover);
+      }
+    }
   }
 
   .soundcite-loaded:before {
@@ -2613,6 +2620,7 @@ blockquote {
     top: -0.05em;
     border: 0.5em solid transparent;
     border-left: 0.75em solid var(--text);
+    transition: none;
   }
 
   .soundcite-pause:before {
@@ -2622,6 +2630,7 @@ blockquote {
     height: 1em;
     border-left: 0.75em double var(--text);
     border-right: 0.5em solid transparent;
+    transition: none;
   }
 }
 

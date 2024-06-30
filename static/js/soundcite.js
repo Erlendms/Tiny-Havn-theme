@@ -102,6 +102,7 @@
 })(window, document, function (soundcite_elements, $Popcorn, $SoundCloud) {
   var SOUNDCITE_CONFIG = {
     soundcloud_client_id: "5f016c08c2201881c4217afd5f52e065",
+    background_color: "",
   };
   for (var key in window.SOUNDCITE_CONFIG) {
     SOUNDCITE_CONFIG[key] = window.SOUNDCITE_CONFIG[key];
@@ -114,10 +115,7 @@
   }
   var style = document.createElement("style");
   style.type = "text/css";
-  style.innerHTML =
-    ".soundcite-loaded { background-color: rgba(" +
-    SOUNDCITE_CONFIG.background_color +
-    ",.15) }";
+  style.innerHTML = ".soundcite-loaded { background-color: var(--border); }";
   document.getElementsByTagName("head")[0].appendChild(style);
   var bind = function (func, context) {
     var slice = Array.prototype.slice;
@@ -179,25 +177,17 @@
     }
     return null;
   }
+
   var update_playing_element = function (el, percentage) {
-    var color = SOUNDCITE_CONFIG.background_color || "0,0,0";
     el.style.cssText =
-      "background: -webkit-linear-gradient(left, rgba(" +
-      color +
-      ",.15)" +
+      "background: -webkit-linear-gradient(left, var(--mid-blue) " +
       percentage +
-      "%, rgba(" +
-      color +
-      ",.05)" +
+      "%, var(--border) " +
       (percentage + 1) +
       "%);" +
-      "background: linear-gradient(to right, rgba(" +
-      color +
-      ",.15)" +
+      "background: linear-gradient(to right, var(--mid-blue) " +
       percentage +
-      "%, rgba(" +
-      color +
-      ",.05)" +
+      "%, var(--border) " +
       (percentage + 1) +
       "%);";
   };
