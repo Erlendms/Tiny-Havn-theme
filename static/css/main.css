@@ -16,7 +16,7 @@
   --accent1b: hsl(150, 31%, 40%);
   --accent2a: hsl(283, 25%, 56%);
   --accent2b: hsl(283, 25%, 62%);
-  --mid-blue: hsl(228, 31%, 69%);
+  --mid-blue: hsl(228, 31%, 65%);
   --link-line: hsl(228, 31%, 69%);
   --link-background: hsla(228, 31%, 90%, 60%);
   --outer-shadow: hsla(228, 31%, 31%, 6%);
@@ -317,13 +317,13 @@
   --width-medium: clamp(15rem, 3.75rem + 50vw, 30rem);
   --width-small: clamp(8.2rem, 0.24rem + 35.37vw, 25rem);
 
-  --bottom-link-underline: 0.18em;
+  --bottom-link-underline: 0.15em;
   --bottom-link-underline-fig: 0.16em;
   @supports (text-wrap: pretty) {
     --bottom-link-underline-fig: 0.09em;
   }
   @supports (-moz-appearance: none) {
-    --bottom-link-underline-fig: 0.13em;
+    --bottom-link-underline-fig: 0.1em;
   }
 
   /* Typography */
@@ -363,10 +363,10 @@
     clamp(-0.006rem, -0.0068rem - 0.0033vw, -0.005rem) * -1
   );
 
-  --margin-top-h2: 1.3em;
-  --margin-top-h3: 1.25em;
-  --margin-top-h4: 1.2em;
-  --margin-top-h5: 1.15em;
+  --margin-top-h2: 0.8em;
+  --margin-top-h3: 0.8em;
+  --margin-top-h4: 0.8em;
+  --margin-top-h5: 0.8em;
 }
 
 /* Font stacks */
@@ -750,58 +750,6 @@
     text-align: center;
   }
 
-  /* Link animations */
-
-  @keyframes linkBlurIn {
-    0% {
-      text-shadow: var(--text-shadow-p);
-      filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
-    }
-    10% {
-      text-shadow: none;
-    }
-    50% {
-      filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
-    }
-    100% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
-    }
-  }
-
-  @keyframes linkBlurOut {
-    0% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some);
-    }
-    10% {
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
-    }
-    25% {
-      filter: var(--drop-shadow-link);
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
-    }
-    40% {
-      text-shadow: none;
-    }
-    100% {
-      text-shadow: var(--text-shadow-p);
-      filter: none;
-      -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px);
-    }
-  }
-
   /* Links */
 
   a {
@@ -842,9 +790,10 @@
         calc(-1 * var(--padding-inline-link));
       background-color: transparent;
       border-radius: var(--radius-2);
+      text-shadow: var(--text-shadow-p);
+      filter: none;
 
-      animation-play-state: paused;
-      animation: linkBlurOut 0.8s forwards;
+      transition: var(--transition-all), text-shadow 0.1s ease-in-out 0s;
 
       &::after {
         content: "";
@@ -863,8 +812,8 @@
         &:hover {
           z-index: 20;
 
-          animation-play-state: running;
-          animation: linkBlurIn 0.5s forwards;
+          text-shadow: none;
+          filter: var(--drop-shadow-link);
           &::after {
             right: 0;
             bottom: 0;
@@ -872,10 +821,17 @@
 
             border-radius: var(--radius-2);
 
-            box-shadow: var(--box-shadow-link-background);
+            box-shadow: var(--box-shadow-border-background);
           }
         }
       }
+      strong,
+      em {
+        transition: unset;
+      }
+    }
+    a:not(:hover) {
+      transition: var(--transition-all), text-shadow 0.35s ease-in-out 0.35s;
     }
   }
 }
@@ -902,11 +858,14 @@
     & a:hover::after {
       white-space: unset;
       color: var(--h1);
-      animation: unset;
+      text-shadow: unset;
       box-shadow: unset;
+      filter: unset;
     }
-    & a:hover {
-      color: var(--mid-blue);
+    @media (hover: hover) {
+      & a:hover {
+        color: var(--mid-blue);
+      }
     }
     & a::after {
       content: "";
@@ -1119,53 +1078,6 @@
   }
 
   /* Quotes and callouts */
-
-  @keyframes blockLinkBlurIn {
-    0% {
-      text-shadow: var(--text-shadow-bq);
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    20% {
-      text-shadow: none;
-    }
-    50% {
-      text-shadow: none;
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    100% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some); */
-    }
-  }
-  @keyframes blockLinkBlurOut {
-    0% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some); */
-    }
-    25% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    40% {
-      text-shadow: none;
-    }
-    100% {
-      text-shadow: var(--text-shadow-bq);
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-  }
 }
 
 blockquote {
@@ -1219,17 +1131,17 @@ blockquote {
 }
 
 /* Links with border-lite background */
+/* I don't think I need this anymore. */
+
 @layer components {
   .microblog_reply_signin,
   blockquote,
   #micro-header-container,
   .callout {
     & a {
-      animation-play-state: paused;
-      animation: blockLinkBlurOut 0.8s forwards;
+      text-shadow: var(--text-shadow-bq);
       &:hover {
-        animation-play-state: running;
-        animation: blockLinkBlurIn 0.5s forwards;
+        text-shadow: none;
       }
     }
   }
@@ -1428,13 +1340,11 @@ blockquote {
     padding-bottom: 0.15em;
     margin-bottom: -0.15em;
 
-    animation-play-state: paused;
-    animation: borderLinkBlurOut 0.8s forwards;
+    text-shadow: var(--text-shadow-border);
 
     @media (hover: hover) {
       &:hover {
-        animation-play-state: running;
-        animation: borderLinkBlurIn 0.5s forwards;
+        text-shadow: none;
       }
     }
   }
@@ -1452,53 +1362,6 @@ blockquote {
   }
 }
 @layer styling {
-  @keyframes borderLinkBlurIn {
-    0% {
-      text-shadow: var(--text-shadow-border);
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    20% {
-      text-shadow: none;
-    }
-    50% {
-      text-shadow: none;
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    100% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some); */
-    }
-  }
-  @keyframes borderLinkBlurOut {
-    0% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: var(--blur-some);
-      backdrop-filter: var(--blur-some); */
-    }
-    25% {
-      text-shadow: none;
-      filter: var(--drop-shadow-link);
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-    40% {
-      text-shadow: none;
-    }
-    100% {
-      text-shadow: var(--text-shadow-border);
-      filter: none;
-      /* -webkit-backdrop-filter: blur(0px);
-      backdrop-filter: blur(0px); */
-    }
-  }
-
   /* Code */
 
   pre {
@@ -1921,12 +1784,12 @@ blockquote {
           color: var(--h1);
         }
       }
-    }
-    &:hover::after {
-      box-shadow: var(--box-shadow-border-background);
-      filter: var(--drop-shadow-icon);
-      @media (prefers-color-scheme: dark) {
-        filter: var(--drop-shadow-icon-hover);
+      &:hover::after {
+        box-shadow: var(--box-shadow-border-background);
+        filter: var(--drop-shadow-icon);
+        @media (prefers-color-scheme: dark) {
+          filter: var(--drop-shadow-icon-hover);
+        }
       }
     }
   }
@@ -2099,7 +1962,7 @@ blockquote {
   }
 
   a.read-more {
-    animation: unset;
+    text-shadow: unset;
 
     &::after {
       content: none;
@@ -3389,6 +3252,7 @@ blockquote {
       font-size: var(--font-size-5);
       font-weight: 400;
       margin-bottom: 1rem;
+      color: inherit;
     }
 
     .gslide-desc {
