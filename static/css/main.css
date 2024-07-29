@@ -1500,6 +1500,7 @@ blockquote {
 @layer components {
   a.glightbox {
     animation: unset;
+    text-shadow: unset;
     &::after {
       content: none;
     }
@@ -1770,6 +1771,7 @@ blockquote {
 
     filter: none;
     animation: unset;
+    text-shadow: unset;
 
     &::after {
       box-shadow: none;
@@ -1882,6 +1884,7 @@ blockquote {
 
     filter: none;
     animation: unset;
+    text-shadow: unset;
 
     @media (hover: hover) {
       &:hover {
