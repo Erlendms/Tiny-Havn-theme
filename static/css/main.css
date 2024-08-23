@@ -20,7 +20,7 @@
   --link-line: hsl(228, 31%, 69%);
   --link-background: hsla(228, 31%, 90%, 60%);
   --outer-shadow: hsla(228, 31%, 31%, 6%);
-  --outer-shadow-darker: hsla(228, 31%, 31%, 10%);
+  --outer-shadow-darker: hsla(228, 31%, 31%, 7%);
   --inner-shadow: hsla(228, 31%, 31%, 2%);
   --inner-shadow-darker: hsla(228, 31%, 31%, 5%);
   --lightbox-background: hsla(228, 31%, 10%, 80%);
@@ -64,7 +64,7 @@
     --link-line: hsl(228, 31%, 50%);
     --link-background: hsl(228, 31%, 30%, 60%);
     --outer-shadow: hsla(228, 31%, 4%, 25%);
-    --outer-shadow-darker: hsla(228, 31%, 2%, 25%);
+    --outer-shadow-darker: hsla(228, 31%, 2%, 30%);
     --inner-shadow: hsla(228, 31%, 20%, 10%);
     --inner-shadow-darker: hsla(228, 31%, 30%, 15%);
 
@@ -85,9 +85,9 @@
   --drop-shadow-image: drop-shadow(1px 2px 3px var(--outer-shadow))
     drop-shadow(2px 4px 6px var(--outer-shadow))
     drop-shadow(8px 16px 24px var(--outer-shadow));
-  --drop-shadow-image-hover: drop-shadow(2px 4px 6px var(--outer-shadow-darker))
-    drop-shadow(8px 16px 24px var(--outer-shadow-darker))
-    drop-shadow(16px 32px 48px var(--outer-shadow-darker));
+  --drop-shadow-image-hover: drop-shadow(1px 2px 3px var(--outer-shadow-darker))
+    drop-shadow(2px 4px 6px var(--outer-shadow-darker))
+    drop-shadow(8px 16px 24px var(--outer-shadow-darker));
 
   --box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 3%),
     0.4px 0.8px 2px -10px hsla(228, 31%, 10%, 3%),
@@ -276,7 +276,11 @@
   --blur: blur(0.4rem);
   --blur-more: blur(0.6rem);
 
-  --transition-all: all 0.35s ease-in-out;
+  --transition-delay-default: 0ms;
+  --transition-duration-default: 350ms;
+  --transition-timing-default: ease-in-out;
+  --transition-default: var(--transition-duration-default)
+    var(--transition-timing-default);
 
   /* Shapes, padding and margin */
   --radius-1: 0.2rem;
@@ -494,8 +498,10 @@
   *::before,
   *::after {
     box-sizing: border-box;
-    -webkit-transition: var(--transition-all);
-    transition: var(--transition-all);
+    transition-delay: var(--transition-delay-default);
+    transition-duration: var(--transition-duration-default);
+    transition-timing-function: var(--transition-timing-default);
+    transition-property: none;
   }
 
   * {
@@ -520,7 +526,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     :root {
-      --transition-all: none;
+      transition: none !important;
     }
   }
 
@@ -727,9 +733,9 @@
 
   /* Drop cap */
   div.wrapper:not(div.adhdikt)
-    > .post-content
-    > p:not(:has(.language)):first-of-type::first-letter,
-  :not(div.adhdikt) > .post-content > p:has(.language) + p::first-letter {
+    .post
+    p:not(:has(.language)):first-of-type::first-letter,
+  div.wrapper:not(div.adhdikt) .post p:has(.language) + p::first-letter {
     font-size: 3em;
     float: left;
     line-height: 0.5;
@@ -737,11 +743,41 @@
     margin-top: 0.27em;
   }
 
+  div.wrapper:not(div.adhdikt)
+    .post
+    .callout
+    p:not(:has(.language)):first-of-type::first-letter,
+  div.wrapper:not(div.adhdikt)
+    .post
+    .callout
+    p:has(.language)
+    + p::first-letter,
+  div.wrapper:not(div.adhdikt)
+    .post
+    blockquote
+    p:not(:has(.language)):first-of-type::first-letter,
+  div.wrapper:not(div.adhdikt)
+    .post
+    blockquote
+    p:has(.language)
+    + p::first-letter,
+  div.wrapper:not(div.adhdikt)
+    .post
+    .footnote-content
+    p:not(:has(.language)):first-of-type::first-letter,
+  div.wrapper:not(div.adhdikt)
+    .post
+    .footnote-content
+    p:has(.language)
+    + p::first-letter {
+    all: unset;
+  }
+
   @supports (-moz-appearance: none) {
-    :not(div.adhdikt)
-      > .post-content
-      > p:not(:has(.language)):first-of-type::first-letter,
-    :not(div.adhdikt) > .post-content > p:has(.language) + p::first-letter {
+    div.wrapper:not(div.adhdikt)
+      .post
+      p:not(:has(.language)):first-of-type::first-letter,
+    div.wrapper:not(div.adhdikt) .post p:has(.language) + p::first-letter {
       margin-top: 0.12em;
     }
   }
@@ -757,6 +793,7 @@
 
     color: var(--text);
     text-decoration: none;
+    transition-property: color;
     &:hover {
       color: var(--h1);
     }
@@ -793,7 +830,8 @@
       text-shadow: var(--text-shadow-p);
       filter: none;
 
-      transition: var(--transition-all), text-shadow 0.1s ease-in-out 0s;
+      transition: filter var(--transition-default),
+        text-shadow 100ms ease-in-out 0s;
 
       &::after {
         content: "";
@@ -806,6 +844,7 @@
 
         box-shadow: var(--box-shadow-link-line);
         bottom: var(--bottom-link-underline);
+        transition-property: right, bottom, width, border-radius, box-shadow;
       }
 
       @media (hover: hover) {
@@ -831,7 +870,8 @@
       }
     }
     a:not(:hover) {
-      transition: var(--transition-all), text-shadow 0.35s ease-in-out 0.35s;
+      transition: filter var(--transition-default),
+        text-shadow 0.35s ease-in-out 0.35s;
     }
   }
 }
@@ -861,6 +901,7 @@
       text-shadow: unset;
       box-shadow: unset;
       filter: unset;
+      transition-property: color;
     }
     @media (hover: hover) {
       & a:hover {
@@ -1111,6 +1152,14 @@ blockquote {
 
   filter: var(--drop-shadow-image);
 
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: -0.3em;
+    margin-bottom: 0.2em;
+  }
+
   p {
     font-size: var(--font-size-2);
     letter-spacing: var(--letter-spacing-2);
@@ -1162,6 +1211,7 @@ blockquote {
     line-height: 1.1em;
 
     transition-delay: 0.1s;
+    transition-property: filter;
     &.is-active {
       z-index: 20;
       filter: var(--drop-shadow-image-hover);
@@ -1195,6 +1245,8 @@ blockquote {
       color: var(--text);
 
       box-shadow: var(--box-shadow-link-line);
+      transition-property: padding, margin, border-radius, background-color,
+        color, box-shadow, filter;
     }
     @media (hover: hover) {
       &:hover::after {
@@ -1219,7 +1271,7 @@ blockquote {
     }
   }
 
-  .footnote-button.footnote-is-top.is-active:after {
+  .footnote-button.footnote-is-top.is-active::after {
     padding: 0.9rem 0.7rem 0.3rem;
     margin: -0.9rem -0.7rem -0.3rem;
     border-radius: 0 0 var(--radius-2) var(--radius-2);
@@ -1283,6 +1335,7 @@ blockquote {
     background-color: var(--border);
     border-radius: var(--radius-3);
 
+    transition-property: transform;
     animation: fadeOut 1.7s forwards;
     &.footnote-is-active {
       animation: fadeIn 0.7s forwards;
@@ -1510,7 +1563,8 @@ blockquote {
 @layer styling {
   .p-summary,
   article,
-  .micro-post {
+  .micro-post,
+  .page-content {
     img,
     video {
       position: relative;
@@ -1521,6 +1575,7 @@ blockquote {
       border-radius: var(--radius-3);
 
       filter: var(--drop-shadow-image);
+      transition-property: filter, width, transform;
       @media (hover: hover) {
         &:hover {
           filter: var(--drop-shadow-image-hover);
@@ -1541,6 +1596,11 @@ blockquote {
         }
       }
     }
+    img.microblog_avatar {
+      left: unset;
+      transform: unset;
+      cursor: unset;
+    }
   }
 
   .lazy-placeholder {
@@ -1551,14 +1611,15 @@ blockquote {
     border-radius: var(--radius-3);
     max-height: 80vh;
 
-    transition: var(--transition-all), background 1.4s ease-in-out;
+    transition: background 1.4s ease-in-out;
 
     img {
       max-height: 80vh;
       margin: 0;
       opacity: 0;
 
-      transition: var(--transition-all), opacity 0.7s ease-in-out;
+      transition-property: filter, width, transform, opacity;
+      transition-duration: 350ms, 350ms, 350ms, 700ms;
     }
 
     &::before,
@@ -1730,7 +1791,7 @@ blockquote {
   }
 
   iframe {
-    position: relative;
+    position: relative !important;
     left: 50%;
     transform: translateX(-50%);
 
@@ -1772,10 +1833,13 @@ blockquote {
     filter: none;
     animation: unset;
     text-shadow: unset;
+    transition-property: padding, margin, color;
 
     &::after {
       box-shadow: none;
       filter: none;
+      transition-property: right, bottom, width, border-radius, box-shadow,
+        filter;
     }
     @media (hover: hover) {
       &:hover {
@@ -1795,6 +1859,9 @@ blockquote {
       }
     }
   }
+  ul.post-tags li a {
+    transition-property: color;
+  }
 
   ul.post-tags {
     list-style-type: none;
@@ -1803,6 +1870,10 @@ blockquote {
       display: inline-block;
       margin: 0.5rem var(--padding-inline-button-medium) 0.5rem 0;
     }
+  }
+
+  .microblog_time {
+    margin-bottom: 1rem;
   }
 
   /* Removes padding increase in animation, to fix bug. */
@@ -1885,6 +1956,7 @@ blockquote {
     filter: none;
     animation: unset;
     text-shadow: unset;
+    transition-property: color, filter;
 
     @media (hover: hover) {
       &:hover {
@@ -1909,6 +1981,7 @@ blockquote {
     cursor: pointer;
 
     filter: var(--drop-shadow-icon);
+    transition-property: transform, filter;
 
     @media (hover: hover) {
       &:hover {
@@ -1943,6 +2016,7 @@ blockquote {
 
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
+    transition-property: background-color, filter;
   }
 
   .post-nav span.prev {
@@ -1966,6 +2040,7 @@ blockquote {
 
   a.read-more {
     text-shadow: unset;
+    transition-property: filter;
 
     &::after {
       content: none;
@@ -2033,7 +2108,7 @@ blockquote {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.8s ease-in-out;
+    transition-property: opacity, transform, filter;
     ul {
       list-style: none;
       display: flex;
@@ -2041,13 +2116,14 @@ blockquote {
       padding: 0;
       max-width: 20rem;
       margin: var(--margin-default);
+      transition: inherit;
     }
     li {
       padding: 0 0.5rem;
       opacity: 0.8;
+      transition: inherit;
     }
   }
-
   @media (hover: hover) {
     #follow-list li:hover,
     #footer-list li:hover {
@@ -2138,6 +2214,7 @@ blockquote {
     background-position: center;
 
     filter: var(--drop-shadow-icon);
+    transition-property: opacity, transform, filter;
   }
 
   /* Back to top button */
@@ -2156,6 +2233,8 @@ blockquote {
     box-shadow: none;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
+    transition-property: transform, box-shadow, backdrop-filter,
+      -webkit-backdrop-filter;
 
     &.show-button {
       display: block;
@@ -2218,6 +2297,7 @@ blockquote {
       padding: var(--padding-button-medium);
       background-color: transparent;
       border-radius: var(--radius-2);
+      transition-property: background-color, filter;
       @media (max-width: 420px) {
         margin: 0 calc(-1 * var(--padding-inline-button-small));
       }
@@ -2318,6 +2398,7 @@ blockquote {
 
       box-shadow: var(--box-shadow-inner);
       filter: var(--drop-shadow-icon);
+      transition-property: outline, background-color, box-shadow, filter;
 
       &:disabled {
         cursor: not-allowed;
@@ -2449,6 +2530,7 @@ blockquote {
     display: inline-block;
     cursor: pointer;
     filter: var(--drop-shadow-icon);
+    transition-property: filter;
     @media (hover: hover) {
       &:hover {
         filter: var(--drop-shadow-icon-hover);
@@ -2632,6 +2714,7 @@ blockquote {
     background-size: cover;
     cursor: pointer;
     max-width: 720px;
+    transition-property: filter
 
     /* Gradient */
     &::before {
@@ -2647,6 +2730,7 @@ blockquote {
       opacity: 0.5;
       height: 20%;
       width: 100%;
+      transition-property: top;
     }
 
     @media (hover: hover) {
@@ -2696,6 +2780,7 @@ blockquote {
     filter: grayscale(100%);
     border: none;
     box-shadow: var(--box-shadow-card);
+    transition-property: filter, box-shadow;
   }
 
   lite-youtube:hover > .lty-playbtn,
@@ -3272,7 +3357,8 @@ blockquote {
       background-color: var(--lightbox-button);
       border-radius: var(--radius-2);
 
-      transition: var(--transition-all);
+      transition-property: background-color, backdrop-filter,
+        -webkit-backdrop-filter;
 
       &:hover {
         background-color: var(--lightbox-button-hover);
