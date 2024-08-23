@@ -494,6 +494,13 @@
 /******/
 
 @layer reset {
+  @view-transition {
+    navigation: auto;
+    content: move;
+    background: move;
+    transition-duration: 1000ms;
+    transition-timing-function: var(--transition-timing-default);
+  }
   *,
   *::before,
   *::after {
@@ -2273,6 +2280,7 @@ blockquote {
     filter: var(--drop-shadow-image);
     -webkit-backdrop-filter: var(--blur);
     backdrop-filter: var(--blur);
+    transition-property: transform;
 
     ul {
       position: relative;
