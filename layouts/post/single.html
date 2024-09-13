@@ -1,18 +1,20 @@
 {{ define "main" }}
 <div
-  class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}">
+  class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}"
+>
   <div id="scrollIndicator"></div>
   <div id="navPadding"></div>
   <header class="post-header">
     <a href="{{ .Permalink }}" class="post-date u-url">
       <time
         class="dt-published"
-        datetime='{{ .Date.Format "2006-01-02 15:04:05 -0700" }}'>
+        datetime='{{ .Date.Format "2006-01-02 15:04:05 -0700" }}'
+      >
         {{ .Date.Format "Jan 2, 2006" }}
       </time>
     </a>
     {{ if .Title }}
-    <h1 class="p-name">{{ .Title }}</h1>
+    <h1 class="p-name" view-transition-name="post-title">{{ .Title }}</h1>
     {{ end }}
   </header>
   <div class="post-content content-container">
@@ -54,6 +56,7 @@
 {{ end }} {{ if .Site.Params.include_conversation }}
 <script
   type="text/javascript"
-  src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+  src="https://micro.blog/conversation.js?url={{ .Permalink }}"
+></script>
 {{ end }} {{ if templates.Exists "partials/microhook-after-comments.html" }} {{
 partial "microhook-after-comments.html" . }} {{ end }} {{ end }}

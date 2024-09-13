@@ -78,32 +78,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// View transitions
-  const navLinks = document.querySelectorAll('nav a');
-  const content = document.getElementById('content');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const target = event.target.getAttribute('data-target');
-      loadContent(target);
-    });
-  });
-
-  function loadContent(target) {
-    fetch(`https://havn.blog/${target}`)
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const newContent = doc.querySelector('main').innerHTML;
-
-        // Start the view transition
-        document.startViewTransition(() => {
-          content.innerHTML = newContent;
-        });
-      })
-      .catch(error => console.error('Error loading content:', error));
-  }
-});

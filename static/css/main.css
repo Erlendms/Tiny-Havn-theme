@@ -414,30 +414,18 @@
   font-style: italic;
 }
 
-/* Neue Montreal Mono */
+/* TT Norms Pro */
 @font-face {
-  font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Book") format("otf");
-  font-weight: 400;
-  font-style: normal;
+  font-family: "TT Norms Pro";
+  src: url("../fonts/TT_Norms_Pro_Variable") format("woff2");
+  font-display: swap;
 }
+
+/* TT Norms Pro Mono */
 @font-face {
-  font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-RegularItalic") format("otf");
-  font-weight: 450;
-  font-style: italic;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-Medium") format("otf");
-  font-weight: 530;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal-Mono";
-  src: url("../fonts/PPNeueMontrealMono-BoldItalic") format("otf");
-  font-weight: 800;
-  font-style: italic;
+  font-family: "TT Norms Pro Mono";
+  src: url("../fonts/TT_Norms_Pro_Mono_Variable") format("woff2");
+  font-display: swap;
 }
 
 /* Writer */
@@ -483,6 +471,7 @@
     P052, serif;
   --font_neo_grotesque: Inter, Roboto, "Helvetica Neue", "Arial Nova",
     "Nimbus Sans", Arial, sans-serif;
+  --font_mono: "TT Norms Pro Mono", Menlo, monospaced;
 }
 /******/
 /* Layers */
@@ -494,13 +483,6 @@
 /******/
 
 @layer reset {
-  @view-transition {
-    navigation: auto;
-    content: move;
-    background: move;
-    transition-duration: 1000ms;
-    transition-timing-function: var(--transition-timing-default);
-  }
   *,
   *::before,
   *::after {
@@ -612,6 +594,13 @@
 /* Backgrounds and basics */
 /******/
 @layer layout {
+  /* View transitions */
+
+  @view-transition {
+    navigation: auto;
+    duration: 0s;
+  }
+
   br {
     margin: unset;
   }
@@ -724,7 +713,7 @@
 
   div.post.h-entry,
   li.micro-post:first-of-type {
-    margin-top: 1rem;
+    margin-top: 0.83rem;
   }
   div.h-feed {
     margin-top: -1.7rem;
@@ -894,6 +883,10 @@
         bottom: calc(var(--bottom-link-underline-fig) - 0.02em);
       }
     }
+    strong,
+    b {
+      font-weight: 400;
+    }
   }
 
   /* Title links */
@@ -1022,6 +1015,7 @@
       height: var(--thickness-line-1);
       width: 94%;
       background-color: var(--mid-blue);
+      border-radius: var(--radius-1);
       opacity: 0.2;
     }
     .post-preview &::after {
@@ -1122,6 +1116,7 @@
       height: var(--thickness-line-1);
       width: clamp(8rem, 5.6rem + 10.667vw, 12rem);
       background-color: var(--mid-blue);
+      border-radius: var(--radius-1);
     }
   }
 
@@ -1437,7 +1432,7 @@ blockquote {
   }
 
   code {
-    font-family: "PP Neue Montreal Mono", monospace;
+    font-family: var(--font_mono);
     font-weight: 450;
     font-size: var(--font-size-1);
     letter-spacing: var(--letter-spacing-1);
@@ -1699,6 +1694,7 @@ blockquote {
       height: var(--thickness-line-1);
       width: 94%;
       background-color: var(--mid-blue);
+      border-radius: var(--radius-1);
       opacity: 0.2;
     }
   }
