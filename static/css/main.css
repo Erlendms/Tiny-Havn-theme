@@ -417,14 +417,14 @@
 /* TT Norms Pro */
 @font-face {
   font-family: "TT Norms Pro";
-  src: url("../fonts/TT_Norms_Pro_Variable") format("woff2");
+  src: url("../fonts/TT_Norms_Pro_Variable.woff2") format("woff2");
   font-display: swap;
 }
 
 /* TT Norms Pro Mono */
 @font-face {
   font-family: "TT Norms Pro Mono";
-  src: url("../fonts/TT_Norms_Pro_Mono_Variable") format("woff2");
+  src: url("../fonts/TT_Norms_Pro_Mono_Variable.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -467,10 +467,9 @@
 }
 
 :root {
-  --font_old_style: "Iowan Old Style", "Palatino Linotype", "URW Palladio L",
-    P052, serif;
-  --font_neo_grotesque: Inter, Roboto, "Helvetica Neue", "Arial Nova",
-    "Nimbus Sans", Arial, sans-serif;
+  --font_serif: "TT Norms Serif", "PP-Writer", Lora, "Iowan Old Style",
+    "Palatino Linotype", serif;
+  --font_sans: "TT Norms Pro", Inter, Roboto, "Helvetica Neue", sans-serif;
   --font_mono: "TT Norms Pro Mono", Menlo, monospaced;
 }
 /******/
@@ -611,7 +610,7 @@
     margin: 2rem auto;
     background-color: var(--border);
 
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque;
+    font-family: var(--font_sans);
     font-weight: 200;
     font-size: var(--font-size-4);
     letter-spacing: var(--letter-spacing-4);
@@ -652,7 +651,7 @@
   }
 
   p {
-    font-family: "PP-Writer", var(--font_old_style);
+    font-family: var(--font_serif);
     font-weight: 340;
     color: var(--text);
   }
@@ -883,10 +882,6 @@
         bottom: calc(var(--bottom-link-underline-fig) - 0.02em);
       }
     }
-    strong,
-    b {
-      font-weight: 400;
-    }
   }
 
   /* Title links */
@@ -1005,7 +1000,7 @@
     padding-bottom: 1rem;
     margin-bottom: calc(var(--margin-line) - 0.6rem);
 
-    font-family: "PP-Writer", var(--font_old_style);
+    font-family: var(--font_serif);
     font-weight: 100;
     &::after {
       content: "";
@@ -1082,7 +1077,7 @@
   ol {
     padding-left: 1rem;
 
-    font-family: "PP-Writer", var(--font_old_style), serif;
+    font-family: var(--font_serif);
     font-weight: 340;
     color: var(--text);
 
@@ -1165,11 +1160,10 @@ blockquote {
   p {
     font-size: var(--font-size-2);
     letter-spacing: var(--letter-spacing-2);
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-    font-weight: 450;
+    font-family: var(--font_sans);
 
     strong {
-      font-weight: 800;
+      font-weight: 500;
     }
 
     &:first-of-type {
@@ -1242,7 +1236,7 @@ blockquote {
       content: attr(data-fn-number);
 
       font-size: var(--font-size-1);
-      font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+      font-family: var(--font_sans);
       font-weight: 450;
       color: var(--text);
 
@@ -1377,8 +1371,9 @@ blockquote {
     padding: 0.8em 1em 1em;
     margin: 0;
     p {
-      font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+      font-family: var(--font_sans);
       color: var(--h1);
+      letter-spacing: var(--letter-spacing-3);
     }
     & :first-child {
       margin-top: 0;
@@ -1404,7 +1399,7 @@ blockquote {
     }
   }
   a.footnote-ref {
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    font-family: var(--font_sans);
     margin: var(--margin-footnote);
     font-weight: 450;
     top: -0.2em;
@@ -1680,6 +1675,18 @@ blockquote {
     letter-spacing: var(--letter-spacing-3);
     text-align: center;
     color: var(--text);
+    text-wrap: balance;
+    strong,
+    b {
+      font-weight: 400;
+    }
+    @media (max-width: 400px) {
+      font-weight: 300;
+      strong,
+      b {
+        font-weight: 500;
+      }
+    }
 
     &:has(a) {
       z-index: unset;
@@ -1828,7 +1835,7 @@ blockquote {
   .microblog_time a {
     z-index: 10;
 
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    font-family: var(--font_sans);
     font-size: var(--font-size-2);
     letter-spacing: var(--letter-spacing-2);
     color: var(--mid-blue);
@@ -1924,7 +1931,7 @@ blockquote {
     background-color: var(--border);
     border-radius: var(--radius-2);
 
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    font-family: var(--font_sans);
     font-size: var(--font-size-3);
     font-weight: 200;
 
@@ -2198,7 +2205,7 @@ blockquote {
 
   /* "Contact and/or follow". */
   #footer-list p {
-    font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+    font-family: var(--font_sans);
     color: var(--mid-blue);
   }
 
@@ -2284,8 +2291,8 @@ blockquote {
 
       padding: 0;
 
-      font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
-      font-weight: 450;
+      font-family: var(--font_sans);
+      font-weight: 400;
       color: var(--text);
       text-align: center;
     }
@@ -2302,8 +2309,11 @@ blockquote {
       background-color: transparent;
       border-radius: var(--radius-2);
       transition-property: background-color, filter;
-      @media (max-width: 420px) {
+      @media (max-width: 500px) {
         margin: 0 calc(-1 * var(--padding-inline-button-small));
+      }
+      @media (max-width: 400px) {
+        font-variation-settings: "wdth" 90;
       }
       @media (hover: hover) {
         &:hover {
@@ -2387,7 +2397,7 @@ blockquote {
     .microblog_reply_signin {
       margin-top: 0;
 
-      font-family: "PP-Neue-Montreal", --font_neo_grotesque, sans-serif;
+      font-family: var(--font_sans);
     }
 
     textarea {
@@ -2397,7 +2407,7 @@ blockquote {
       border: none;
       border-radius: var(--radius-1);
 
-      font-family: "PP-Writer", var(--font_old_style);
+      font-family: var(--font_serif);
       color: var(--h1);
 
       box-shadow: var(--box-shadow-inner);
