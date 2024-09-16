@@ -1589,7 +1589,7 @@ blockquote {
       cursor: zoom-in;
       @media (hover: hover) {
         &:hover {
-          transform: translateX(-50%) scale(1.005);
+          transform: translateX(-50%) scale(1.002);
         }
       }
     }
@@ -1607,8 +1607,7 @@ blockquote {
     background-size: cover;
     border-radius: var(--radius-3);
     max-height: 80vh;
-
-    transition: background 1.4s ease-in-out;
+    height: fit-content;
 
     img {
       max-height: 80vh;
@@ -1639,6 +1638,7 @@ blockquote {
     }
     &.loaded {
       background-image: none !important;
+      transition: background 1.4s ease-in-out;
 
       &::before,
       &::after {
