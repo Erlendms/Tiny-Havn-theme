@@ -779,6 +779,9 @@
 
   div.adhdikt {
     text-align: center;
+    p:first-of-type::first-letter {
+      all: unset !important;
+    }
   }
 
   /* Links */
@@ -1149,6 +1152,10 @@ blockquote {
 
   filter: var(--drop-shadow-image);
 
+  strong {
+    font-weight: 400;
+  }
+
   h2,
   h3,
   h4,
@@ -1157,21 +1164,18 @@ blockquote {
     margin-bottom: 0.2em;
   }
 
-  p {
+  p,
+  li {
     font-size: var(--font-size-2);
     letter-spacing: var(--letter-spacing-2);
     font-family: var(--font_sans);
+  }
 
-    strong {
-      font-weight: 500;
-    }
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+  p:first-of-type {
+    margin-top: 0;
+  }
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -1406,6 +1410,9 @@ blockquote {
     padding: var(--padding-footnote);
     padding-bottom: 0.3em;
     &::after {
+      font-size: var(--font-size-1);
+      font-weight: 450;
+      color: var(--h1);
       right: 0.6em;
       width: calc(100% - 1.2em);
     }
@@ -1570,9 +1577,8 @@ blockquote {
       transform: translateX(-50%);
 
       border-radius: var(--radius-3);
-
       filter: var(--drop-shadow-image);
-      transition-property: filter, width, transform;
+      transition-property: filter, transform;
       @media (hover: hover) {
         &:hover {
           filter: var(--drop-shadow-image-hover);
@@ -1608,14 +1614,14 @@ blockquote {
     border-radius: var(--radius-3);
     max-height: 80vh;
     height: fit-content;
+    border-radius: var(--radius-3);
 
     img {
       max-height: 80vh;
       margin: 0;
       opacity: 0;
-
-      transition-property: filter, width, transform, opacity;
-      transition-duration: 350ms, 350ms, 350ms, 700ms;
+      transition-property: filter, transform, opacity;
+      transition-duration: 350ms, 350ms, 700ms;
     }
 
     &::before,
@@ -1637,8 +1643,8 @@ blockquote {
       animation: pulse 2.5s infinite;
     }
     &.loaded {
-      background-image: none !important;
-      transition: background 1.4s ease-in-out;
+      /* background-image: none !important;
+      transition: background 1.4s ease-in-out; */
 
       &::before,
       &::after {
@@ -1649,6 +1655,12 @@ blockquote {
       img {
         opacity: 1;
       }
+    }
+  }
+  .lazy-placeholder.tall {
+    max-height: unset;
+    img {
+      max-height: unset;
     }
   }
 
