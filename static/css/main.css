@@ -375,45 +375,6 @@
 
 /* Font stacks */
 
-/* Neue Montreal */
-
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-Thin.woff2") format("woff2");
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-ThinItalic.woff2") format("woff2");
-  font-weight: 200;
-  font-style: italic;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-Regular.woff2") format("woff2");
-  font-weight: 450;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-Italic.woff2") format("woff2");
-  font-weight: 450;
-  font-style: italic;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-Bold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Neue-Montreal";
-  src: url("../fonts/PPNeueMontreal-BoldItalic.woff2") format("woff2");
-  font-weight: 800;
-  font-style: italic;
-}
-
 /* TT Norms Pro */
 @font-face {
   font-family: "TT Norms Pro";
@@ -428,47 +389,29 @@
   font-display: swap;
 }
 
-/* Writer */
+/* TT Norms Serif */
 @font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-Thin.woff2") format("woff2");
-  font-weight: 100;
-  font-style: normal;
+  font-family: "TT Norms Serif";
+  src: url("../fonts/TT_Norms_Pro_Serif_Var_Roman.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-ThinItalic.woff2") format("woff2");
-  font-weight: 100;
-  font-style: italic;
-}
-@font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-Book.woff2") format("woff2");
-  font-weight: 340;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-BookItalic.woff2") format("woff2");
-  font-weight: 340;
-  font-style: italic;
-}
-@font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-Semibold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "PP-Writer";
-  src: url("../fonts/PPWriter-SemiboldItalic.woff2") format("woff2");
-  font-weight: 600;
+  font-family: "TT Norms Serif";
+  src: url("../fonts/TT_Norms_Pro_Serif_Var_Italic.woff2") format("woff2");
+  font-display: swap;
   font-style: italic;
 }
 
+/* TT Norms Pro Mono */
+@font-face {
+  font-family: "TT Norms Pro Mono";
+  src: url("../fonts/TT_Norms_Pro_Mono_Variable.woff2") format("woff2");
+  font-display: swap;
+}
+
 :root {
-  --font_serif: "TT Norms Serif", "PP-Writer", Lora, "Iowan Old Style",
-    "Palatino Linotype", serif;
+  --font_serif: "TT Norms Serif", Lora, "Iowan Old Style", "Palatino Linotype",
+    serif;
   --font_sans: "TT Norms Pro", Inter, Roboto, "Helvetica Neue", sans-serif;
   --font_mono: "TT Norms Pro Mono", Menlo, monospaced;
 }
