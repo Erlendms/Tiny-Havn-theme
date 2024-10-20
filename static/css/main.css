@@ -321,50 +321,52 @@
   --width-medium: clamp(15rem, 3.75rem + 50vw, 30rem);
   --width-small: clamp(8.2rem, 0.24rem + 35.37vw, 25rem);
 
-  --bottom-link-underline: 0.15em;
-  --bottom-link-underline-fig: 0.16em;
+  --bottom-link-underline: 0.22em;
+  --bottom-link-underline-fig: clamp(0.2rem, 0.111rem + 0.291vw, 0.24rem);
   @supports (text-wrap: pretty) {
-    --bottom-link-underline-fig: 0.09em;
+    --bottom-link-underline-fig: 0.18em;
+    --bottom-link-underline: 0.15em;
   }
   @supports (-moz-appearance: none) {
-    --bottom-link-underline-fig: 0.1em;
+    --bottom-link-underline-fig: 0.19em;
+    --bottom-link-underline: 0.17em;
   }
 
   /* Typography */
-  --font-size-1: clamp(0.7rem, 0.6rem + 0.33vw, 0.8rem);
-  --font-size-2: clamp(0.8rem, 0.7rem + 0.33vw, 0.9rem);
-  --font-size-3: clamp(0.9rem, 0.8rem + 0.33vw, 1rem);
-  --font-size-4: clamp(1rem, 0.8rem + 0.33vw, 1.1rem);
-  --font-size-5: clamp(1.1rem, 1rem + 0.33vw, 1.2rem);
-  --font-size-6: clamp(1.2rem, 1rem + 1vw, 1.5rem);
-  --font-size-7: clamp(1.4rem, 1.1rem + 1.33vw, 1.8rem);
-  --font-size-8: clamp(1.6rem, 1.225rem + 1.667vw, 2.1rem);
-  --font-size-9: clamp(1.8rem, 1.35rem + 2vw, 2.4rem);
+  --font-size-1: clamp(0.7rem, 0.664rem + 0.151vw, 0.8rem);
+  --font-size-2: clamp(0.8rem, 0.764rem + 0.151vw, 0.9rem);
+  --font-size-3: clamp(0.9rem, 0.864rem + 0.151vw, 1rem);
+  --font-size-4: clamp(1rem, 0.964rem + 0.151vw, 1.1rem);
+  --font-size-5: clamp(1.1rem, 1.064rem + 0.151vw, 1.2rem);
+  --font-size-6: clamp(1.2rem, 1.092rem + 0.453vw, 1.5rem);
+  --font-size-7: clamp(1.4rem, 1.257rem + 0.604vw, 1.8rem);
+  --font-size-8: clamp(1.6rem, 1.421rem + 0.755vw, 2.1rem);
+  --font-size-9: clamp(1.8rem, 1.585rem + 0.906vw, 2.4rem);
 
   --letter-spacing-1: calc(
-    clamp(-0.042rem, -0.0473rem - 0.0233vw, -0.035rem) * -1
+    clamp(-0.042rem, -0.045rem + 0.011vw, -0.035rem) * -1
   );
   --letter-spacing-2: calc(
-    clamp(-0.036rem, -0.0405rem - 0.02vw, -0.03rem) * -1
+    clamp(-0.036rem, -0.038rem + 0.009vw, -0.03rem) * -1
   );
   --letter-spacing-3: calc(
-    clamp(-0.003rem, -0.0338rem - 0.0167vw, -0.025rem) * -1
+    clamp(-0.03rem, -0.032rem + 0.008vw, -0.025rem) * -1
   );
   --letter-spacing-4: calc(
-    clamp(-0.024rem, -0.027rem - 0.0133vw, -0.02rem) * -1
+    clamp(-0.024rem, -0.025rem + 0.006vw, -0.02rem) * -1
   );
   --letter-spacing-5: calc(
-    clamp(-0.018rem, -0.0203rem - 0.01vw, -0.015rem) * -1
+    clamp(-0.018rem, -0.019rem + 0.005vw, -0.015rem) * -1
   );
   --letter-spacing-6: calc(
-    clamp(-0.012rem, -0.0135rem - 0.0067vw, -0.001rem) * -1
+    clamp(-0.012rem, -0.013rem + 0.003vw, -0.01rem) * -1
   );
   --letter-spacing-7: calc(
-    clamp(-0.006rem, -0.0068rem - 0.0033vw, -0.005rem) * -1
+    clamp(-0.006rem, -0.006rem + 0.002vw, -0.005rem) * -1
   );
-  --letter-spacing-8: calc(clamp(-0.002rem, -0.0035rem - 0.0067vw, 0rem) * -1);
+  --letter-spacing-8: calc(clamp(-0.002rem, -0.003rem + 0.003vw, 0rem) * -1);
   --letter-spacing-9: calc(
-    clamp(-0.006rem, -0.0068rem - 0.0033vw, -0.005rem) * -1
+    clamp(-0.006rem, -0.006rem + 0.002vw, -0.005rem) * -1
   );
 
   --margin-top-h2: 0.8em;
@@ -375,38 +377,30 @@
 
 /* Font stacks */
 
-/* TT Norms Pro */
-@font-face {
-  font-family: "TT Norms Pro";
-  src: url("../fonts/TT_Norms_Pro_Variable.woff2") format("woff2");
-  font-display: swap;
-}
-
-/* TT Norms Pro Mono */
-@font-face {
-  font-family: "TT Norms Pro Mono";
-  src: url("../fonts/TT_Norms_Pro_Mono_Variable.woff2") format("woff2");
-  font-display: swap;
-}
-
 /* TT Norms Serif */
 @font-face {
   font-family: "TT Norms Serif";
   src: url("../fonts/TT_Norms_Pro_Serif_Var_Roman.woff2") format("woff2");
-  font-display: swap;
+  /* font-display: swap; */
 }
 @font-face {
   font-family: "TT Norms Serif";
   src: url("../fonts/TT_Norms_Pro_Serif_Var_Italic.woff2") format("woff2");
-  font-display: swap;
+  /* font-display: swap; */
   font-style: italic;
+}
+
+/* TT Norms Pro */
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../fonts/TT_Norms_Pro_Variable.woff2") format("woff2");
 }
 
 /* TT Norms Pro Mono */
 @font-face {
   font-family: "TT Norms Pro Mono";
   src: url("../fonts/TT_Norms_Pro_Mono_Variable.woff2") format("woff2");
-  font-display: swap;
+  /* font-display: swap; */
 }
 
 :root {
@@ -494,7 +488,7 @@
     font-weight: inherit;
     b,
     strong {
-      font-weight: 450;
+      font-weight: 400;
     }
   }
 
@@ -505,7 +499,7 @@
 
   strong,
   b {
-    font-weight: 600;
+    font-weight: 470;
   }
 
   input,
@@ -825,7 +819,7 @@
   .microblog_reply_signin {
     a {
       &::after {
-        bottom: calc(var(--bottom-link-underline-fig) - 0.02em);
+        bottom: calc(var(--bottom-link-underline-fig) - 0.06em);
       }
     }
   }
@@ -947,7 +941,7 @@
     margin-bottom: calc(var(--margin-line) - 0.6rem);
 
     font-family: var(--font_serif);
-    font-weight: 100;
+    font-weight: 200;
     &::after {
       content: "";
       position: absolute;
@@ -1159,6 +1153,9 @@ blockquote {
       z-index: 20;
       filter: var(--drop-shadow-image-hover);
     }
+  }
+  div.p-summary sup {
+    display: none;
   }
   .footnote-backdrop {
     cursor: pointer;
@@ -1397,7 +1394,7 @@ blockquote {
 
     color: var(--h1);
 
-    filter: var(--drop-shadow-image);
+    filter: var(--drop-shadow-icon);
   }
   strong > code {
     font-weight: 800;
@@ -2346,7 +2343,7 @@ blockquote {
     transform: translateX(-50%);
 
     a::after {
-      bottom: calc(var(--bottom-link-underline-fig) - 0.1em);
+      bottom: calc(var(--bottom-link-underline-fig) - 0.05em);
     }
 
     .microblog_reply_signin {
@@ -2391,7 +2388,7 @@ blockquote {
   }
 
   .microblog_user {
-    font-weight: bold;
+    font-weight: 470;
     margin: 0.5rem 0;
     img {
       margin: 0;
