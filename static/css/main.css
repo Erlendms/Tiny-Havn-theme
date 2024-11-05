@@ -82,22 +82,9 @@
 
 /* Shadows */
 :root {
-	--drop-shadow-image: drop-shadow(0.2px 0.4px 0.8px hsla(228, 31%, 10%, 3%))
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 3%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 4%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 5%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 6%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 8%));
-
-	--drop-shadow-image-hover: drop-shadow(
-			0.2px 0.4px 0.8px hsla(228, 31%, 10%, 3%)
-		)
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 3%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 4%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 5%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 6%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 8%))
-		drop-shadow(8px 15px 40px hsla(228, 31%, 10%, 10%));
+	--drop-shadow-image: drop-shadow(1px 2px 4px hsla(228, 31%, 10%, 3%))
+		drop-shadow(2px 4px 8px hsla(228, 31%, 10%, 4%))
+		drop-shadow(4px 8px 16px hsla(228, 31%, 10%, 6%));
 
 	--box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 3%),
 		0.4px 0.8px 2px -10px hsla(228, 31%, 10%, 3%),
@@ -289,22 +276,10 @@
 			4px 10px 25px -10px hsla(228, 31%, 10%, 16%),
 			8px 15px 40px -10px hsla(228, 31%, 10%, 20%);
 	}
-	--drop-shadow-image: drop-shadow(0.2px 0.4px 0.8px hsla(228, 31%, 10%, 10%))
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 12%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 14%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 16%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 18%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 20%));
 
-	--drop-shadow-image-hover: drop-shadow(
-			0.2px 0.4px 0.8px hsla(228, 31%, 10%, 10%)
-		)
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 12%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 13%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 14%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 16%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 18%))
-		drop-shadow(8px 15px 40px hsla(228, 31%, 10%, 20%));
+	--drop-shadow-image: drop-shadow(2px 4px 8px hsla(228, 31%, 10%, 10%))
+		drop-shadow(3px 6px 12px hsla(228, 31%, 10%, 14%))
+		drop-shadow(4px 8px 16px hsla(228, 31%, 10%, 18%));
 
 	--box-shadow-button: 0.2px 0.4px 0.8px -2px hsla(228, 31%, 10%, 10%),
 		0.4px 0.8px 2px -2px hsla(228, 31%, 10%, 12%),
@@ -2490,8 +2465,20 @@
 		height: 1.5rem;
 		width: calc(var(--width-body) - 2 * var(--padding-body));
 		margin: 0;
+		background-color: transparent;
 
 		transition: unset;
+		transform: translateZ(0);
+
+		&.indicator-visible {
+			background-color: var(---link-line);
+		}
+
+		&.nav-scrolled {
+			background-color: var(--border-60);
+			backdrop-filter: var(--blur);
+			-webkit-backdrop-filter: var(--blur);
+		}
 	}
 
 	#scrollIndicator {

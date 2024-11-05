@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Cache DOM elements
+	// Cache all DOM elements we'll need
 	const topButton = document.getElementById("back-to-top");
 	const navPadding = document.getElementById("navPadding");
 	const scrollIndicator = document.getElementById("scrollIndicator");
 	const lazyPlaceholderDivs = document.querySelectorAll(".lazy-placeholder");
 
-	// Combine both scroll handlers into one throttled function
+	// Combine all scroll handling into one throttled function
 	const handleScroll = _.throttle(function () {
 		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		const isMobile = window.innerWidth <= 650;
-		const offset = isMobile ? 162 : 186;
 
 		// Back to top button logic
 		if (scrollTop > 250) {
@@ -18,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			topButton.classList.remove("show-button");
 		}
 
-		// Scroll indicator and nav padding logic
+		// Nav padding and scroll indicator logic
+		const offset = isMobile ? 162 : 186;
 		const winScroll = Math.max(0, scrollTop - offset);
 		const height =
 			document.documentElement.scrollHeight -
@@ -26,34 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
 			offset;
 		const scrolled = Math.max(0, height > 0 ? winScroll / height : 0);
 
-		// Batch DOM updates
+		// Batch DOM updates using requestAnimationFrame
 		requestAnimationFrame(() => {
 			document.documentElement.style.setProperty("--scroll-ratio", scrolled);
 
 			if (navPadding) {
 				const isPastThreshold = scrollTop >= (isMobile ? 150 : 180);
-				navPadding.style.backgroundColor = isPastThreshold
-					? "var(--border-60)"
-					: "transparent";
-				navPadding.style.backdropFilter = isPastThreshold
-					? "var(--blur)"
-					: "none";
-				navPadding.style.setProperty(
-					"-webkit-backdrop-filter",
-					isPastThreshold ? "var(--blur)" : "none"
-				);
+				navPadding.classList.toggle("nav-scrolled", isPastThreshold);
 
 				if (scrollIndicator) {
-					scrollIndicator.style.backgroundColor = isPastThreshold
-						? "var(--link-line)"
-						: "transparent";
+					scrollIndicator.classList.toggle(
+						"indicator-visible",
+						isPastThreshold
+					);
 				}
 			}
 		});
-	}, 16); // 60fps threshold
+	}, 50); // Increased to 50ms for better performance
 
-	// Add scroll event listener
-	window.addEventListener("scroll", handleScroll);
+	// Add single scroll event listener
+	window.addEventListener("scroll", handleScroll, { passive: true });
 
 	// Back to top button click handler
 	topButton.addEventListener("click", function (e) {
@@ -64,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
-	// Lazy loading implementation
+	// Lazy loading
 	lazyPlaceholderDivs.forEach(function (lazyPlaceholderDiv) {
 		const img = lazyPlaceholderDiv.querySelector("img");
 
@@ -72,16 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			lazyPlaceholderDiv.classList.add("loaded");
 		}
 
-		function handleError() {
-			console.error("Failed to load image:", img.src);
-			// Optionally add error handling UI here
-		}
-
 		if (img.complete) {
 			loaded();
 		} else {
 			img.addEventListener("load", loaded);
-			img.addEventListener("error", handleError);
 		}
 	});
 });
