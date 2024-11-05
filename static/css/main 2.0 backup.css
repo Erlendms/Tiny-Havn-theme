@@ -289,32 +289,6 @@
 			4px 10px 25px -10px hsla(228, 31%, 10%, 16%),
 			8px 15px 40px -10px hsla(228, 31%, 10%, 20%);
 	}
-	--drop-shadow-image: drop-shadow(0.2px 0.4px 0.8px hsla(228, 31%, 10%, 10%))
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 12%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 14%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 16%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 18%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 20%));
-
-	--drop-shadow-image-hover: drop-shadow(
-			0.2px 0.4px 0.8px hsla(228, 31%, 10%, 10%)
-		)
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 12%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 13%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 14%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 16%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 18%))
-		drop-shadow(8px 15px 40px hsla(228, 31%, 10%, 20%));
-
-	--box-shadow-button: 0.2px 0.4px 0.8px -2px hsla(228, 31%, 10%, 10%),
-		0.4px 0.8px 2px -2px hsla(228, 31%, 10%, 12%),
-		0.8px 2px 4px -2px hsla(228, 31%, 10%, 14%),
-		1.6px 3px 7px -2px hsla(228, 31%, 10%, 16%);
-	--box-shadow-button-hover: 0.2px 0.4px 0.8px -2px hsla(228, 31%, 10%, 10%),
-		0.4px 0.8px 2px -2px hsla(228, 31%, 10%, 12%),
-		0.8px 2px 4px -2px hsla(228, 31%, 10%, 14%),
-		1.6px 3px 7px -2px hsla(228, 31%, 10%, 16%),
-		2.4px 6px 13px -2px hsla(228, 31%, 10%, 18%);
 }
 
 /* Effects and other variables */
