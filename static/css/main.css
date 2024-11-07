@@ -19,8 +19,8 @@
 	--mid-blue: hsl(228, 31%, 65%);
 	--link-line: hsl(228, 31%, 69%);
 	--link-background: hsla(228, 31%, 90%, 60%);
-	--outer-shadow: hsla(228, 31%, 31%, 6%);
-	--outer-shadow-darker: hsla(228, 31%, 31%, 8%);
+	--outer-shadow: hsla(228, 31%, 31%, 16%);
+	--outer-shadow-darker: hsla(228, 31%, 31%, 28%);
 	--inner-shadow: hsla(228, 31%, 31%, 2%);
 	--inner-shadow-darker: hsla(228, 31%, 31%, 5%);
 	--lightbox-background: hsla(228, 31%, 10%, 80%);
@@ -63,8 +63,8 @@
 		--accent2b: hsl(283, 25%, 68%);
 		--link-line: hsl(228, 31%, 50%);
 		--link-background: hsl(228, 31%, 30%, 60%);
-		--outer-shadow: hsla(228, 31%, 4%, 25%);
-		--outer-shadow-darker: hsla(228, 31%, 2%, 30%);
+		--outer-shadow: hsla(228, 31%, 4%, 40%);
+		--outer-shadow-darker: hsla(228, 31%, 2%, 50%);
 		--inner-shadow: hsla(228, 31%, 20%, 10%);
 		--inner-shadow-darker: hsla(228, 31%, 30%, 15%);
 
@@ -82,9 +82,12 @@
 
 /* Shadows */
 :root {
-	--drop-shadow-image: drop-shadow(1px 2px 4px hsla(228, 31%, 10%, 3%))
-		drop-shadow(2px 4px 8px hsla(228, 31%, 10%, 4%))
-		drop-shadow(4px 8px 16px hsla(228, 31%, 10%, 6%));
+	--drop-shadow-image: drop-shadow(4px 6px 12px var(--outer-shadow));
+	--drop-shadow-image-mobile-gallery: drop-shadow(
+		2px 4px 4px var(--outer-shadow)
+	);
+
+	--box-shadow-code: 1px 1.5px 3px var(--outer-shadow);
 
 	--box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 3%),
 		0.4px 0.8px 2px -10px hsla(228, 31%, 10%, 3%),
@@ -110,12 +113,7 @@
 		1.6px 3px 7px -2px hsla(228, 31%, 10%, 5%),
 		2.4px 6px 13px -2px hsla(228, 31%, 10%, 6%);
 
-	--drop-shadow-link: drop-shadow(0.2px 0.4px 0.8px hsla(228, 31%, 10%, 3%))
-		drop-shadow(0.4px 0.8px 2px hsla(228, 31%, 10%, 3%))
-		drop-shadow(0.8px 2px 4px hsla(228, 31%, 10%, 4%))
-		drop-shadow(1.6px 3px 7px hsla(228, 31%, 10%, 5%))
-		drop-shadow(2.4px 6px 13px hsla(228, 31%, 10%, 6%))
-		drop-shadow(6px 12px 30px hsla(228, 31%, 10%, 8%));
+	--drop-shadow-link: drop-shadow(4px 6px 12px var(--outer-shadow));
 
 	--drop-shadow-icon: drop-shadow(1px 2px 3px var(--outer-shadow))
 		drop-shadow(2px 4px 6px var(--outer-shadow));
@@ -262,6 +260,8 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
+		--drop-shadow-image: drop-shadow(6px 8px 8px var(--outer-shadow));
+
 		--box-shadow-card: 0.2px 0.4px 0.8px -10px hsla(228, 31%, 10%, 20%),
 			0.4px 0.8px 2px -10px hsla(228, 31%, 9%, 21%),
 			0.8px 2px 4px -10px hsla(228, 31%, 8%, 22%),
@@ -276,10 +276,6 @@
 			4px 10px 25px -10px hsla(228, 31%, 10%, 16%),
 			8px 15px 40px -10px hsla(228, 31%, 10%, 20%);
 	}
-
-	--drop-shadow-image: drop-shadow(2px 4px 8px hsla(228, 31%, 10%, 10%))
-		drop-shadow(3px 6px 12px hsla(228, 31%, 10%, 14%))
-		drop-shadow(4px 8px 16px hsla(228, 31%, 10%, 18%));
 
 	--box-shadow-button: 0.2px 0.4px 0.8px -2px hsla(228, 31%, 10%, 10%),
 		0.4px 0.8px 2px -2px hsla(228, 31%, 10%, 12%),
@@ -405,27 +401,108 @@
 @font-face {
 	font-family: "TT Norms Serif";
 	src: url("../fonts/TT_Norms_Pro_Serif_Var_Roman.woff2") format("woff2");
-	/* font-display: swap; */
+	font-style: normal;
 }
 
 @font-face {
 	font-family: "TT Norms Serif";
 	src: url("../fonts/TT_Norms_Pro_Serif_Var_Italic.woff2") format("woff2");
-	/* font-display: swap; */
 	font-style: italic;
 }
 
 /* TT Norms Pro */
 @font-face {
 	font-family: "TT Norms Pro";
-	src: url("../fonts/TT_Norms_Pro_Variable.woff2") format("woff2");
+	src: url("../fonts/TT_Norms_Pro_ExtraLight.woff2") format("woff2");
+	font-weight: 200;
+	font-style: normal;
 }
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_ExtraLight_Italic.woff2") format("woff2");
+	font-weight: 200;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Light_Italic.woff2") format("woff2");
+	font-weight: 300;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_Medium_Italic.woff2") format("woff2");
+	font-weight: 500;
+	font-style: italic;
+}
+
+/* @font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_DemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TT Norms Pro";
+	src: url("../fonts/TT_Norms_Pro_DemiBold_Italic.woff2") format("woff2");
+	font-weight: 600;
+	font-style: italic;
+} */
 
 /* TT Norms Pro Mono */
 @font-face {
 	font-family: "TT Norms Pro Mono";
-	src: url("../fonts/TT_Norms_Pro_Mono_Variable.woff2") format("woff2");
-	/* font-display: swap; */
+	src: url("../fonts/TT_Norms_Pro_Mono_Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TT Norms Pro Mono";
+	src: url("../fonts/TT_Norms_Pro_Mono_Italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TT Norms Pro Mono";
+	src: url("../fonts/TT_Norms_Pro_Mono_Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TT Norms Pro Mono";
+	src: url("../fonts/TT_Norms_Pro_Mono_Medium_Italic.woff2") format("woff2");
+	font-weight: 500;
+	font-style: italic;
 }
 
 :root {
@@ -518,6 +595,9 @@
 		strong {
 			font-weight: 400;
 		}
+		em {
+			font-style: italic;
+		}
 	}
 
 	p {
@@ -576,7 +656,7 @@
 		background-color: var(--border);
 
 		font-family: var(--font_sans);
-		font-weight: 300;
+		font-weight: 200;
 		font-size: var(--font-size-4);
 		letter-spacing: var(--letter-spacing-4);
 		color: var(--h4);
@@ -784,7 +864,8 @@
 	#micro-header-container,
 	div.custom-page-content,
 	.microblog_time,
-	.microblog_reply_signin {
+	.microblog_reply_signin,
+	.microblog_post {
 		h2,
 		h3,
 		h4,
@@ -989,7 +1070,7 @@
 		margin-bottom: calc(var(--margin-line) - 0.6rem);
 
 		font-family: var(--font_serif);
-		font-weight: 200;
+		/* font-weight: 200; */
 
 		&::after {
 			content: "";
@@ -1022,7 +1103,7 @@
 	h3,
 	h4,
 	h5 {
-		font-weight: 200;
+		/* font-weight: 200; */
 		color: var(--h4);
 	}
 
@@ -1147,7 +1228,7 @@
 		filter: var(--drop-shadow-image);
 
 		strong {
-			font-weight: 500;
+			font-weight: 400;
 		}
 
 		h2,
@@ -1244,7 +1325,7 @@
 
 			font-size: var(--font-size-1);
 			font-family: var(--font_sans);
-			font-weight: 450;
+			font-weight: 400;
 			color: var(--text);
 
 			box-shadow: var(--box-shadow-link-line);
@@ -1431,14 +1512,14 @@
 	a.footnote-ref {
 		font-family: var(--font_sans);
 		margin: var(--margin-footnote);
-		font-weight: 450;
+		font-weight: 400;
 		top: -0.2em;
 		padding: var(--padding-footnote);
 		padding-bottom: 0.3em;
 
 		&::after {
 			font-size: var(--font-size-1);
-			font-weight: 450;
+			font-weight: 400;
 			color: var(--h1);
 			right: 0.6em;
 			width: calc(100% - 1.2em);
@@ -1482,11 +1563,11 @@
 
 		color: var(--h1);
 
-		filter: var(--drop-shadow-icon);
+		box-shadow: var(--box-shadow-code);
 	}
 
 	strong > code {
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	em > code {
@@ -1510,7 +1591,7 @@
 			background: var(--border);
 			border: var(--link-line) 3px solid;
 
-			font-weight: 450;
+			font-weight: 500;
 		}
 
 		td {
@@ -1527,7 +1608,7 @@
 			margin: calc(var(--margin-top-h5) - var(--margin-top-default)) auto
 				var(--margin-top-default);
 
-			font-weight: 450;
+			font-weight: 400;
 			font-size: var(--font-size-5);
 			letter-spacing: var(--letter-spacing-5);
 		}
@@ -1878,6 +1959,7 @@
 
 				img {
 					max-width: 75vw;
+					filter: var(--drop-shadow-image-mobile-gallery);
 				}
 
 				&.medium {
@@ -2037,7 +2119,7 @@
 
 		font-family: var(--font_sans);
 		font-size: var(--font-size-3);
-		font-weight: 200;
+		/* font-weight: 200; */
 
 		box-shadow: var(--box-shadow-button);
 	}
@@ -2414,7 +2496,7 @@
 			padding: 0;
 
 			font-family: var(--font_sans);
-			font-weight: 400;
+			font-weight: 300;
 			color: var(--text);
 			text-align: center;
 		}
@@ -2459,7 +2541,7 @@
 		position: fixed;
 		top: 0;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%) translateZ(0);
 		z-index: 100;
 
 		height: 1.5rem;
@@ -2468,10 +2550,9 @@
 		background-color: transparent;
 
 		transition: unset;
-		transform: translateZ(0);
 
 		&.indicator-visible {
-			background-color: var(---link-line);
+			background-color: var(--link-line);
 		}
 
 		&.nav-scrolled {
@@ -2577,7 +2658,7 @@
 	}
 
 	.microblog_user {
-		font-weight: 470;
+		font-weight: 400;
 		margin: 0.5rem 0;
 
 		img {
@@ -2855,16 +2936,16 @@
 
 	.hljs-emphasis {
 		font-style: italic;
-		font-weight: 450;
+		font-weight: 400;
 	}
 
 	.hljs-strong {
-		font-weight: 530;
+		font-weight: 500;
 	}
 
 	.hljs-emphasis.hljs-strong {
 		font-style: italic;
-		font-weight: 800;
+		font-weight: 500;
 	}
 }
 
