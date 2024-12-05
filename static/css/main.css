@@ -340,15 +340,17 @@
 	--width-small: clamp(8.2rem, 0.24rem + 35.37vw, 25rem);
 
 	--bottom-link-underline: 0.22em;
-	--bottom-link-underline-fig: clamp(0.2rem, 0.111rem + 0.291vw, 0.24rem);
+	--bottom-link-underline-fig: calc(
+		-1 * clamp(-0.27rem, -0.305rem + 0.145vw, -0.25rem)
+	);
 
 	@supports (text-wrap: pretty) {
-		--bottom-link-underline-fig: 0.18em;
+		--bottom-link-underline-fig: 0.22em;
 		--bottom-link-underline: 0.15em;
 	}
 
 	@supports (-moz-appearance: none) {
-		--bottom-link-underline-fig: 0.19em;
+		--bottom-link-underline-fig: 0.23em;
 		--bottom-link-underline: 0.17em;
 	}
 
@@ -545,7 +547,7 @@
 
 	html {
 		hanging-punctuation: first last;
-		scroll-padding-top: 3rem;
+		scroll-padding-top: 1rem;
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
 		text-size-adjust: none;
@@ -571,7 +573,7 @@
 
 	body {
 		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: auto;
+		-moz-osx-font-smoothing: unset;
 		font-smooth: auto;
 
 		@media (prefers-color-scheme: dark) {
@@ -656,7 +658,7 @@
 		background-color: var(--border);
 
 		font-family: var(--font_sans);
-		font-weight: 200;
+		font-weight: 300;
 		font-size: var(--font-size-4);
 		letter-spacing: var(--letter-spacing-4);
 		color: var(--h4);
@@ -665,8 +667,9 @@
 	div.page-content {
 		position: relative;
 
-		&::after {
+		/* &::after {
 			content: "";
+			content: none;
 
 			position: absolute;
 			top: 2rem;
@@ -686,8 +689,21 @@
 
 		&:has(.post-nav)::after {
 			height: calc(100% - 6rem);
-		}
+		} */
 	}
+
+	/* .h-entry {
+		&::after {
+			content: "";
+			position: absolute;
+			height: 4rem;
+			z-index: 1;
+			background-color: transparent;
+			border-radius: var(--radius-3);
+			backdrop-filter: var(--blur);
+			-webkit-backdrop-filter: var(--blur);
+		}
+	} */
 
 	.post_list {
 		margin-top: 2.5rem;
@@ -888,9 +904,6 @@
 			text-shadow: var(--text-shadow-p);
 			filter: none;
 
-			transition: filter var(--transition-default),
-				text-shadow 100ms ease-in-out 0s;
-
 			&::after {
 				content: "";
 				position: absolute;
@@ -902,7 +915,12 @@
 
 				box-shadow: var(--box-shadow-link-line);
 				bottom: var(--bottom-link-underline);
-				transition-property: right, bottom, width, border-radius, box-shadow;
+				transition-property: right, bottom, width, height, border-radius,
+					box-shadow;
+			}
+			a:not(.language):not(.read-more) {
+				transition: filter var(--transition-default),
+					text-shadow 100ms ease-in-out 0s;
 			}
 
 			@media (hover: hover) {
@@ -914,8 +932,9 @@
 
 					&::after {
 						right: 0;
-						bottom: 0;
+						bottom: calc(-1 * var(--bottom-link-underline));
 						width: 100%;
+						height: calc(100% + (2 * var(--bottom-link-underline)));
 
 						border-radius: var(--radius-2);
 
@@ -946,6 +965,14 @@
 		a {
 			&::after {
 				bottom: calc(var(--bottom-link-underline-fig) - 0.06em);
+			}
+			@media (hover: hover) {
+				&:hover {
+				}
+				&::after {
+					bottom: calc(-1 * var(--bottom-link-underline-fig));
+					height: calc(100% + (2 * var(--bottom-link-underline-fig)));
+				}
 			}
 		}
 	}
@@ -1674,6 +1701,8 @@
 		animation: unset;
 		text-shadow: unset;
 		filter: unset;
+		padding: unset;
+		margin: unset;
 
 		&::after {
 			content: none;
@@ -1729,15 +1758,23 @@
 
 		.lazy-placeholder {
 			position: relative;
+			display: block;
 
 			background-repeat: no-repeat;
 			background-size: cover;
 			border-radius: var(--radius-3);
 			max-height: 80vh;
-			height: fit-content;
+			max-width: 100%;
+			height: calc(var(--natural-width) * var(--aspect-ratio) / 100);
+			width: var(--natural-width);
 			border-radius: var(--radius-3);
 
-			&::before,
+			&::before {
+				content: "";
+				display: block;
+				width: 100%;
+				padding-bottom: var(--aspect-ratio);
+			}
 			&::after {
 				content: "";
 				position: absolute;
@@ -1758,10 +1795,14 @@
 			}
 
 			&.loaded {
-				/* background-image: none !important;
-      transition: background 1.4s ease-in-out; */
+				/* background-image: var(--background) !important;
+				transition: background-image 1.4s ease-in-out;
+				transition-delay: 2000ms; */
 
-				&::before,
+				&::before {
+					padding: unset;
+				}
+
 				&::after {
 					content: none;
 					animation: none;
@@ -1773,9 +1814,12 @@
 			}
 
 			img {
-				max-height: 80vh;
+				display: block;
+				height: auto;
+				width: 100%;
 				margin: 0;
 				opacity: 0;
+				object-fit: cover;
 				transition-property: opacity;
 			}
 
@@ -1796,11 +1840,13 @@
 			}
 
 			&.medium {
-				width: var(--width-medium);
+				max-width: var(--width-medium);
+				max-height: unset;
 			}
 
 			&.small {
-				width: var(--width-small);
+				max-width: var(--width-small);
+				max-height: unset;
 			}
 
 			&.tall {
@@ -2028,8 +2074,8 @@
 		&::after {
 			box-shadow: none;
 			filter: none;
-			transition-property: right, bottom, width, border-radius, box-shadow,
-				filter;
+			transition-property: right, bottom, width, height, border-radius,
+				box-shadow, filter;
 		}
 
 		@media (hover: hover) {
@@ -2122,6 +2168,7 @@
 		/* font-weight: 200; */
 
 		box-shadow: var(--box-shadow-button);
+		filter: unset;
 	}
 
 	ul.reply-buttons {
@@ -2394,7 +2441,38 @@
 	/* Denne gir plass til absolute footer. */
 
 	footer {
+		position: relative;
 		height: clamp(9rem, 6.75rem + 10vw, 12rem);
+
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			bottom: calc(3em + clamp(9rem, 6.75rem + 10vw, 12rem));
+			z-index: 1;
+			background-color: transparent;
+			border-radius: var(--radius-3);
+			/* box-shadow: var(--box-shadow-card); */
+			backdrop-filter: var(--blur);
+			-webkit-backdrop-filter: var(--blur);
+		}
+	}
+	#footer-list {
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			bottom: 0;
+			z-index: 1;
+			background-color: transparent;
+			backdrop-filter: var(--blur);
+			-webkit-backdrop-filter: var(--blur);
+		}
+	}
+	.bottom #footer-list::before {
+		content: none;
 	}
 
 	/* Dette er selve footeren. */
@@ -2521,7 +2599,7 @@
 			}
 
 			@media (max-width: 400px) {
-				font-variation-settings: "wdth" 90;
+				font-size: var(--font-size-3);
 			}
 
 			@media (hover: hover) {
@@ -2612,6 +2690,12 @@
 
 		a::after {
 			bottom: calc(var(--bottom-link-underline-fig) - 0.05em);
+		}
+		@media (hover: hover) {
+			a:hover::after {
+				bottom: calc(-1 * var(--bottom-link-underline-fig));
+				height: calc(100% + (2 * var(--bottom-link-underline-fig)));
+			}
 		}
 
 		.microblog_reply_signin {
