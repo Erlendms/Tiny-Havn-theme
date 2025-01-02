@@ -547,7 +547,7 @@
 
 	html {
 		hanging-punctuation: first last;
-		scroll-padding-top: 1rem;
+		scroll-padding-top: 3rem;
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
 		text-size-adjust: none;
@@ -968,10 +968,10 @@
 			}
 			@media (hover: hover) {
 				&:hover {
-				}
-				&::after {
-					bottom: calc(-1 * var(--bottom-link-underline-fig));
-					height: calc(100% + (2 * var(--bottom-link-underline-fig)));
+					&::after {
+						bottom: calc(-1 * var(--bottom-link-underline-fig));
+						height: calc(100% + (2 * var(--bottom-link-underline-fig)));
+					}
 				}
 			}
 		}
@@ -1188,6 +1188,19 @@
 			&::marker {
 				font-weight: 470;
 				color: var(--mid-blue);
+			}
+			ul,
+			ol {
+				margin: 0;
+				li {
+					margin: 0;
+					ul,
+					ol {
+						li {
+							margin: -0.2rem 0;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1757,13 +1770,15 @@
 		}
 
 		.lazy-placeholder {
+			&:nth-of-type(n + 7) img {
+				filter: none;
+			}
 			position: relative;
 			display: block;
 
 			background-repeat: no-repeat;
 			background-size: cover;
 			border-radius: var(--radius-3);
-			max-height: 80vh;
 			max-width: 100%;
 			height: calc(var(--natural-width) * var(--aspect-ratio) / 100);
 			width: var(--natural-width);
@@ -1841,21 +1856,19 @@
 
 			&.medium {
 				max-width: var(--width-medium);
-				max-height: unset;
 			}
 
 			&.small {
 				max-width: var(--width-small);
-				max-height: unset;
 			}
 
-			&.tall {
+			/* &.tall {
 				max-height: unset;
 
 				img {
 					max-height: unset;
 				}
-			}
+			} */
 		}
 
 		@keyframes pulse {
@@ -1919,7 +1932,7 @@
 
 		.img-gallery {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 			grid-gap: 1rem;
 			align-items: center;
 
@@ -1947,7 +1960,7 @@
 /* Mobile gallery */
 
 @layer components {
-	@media (max-width: 575px) {
+	@media (max-width: 520px) {
 		.gallery-container {
 			overflow: hidden;
 
@@ -1989,34 +2002,39 @@
 			overflow-x: scroll;
 
 			position: relative;
-			padding: 1rem 0;
+			padding: 1rem 0.7rem;
 			margin: -1rem 0;
 
 			.lazy-placeholder {
-				margin-right: 0.2rem;
+				width: auto;
+				height: auto;
+				margin-right: 0.3em;
 
 				&:first-of-type {
-					margin-left: 0.9rem;
+					margin-left: 0;
 				}
 
 				&:last-of-type {
-					margin-right: 1.5rem;
+					margin-right: 0;
 				}
 
 				img {
 					max-width: 75vw;
+					width: 75vw;
 					filter: var(--drop-shadow-image-mobile-gallery);
 				}
 
 				&.medium {
 					img {
 						max-width: 65vw;
+						width: 65vw;
 					}
 				}
 
 				&.small {
 					img {
 						max-width: 55vw;
+						width: 55vw;
 					}
 				}
 			}
@@ -2043,7 +2061,8 @@
 @layer special {
 	li:has(a[href="https://havn.blog/categories/english"]),
   li:has(a[href="https://havn.blog/categories/norsk"]),
-  li:has(a[href="https://havn.blog/categories/adhdikt"])
+  li:has(a[href="https://havn.blog/categories/adhdikt"]),
+  li:has(a[href="https://havn.blog/categories/quick-recommendations/"])
 	{
 		display: none;
 		margin: 0;
