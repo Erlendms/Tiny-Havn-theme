@@ -2062,7 +2062,7 @@
 	li:has(a[href="https://havn.blog/categories/english"]),
   li:has(a[href="https://havn.blog/categories/norsk"]),
   li:has(a[href="https://havn.blog/categories/adhdikt"]),
-  li:has(a[href="https://havn.blog/categories/quick-recommendations/"])
+  li:has(a[href="https://havn.blog/categories/quick-recommendations"])
 	{
 		display: none;
 		margin: 0;
