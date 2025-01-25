@@ -1587,12 +1587,14 @@
 		font-weight: 400;
 		font-size: var(--font-size-1);
 		letter-spacing: var(--letter-spacing-1);
+		font-variant-ligatures: no-contextual;
 	}
 
 	p > code,
 	li > code,
 	strong > code,
 	em > code,
+	figcaption > code,
 	span.tinylytics_hits,
 	span.tinylytics_uptime {
 		position: relative;
