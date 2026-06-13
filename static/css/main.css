@@ -2153,8 +2153,7 @@
   li:has(a[href="https://havn.blog/categories/english"]),
   li:has(a[href="https://havn.blog/categories/norsk"]),
   li:has(a[href="https://havn.blog/categories/adhdikt"]),
-  li:has(a[href="https://havn.blog/categories/quick-recommendations"])
-  {
+  li:has(a[href="https://havn.blog/categories/quick-recommendations"]) {
     display: none;
     margin: 0;
   }
@@ -3233,6 +3232,11 @@
     border: none;
     box-shadow: var(--box-shadow-button);
     transition-property: filter, box-shadow;
+  }
+
+  /* Hide fallback button */
+  .js lite-youtube .lty-playbtn {
+    display: none;
   }
 
   lite-youtube:hover > .lty-playbtn,

@@ -27,6 +27,9 @@
   <meta name="twitter:image" content="{{ . }}">
   <meta property="og:image" content="{{ . }}">
   {{ end }}
+  <script>
+    document.documentElement.className += ' js';
+  </script>
   <title>
     {{ block "title" . }}
     {{ if .IsHome }}
